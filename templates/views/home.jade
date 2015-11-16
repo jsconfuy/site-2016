@@ -10,8 +10,8 @@ block top
     ul
       li(class=(section == 'home' ? 'active' : null))
         a(href='/') Home
-      // li(class=(section == 'cfp' ? 'active' : null))
-      //   a(href='/proposals') Call for Proposals
+      li(class=(section == 'cfp' ? 'active' : null))
+        a(href='/proposals') Call for Proposals
       // li(class=(section == 'cfw' ? 'active' : null))
       //   a(href='/workshops') Call for Workshops
       li
@@ -30,18 +30,18 @@ block top
         a(href='/blog') Blog
       li
         a(href='http://2014.jsconf.uy/') Last Year
-      li
-        a(href='javascript:void(0);', data-buy) Buy Ticket!
+      //li
+      //  a(href='javascript:void(0);', data-buy) Buy Ticket!
 
 block content
-  //- #tickets-sale.tickets-sale
-  //-   .buy-tickets
-  //-     a(href='javascript:void(0);', data-buy)
-  //-     // .sold-out
-  //-   .countdown
-  //-     h2.countdown-title
-  //-       | Final batch starts in...
-  //-     span.countdown-clock
+  #tickets-sale.tickets-sale
+     .buy-tickets
+       a(href='javascript:void(0);', data-buy)
+       // .sold-out
+     .countdown
+       h2.countdown-title
+         | Final batch starts in...
+       span.countdown-clock
   #speakers.speakers
       h1 Meet the Speakers
       ul

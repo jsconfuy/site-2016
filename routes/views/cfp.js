@@ -1,8 +1,8 @@
-// var keystone = require('keystone')
-// var Proposal = keystone.list('Proposal')
+ var keystone = require('keystone')
+ var Proposal = keystone.list('Proposal')
 
 exports = module.exports = function (req, res) {
-  /*
+
   var view = new keystone.View(req, res)
   var locals = res.locals
   locals.cfp = {}
@@ -28,7 +28,5 @@ exports = module.exports = function (req, res) {
     })
   })
   view.render('cfp')
-  */
 
-  res.redirect('/')
 }
