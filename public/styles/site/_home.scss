@@ -1,3 +1,21 @@
+@mixin badge-zoom($badge-image) {
+  display: block;
+  background: url($badge-image) no-repeat;
+  background-position: center;
+  height: 300px;
+  margin: auto;
+  -webkit-transition: transform 200ms;
+  -moz-transition: transform 200ms;
+  transition: transform 200ms;
+  width: 100%;
+
+  &:hover {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+}
+
 .home {
   min-height: 100%;
   height: 100%;
@@ -86,6 +104,7 @@
             color: $blue-dark;
             padding: 0 15px;
             font-family: $headings-font-family;
+            font-weight: bold;
             &:hover {
               text-decoration: none;
               color: $white;
@@ -157,8 +176,8 @@
         }
       }
     }
-    .tickets-sale {
-      background: $blue-light;
+    .tickets-sale, .call-for-proposal {
+      background: $blue-dark;
       color: $white;
       padding: 80px;
       width: 100%;
@@ -166,28 +185,21 @@
       .buy-tickets {
         display: none;
         text-align: center;
+        a, .sold-out{
+          @include badge-zoom("/images/home/tickets.svg");
 
-        a, .sold-out {
-          display: block;
-          background: url("/images/home/tickets.svg") no-repeat;
-          background-position: center;
-          height: 300px;
-          margin: auto;
-          -webkit-transition: transform 200ms;
-             -moz-transition: transform 200ms;
-                  transition: transform 200ms;
-          width: 100%;
-
-          &:hover {
-            -webkit-transform: scale(1.05);
-               -moz-transform: scale(1.05);
-                    transform: scale(1.05);
+          .sold-out {
+            background: url("/images/home/tickets-sold-old.svg") no-repeat;
+            background-position: center;
           }
         }
 
-        .sold-out {
-          background: url("/images/home/tickets-sold.svg") no-repeat;
-          background-position: center;
+      }
+
+      .call-proposal {
+        text-align: center;
+        a {
+          @include badge-zoom("/images/home/cfp.svg");
         }
       }
 
