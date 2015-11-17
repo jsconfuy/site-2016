@@ -84,7 +84,7 @@ body > header {
   .navbar .navbar-brand img {
     position: absolute;
     top: 0;
-    left: calc(50% - 70px);
+    @include calc(left, "50% - #{$navbar-height}");
     height: $navbar-height;
     display: block;
     width: ($navbar-height * 2);
@@ -233,9 +233,9 @@ body > footer {
             margin-right: -5px;
             padding: 0 20px;
             vertical-align: top;
-            @include calc(width, "100% - 110px");
+            width: 100%;
             @include crossBrowser(appearance, none);
-            @include crossBrowser(border-radius, 3px 0 0 3px);
+            @include crossBrowser(border-radius, 3px);
             &:focus{
               outline: none;
             }

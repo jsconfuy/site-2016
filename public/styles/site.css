@@ -6576,7 +6576,9 @@ body > header {
   .navbar .navbar-brand img {
     position: absolute;
     top: 0;
-    left: calc(50% - 70px);
+    left: -webkit-calc(50% - 70px);
+    left: -moz-calc(50% - 70px);
+    left: -o-calc(50% - 70px);
     height: 70px;
     display: block;
     width: 140px; }
@@ -6706,17 +6708,15 @@ body > footer {
             margin-right: -5px;
             padding: 0 20px;
             vertical-align: top;
-            width: -webkit-calc(100% - 110px);
-            width: -moz-calc(100% - 110px);
-            width: -o-calc(100% - 110px);
+            width: 100%;
             -webkit-appearance: none;
             -moz-appearance: none;
             -o-appearance: none;
             appearance: none;
-            -webkit-border-radius: 3px 0 0 3px;
-            -moz-border-radius: 3px 0 0 3px;
-            -o-border-radius: 3px 0 0 3px;
-            border-radius: 3px 0 0 3px; }
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -o-border-radius: 3px;
+            border-radius: 3px; }
             body > footer .footer .venue-info .info .data input:focus {
               outline: none; }
           body > footer .footer .venue-info .info .data button {
