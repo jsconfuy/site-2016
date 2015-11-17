@@ -226,18 +226,38 @@ body > footer {
         }
         .data {
           display: block;
-          input{
-            border: none;
-            display: inline-block;
-            height: 70px;
-            margin-right: -5px;
-            padding: 0 20px;
-            vertical-align: top;
-            width: 100%;
-            @include crossBrowser(appearance, none);
-            @include crossBrowser(border-radius, 3px);
-            &:focus{
-              outline: none;
+          .group {
+            position:relative;
+            margin-bottom:45px;
+            label {
+              color:$white;
+              font-size:18px;
+              font-weight:normal;
+              position:absolute;
+              pointer-events:none;
+              left:5px;
+              top:10px;
+              transition:0.2s ease all;
+              -moz-transition:0.2s ease all;
+              -webkit-transition:0.2s ease all;
+            }
+            input:focus ~ label, input:valid ~ label {
+              top:-20px;
+              font-size:14px;
+              color: $white;
+            }
+            input{
+              color: $white;
+              font-size:18px;
+              padding:10px 10px 10px 5px;
+              display:block;
+              width:100%;
+              border:none;
+              background: none;
+              border-bottom:1px solid $white;
+              &:focus{
+                outline: none;
+              }
             }
           }
           button{
