@@ -49,6 +49,65 @@
           animation: baloon 15s ease-out alternate infinite;
 }
 
+#character {
+  position: relative;
+  -webkit-animation: character 1s ease-out alternate infinite;
+     -moz-animation: character 1s ease-out alternate infinite;
+      -ms-animation: character 1s ease-out alternate infinite;
+          animation: character 1s ease-out alternate infinite;
+}
+
+#shadow {
+  position: relative;
+  animation: shadow 1s ease-out alternate infinite;
+}
+
+@keyframes shadow {
+  0% {
+    transform: scale(1);
+    -webkit-transform: translateY(0);
+    -webkit-transform: translateX(2px);
+  }
+  100% {
+    transform: scale(1.01);
+    -webkit-transform: translateY(-7px);
+    -webkit-transform: translateX(-2px);
+  }
+}
+
+@-webkit-keyframes character {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-10px);
+  }
+}
+@-moz-keyframes character {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  100% {
+    -moz-transform: translateY(-10px);
+  }
+}
+@-ms-keyframes character {
+  0% {
+    -ms-transform: translateY(0);
+  }
+  100% {
+    -ms-transform: translateY(-10px);
+  }
+}
+@keyframes character {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
 @-webkit-keyframes baloon {
   0% {
     -webkit-transform: translateY(0);

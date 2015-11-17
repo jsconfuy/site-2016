@@ -6,7 +6,10 @@ block vars
 
 block top
   .top
-    include ../../public/images/home/city.svg
+    .main-logo
+      img(src='/images/home/main-logo.svg', class='header')
+      include ../../public/images/home/main.svg
+      img(src='/images/home/city-background.svg', class='background')
     ul
       li(class=(section == 'home' ? 'active' : null))
         a(href='/') Home
@@ -42,25 +45,26 @@ block content
        h2.countdown-title
          | Final batch starts in...
        span.countdown-clock
-  #speakers.speakers
-      h1 Meet the Speakers
-      ul
-        each speaker in speakers
-          li
-            if speaker.picture.exists
-              .img(style='background-image: url(#{speaker._.picture.fill(230,230)})')
-            else
-              .img.empty
-            .name
-              != speaker.name
-            .bio
-              != speaker.biography.short.html
-            if speaker.company
-              .company
-                != speaker.company
-            if speaker.twitter
-              a(href='//twitter.com/#{speaker.twitter}')
-                i(class='fa fa-twitter')
+  if speakers.length 
+    #speakers.speakers
+        h1 Meet the Speakers
+        ul
+          each speaker in speakers
+            li
+              if speaker.picture.exists
+                .img(style='background-image: url(#{speaker._.picture.fill(230,230)})')
+              else
+                .img.empty
+              .name
+                != speaker.name
+              .bio
+                != speaker.biography.short.html
+              if speaker.company
+                .company
+                  != speaker.company
+              if speaker.twitter
+                a(href='//twitter.com/#{speaker.twitter}')
+                  i(class='fa fa-twitter')
   #sponsors.sponsors
     h1 Sponsors
     ul

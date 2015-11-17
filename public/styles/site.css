@@ -6252,9 +6252,10 @@ body > footer {
           display: block; } }
     .home body > footer {
       margin-top: 0; }
-    .home body .top {
+    .home body .top, .home body .main-logo {
+      text-align: center;
       display: block;
-      background-color: #162636;
+      background-color: #c5473d;
       background-position: 50% 50%;
       background-repeat: no-repeat;
       width: 100%;
@@ -6264,23 +6265,35 @@ body > footer {
       z-index: 1000;
       position: relative; }
       @media (min-width: 768px) {
-        .home body .top {
+        .home body .top, .home body .main-logo {
           height: 100%;
           min-height: 100%;
           padding: 0 0 5%; } }
-      .home body .top svg {
+      .home body .top img.header, .home body .main-logo img.header {
+        height: 25%;
+        width: 100%;
+        margin: 30px 0; }
+      .home body .top img.background, .home body .main-logo img.background {
+        position: absolute;
+        bottom: 15%;
+        z-index: -1;
+        left: 0;
+        width: 100%;
+        height: 25%; }
+      .home body .top svg, .home body .main-logo svg {
         display: block;
-        height: 100%;
+        height: 50%;
         margin: 0 auto;
         max-width: 100%;
+        overflow: visible;
         -webkit-pointer-events: none;
         -moz-pointer-events: none;
         -o-pointer-events: none;
         pointer-events: none; }
-      .home body .top ul {
+      .home body .top ul, .home body .main-logo ul {
         display: none; }
         @media (min-width: 768px) {
-          .home body .top ul {
+          .home body .top ul, .home body .main-logo ul {
             position: absolute;
             bottom: 0;
             padding: 0;
@@ -6289,7 +6302,7 @@ body > footer {
             text-align: center;
             min-height: 70px;
             display: block; } }
-        .home body .top ul li {
+        .home body .top ul li, .home body .main-logo ul li {
           display: inline-block;
           margin: 0;
           line-height: 70px;
@@ -6298,15 +6311,15 @@ body > footer {
           text-transform: uppercase;
           vertical-align: bottom;
           height: 70px; }
-          .home body .top ul li a {
+          .home body .top ul li a, .home body .main-logo ul li a {
             display: block;
             height: 100%;
-            color: #5596C0;
+            color: #162636;
             padding: 0 15px;
             font-family: "Rambla", Helvetica, Arial, sans-serif; }
-            .home body .top ul li a:hover {
+            .home body .top ul li a:hover, .home body .main-logo ul li a:hover {
               text-decoration: none;
-              color: #7aadce; }
+              color: #ffffff; }
     .home body .speakers {
       padding: 30px 0; }
       .home body .speakers ul {
@@ -6365,7 +6378,7 @@ body > footer {
             .home body .speakers ul li a:hover {
               color: #7aadce; }
     .home body .tickets-sale {
-      background: #c5473d;
+      background: #5596C0;
       color: #ffffff;
       padding: 80px;
       width: 100%; }
@@ -6555,6 +6568,56 @@ body > footer {
   -moz-animation: baloon 15s ease-out alternate infinite;
   -ms-animation: baloon 15s ease-out alternate infinite;
   animation: baloon 15s ease-out alternate infinite; }
+
+#character {
+  position: relative;
+  -webkit-animation: character 1s ease-out alternate infinite;
+  -moz-animation: character 1s ease-out alternate infinite;
+  -ms-animation: character 1s ease-out alternate infinite;
+  animation: character 1s ease-out alternate infinite; }
+
+#shadow {
+  position: relative;
+  animation: shadow 1s ease-out alternate infinite; }
+
+@keyframes shadow {
+  0% {
+    transform: scale(1);
+    -webkit-transform: translateY(0);
+    -webkit-transform: translateX(2px); }
+
+  100% {
+    transform: scale(1.01);
+    -webkit-transform: translateY(-7px);
+    -webkit-transform: translateX(-2px); } }
+
+@-webkit-keyframes character {
+  0% {
+    -webkit-transform: translateY(0); }
+
+  100% {
+    -webkit-transform: translateY(-10px); } }
+
+@-moz-keyframes character {
+  0% {
+    -moz-transform: translateY(0); }
+
+  100% {
+    -moz-transform: translateY(-10px); } }
+
+@-ms-keyframes character {
+  0% {
+    -ms-transform: translateY(0); }
+
+  100% {
+    -ms-transform: translateY(-10px); } }
+
+@keyframes character {
+  0% {
+    transform: translateY(0); }
+
+  100% {
+    transform: translateY(-10px); } }
 
 @-webkit-keyframes baloon {
   0% {
