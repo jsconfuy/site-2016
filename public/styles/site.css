@@ -7274,9 +7274,9 @@ body > footer {
             -webkit-transform: scale(1.05);
             -moz-transform: scale(1.05);
             transform: scale(1.05); }
-          .home body .tickets-sale .buy-tickets a .sold-out, .home body .tickets-sale .buy-tickets .sold-out .sold-out, .home body .call-for-proposal .buy-tickets a .sold-out, .home body .call-for-proposal .buy-tickets .sold-out .sold-out {
-            background: url("/images/home/tickets-sold-old.svg") no-repeat;
-            background-position: center; }
+        .home body .tickets-sale .buy-tickets .sold-out, .home body .call-for-proposal .buy-tickets .sold-out {
+          background: url("/images/home/tickets-sold.svg") no-repeat;
+          background-position: center; }
       .home body .tickets-sale .call-proposal, .home body .call-for-proposal .call-proposal {
         text-align: center; }
         .home body .tickets-sale .call-proposal a, .home body .call-for-proposal .call-proposal a {

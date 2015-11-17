@@ -170,10 +170,10 @@
         a, .sold-out{
           @include badge-zoom("/images/home/tickets.svg");
 
-          .sold-out {
-            background: url("/images/home/tickets-sold-old.svg") no-repeat;
-            background-position: center;
-          }
+        }
+        .sold-out {
+          background: url("/images/home/tickets-sold.svg") no-repeat;
+          background-position: center;
         }
 
       }
