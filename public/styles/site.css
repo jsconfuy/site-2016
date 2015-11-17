@@ -1,4 +1,5 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700);
 @font-face {
   font-family: 'Rambla';
   font-style: normal;
@@ -293,7 +294,7 @@ hr {
   clip: auto; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Rambla", Helvetica, Arial, sans-serif;
+  font-family: "Quicksand", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
   color: #254164; }
@@ -5727,12 +5728,15 @@ body > header {
   padding: 0px; }
 
 .navbar .navbar-brand img {
-  display: block;
+  display: none;
   width: 70px; }
 
 .navbar .navbar-nav > li > a {
   font-size: 18px;
   text-transform: uppercase; }
+
+.navbar .navbar-nav > li.nav-logo > a > img {
+  width: 140px; }
 
 @media (min-width: 768px) {
   .navbar .navbar-nav > li > a {
@@ -5740,10 +5744,31 @@ body > header {
     vertical-align: middle;
     line-height: 70px; } }
 
+@media (max-width: 1300px) {
+  .navbar .navbar-nav > li.nav-logo {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 70px); }
+  .navbar .navbar-nav {
+    padding-top: 70px; } }
+
+@media (max-width: 767px) {
+  .navbar .navbar-brand img {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 70px);
+    height: 70px;
+    display: block;
+    width: 140px; }
+  .navbar .navbar-nav > li.nav-logo {
+    display: none; }
+  .navbar .navbar-nav {
+    padding-top: 0px; } }
+
 .navbar .navbar-nav > li > a {
   color: #777777;
   text-decoration: none;
-  font-family: "Rambla", Helvetica, Arial, sans-serif; }
+  font-family: "Quicksand", Helvetica, Arial, sans-serif; }
 
 .navbar .navbar-nav > li > a:hover {
   color: #004165;
@@ -5823,7 +5848,7 @@ body > footer {
         body > footer .footer .venue-info .venue h1, body > footer .footer .venue-info .venue h2 {
           color: #ffffff; }
         body > footer .footer .venue-info .venue h1 {
-          background: transparent url('../images/base/tower.svg') no-repeat 50% 0;
+          background: transparent url('../images/base/ok.svg') no-repeat 50% 0;
           background-size: 230px auto;
           padding-top: 250px; }
       body > footer .footer .venue-info .info {
@@ -6252,7 +6277,7 @@ body > footer {
           display: block; } }
     .home body > footer {
       margin-top: 0; }
-    .home body .top, .home body .main-logo {
+    .home body .top {
       text-align: center;
       display: block;
       background-color: #c5473d;
@@ -6265,35 +6290,38 @@ body > footer {
       z-index: 1000;
       position: relative; }
       @media (min-width: 768px) {
-        .home body .top, .home body .main-logo {
+        .home body .top {
           height: 100%;
           min-height: 100%;
           padding: 0 0 5%; } }
-      .home body .top img.header, .home body .main-logo img.header {
-        height: 25%;
-        width: 100%;
-        margin: 30px 0; }
-      .home body .top img.background, .home body .main-logo img.background {
-        position: absolute;
-        bottom: 15%;
-        z-index: -1;
-        left: 0;
-        width: 100%;
-        height: 25%; }
-      .home body .top svg, .home body .main-logo svg {
-        display: block;
-        height: 50%;
-        margin: 0 auto;
-        max-width: 100%;
-        overflow: visible;
-        -webkit-pointer-events: none;
-        -moz-pointer-events: none;
-        -o-pointer-events: none;
-        pointer-events: none; }
-      .home body .top ul, .home body .main-logo ul {
+      .home body .top .main-logo {
+        height: 100%;
+        padding-top: 0; }
+        .home body .top .main-logo img.header {
+          height: 25%;
+          width: 100%;
+          margin: 30px 0; }
+        .home body .top .main-logo img.background {
+          position: absolute;
+          bottom: 15%;
+          z-index: -1;
+          left: 0;
+          width: 100%;
+          height: 25%; }
+        .home body .top .main-logo svg {
+          display: block;
+          height: 50%;
+          margin: 0 auto;
+          max-width: 100%;
+          overflow: visible;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none; }
+      .home body .top ul {
         display: none; }
         @media (min-width: 768px) {
-          .home body .top ul, .home body .main-logo ul {
+          .home body .top ul {
             position: absolute;
             bottom: 0;
             padding: 0;
@@ -6302,7 +6330,7 @@ body > footer {
             text-align: center;
             min-height: 70px;
             display: block; } }
-        .home body .top ul li, .home body .main-logo ul li {
+        .home body .top ul li {
           display: inline-block;
           margin: 0;
           line-height: 70px;
@@ -6311,13 +6339,13 @@ body > footer {
           text-transform: uppercase;
           vertical-align: bottom;
           height: 70px; }
-          .home body .top ul li a, .home body .main-logo ul li a {
+          .home body .top ul li a {
             display: block;
             height: 100%;
             color: #162636;
             padding: 0 15px;
-            font-family: "Rambla", Helvetica, Arial, sans-serif; }
-            .home body .top ul li a:hover, .home body .main-logo ul li a:hover {
+            font-family: "Quicksand", Helvetica, Arial, sans-serif; }
+            .home body .top ul li a:hover {
               text-decoration: none;
               color: #ffffff; }
     .home body .speakers {
@@ -6357,7 +6385,7 @@ body > footer {
             color: #254164;
             font-weight: bold;
             font-size: 23px;
-            font-family: "Rambla", Helvetica, Arial, sans-serif;
+            font-family: "Quicksand", Helvetica, Arial, sans-serif;
             text-decoration: none; }
           .home body .speakers ul li .bio {
             margin: 10px 16px 0;
@@ -6439,7 +6467,7 @@ body > footer {
               background-size: cover;
               text-decoration: none; }
     .home body .organizers h1 {
-      background: transparent url('../images/home/ballon.svg') no-repeat 50% 0;
+      background: transparent url('../images/base/george.svg') no-repeat 50% 0;
       background-size: 230px auto;
       padding-top: 250px; }
     .home body .organizers, .home body .volunteers {
@@ -6482,7 +6510,7 @@ body > footer {
             text-transform: uppercase;
             color: #ffffff;
             font-size: 23px;
-            font-family: "Rambla", Helvetica, Arial, sans-serif;
+            font-family: "Quicksand", Helvetica, Arial, sans-serif;
             text-decoration: none; }
 
 .blog .image {
@@ -6569,6 +6597,10 @@ body > footer {
   -ms-animation: baloon 15s ease-out alternate infinite;
   animation: baloon 15s ease-out alternate infinite; }
 
+.main-logo #main {
+  position: relative;
+  animation: main-rot 1s ease-out alternate infinite; }
+
 #character {
   position: relative;
   -webkit-animation: character 1s ease-out alternate infinite;
@@ -6580,16 +6612,61 @@ body > footer {
   position: relative;
   animation: shadow 1s ease-out alternate infinite; }
 
-@keyframes shadow {
+@-webkit-keyframes main-rot {
   0% {
-    transform: scale(1);
-    -webkit-transform: translateY(0);
-    -webkit-transform: translateX(2px); }
+    -webkit-transform: rotateZ(-3deg); }
 
   100% {
-    transform: scale(1.01);
-    -webkit-transform: translateY(-7px);
-    -webkit-transform: translateX(-2px); } }
+    -webkit-transform: rotateZ(3deg); } }
+
+@-moz-keyframes main-rot {
+  0% {
+    -moz-transform: rotateZ(-3deg); }
+
+  100% {
+    -moz-transform: rotateZ(3deg); } }
+
+@-ms-keyframes main-rot {
+  0% {
+    -ms-transform: rotateZ(-3deg); }
+
+  100% {
+    -ms-transform: rotateZ(3deg); } }
+
+@keyframes main-rot {
+  0% {
+    transform: rotateZ(-3deg); }
+
+  100% {
+    transform: rotateZ(3deg); } }
+
+@-webkit-keyframes shadow {
+  0% {
+    -webkit-transform: translate(2px, 0); }
+
+  100% {
+    -webkit-transform: translate(-2px, -7px), scale(1.01); } }
+
+@-moz-keyframes shadow {
+  0% {
+    -moz-transform: translate(2px, 0); }
+
+  100% {
+    -moz-transform: translate(-2px, -7px), scale(1.01); } }
+
+@-ms-keyframes shadow {
+  0% {
+    -ms-transform: translate(2px, 0); }
+
+  100% {
+    -ms-transform: translate(-2px, -7px), scale(1.01); } }
+
+@keyframes shadow {
+  0% {
+    transform: translate(2px, 0); }
+
+  100% {
+    transform: translate(-2px, -7px), scale(1.01); } }
 
 @-webkit-keyframes character {
   0% {

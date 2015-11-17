@@ -17,7 +17,7 @@
     & > footer {
       margin-top: 0;
     }
-    .top, .main-logo {
+    .top {
       text-align: center;
       display: block;
       background-color: $red;
@@ -34,26 +34,30 @@
       }
       z-index: 1000;
       position: relative;
-      img.header {
-        height: 25%;
-        width: 100%;
-        margin: 30px 0;
-      }
-      img.background {
-        position: absolute;
-        bottom: 15%;
-        z-index: -1;
-        left: 0;
-        width: 100%;
-        height: 25%;
-      }
-      svg{
-        display: block;
-        height: 50%;
-        margin: 0 auto;
-        max-width: 100%;
-        overflow: visible;
-        @include crossBrowser(pointer-events, none);
+      .main-logo {
+        height: 100%;
+        padding-top: 0;
+        img.header {
+          height: 25%;
+          width: 100%;
+          margin: 30px 0;
+        }
+        img.background {
+          position: absolute;
+          bottom: 15%;
+          z-index: -1;
+          left: 0;
+          width: 100%;
+          height: 25%;
+        }
+        svg {
+          display: block;
+          height: 50%;
+          margin: 0 auto;
+          max-width: 100%;
+          overflow: visible;
+          @include crossBrowser(pointer-events, none);
+        }
       }
       ul {
         display: none;
@@ -232,7 +236,7 @@
 
     .organizers {
       h1 {
-        background: transparent url('../images/home/ballon.svg') no-repeat 50% 0;
+        background: transparent url('../images/base/george.svg') no-repeat 50% 0;
         background-size: 230px auto;
         padding-top: 250px;
       }

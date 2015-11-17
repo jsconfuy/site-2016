@@ -78,7 +78,7 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
             if gold
               img(src='/images/base/logo-gold.png', alt='JSConf Uruguay')
             else
-              img(src='/images/base/logo.png', alt='JSConf Uruguay')
+              img(src='/images/base/small-logo.svg', alt='JSConf Uruguay')
         .collapse.navbar-collapse
           ul.nav.navbar-nav
             li(class=(section == 'home' ? 'active' : null))
@@ -91,6 +91,9 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
               a(href='/#speakers') Speakers
             li
               a(href='/#sponsors') Sponsors
+            li.nav-logo
+              a(href='/')
+                img(src="/images/base/small-logo.svg")
             li(class=(section == 'schedule' ? 'active' : null))
               a(href='/schedule') Schedule
             li(class=(section == 'venue' ? 'active' : null))
@@ -103,8 +106,8 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
               a(href='/blog') Blog
             li
               a(href='http://2014.jsconf.uy/') Last Year
-            li
-              a(href='javascript:void(0);', data-buy) Buy Ticket!
+            //li
+            //  a(href='javascript:void(0);', data-buy) Buy Ticket!
 
     block main
 

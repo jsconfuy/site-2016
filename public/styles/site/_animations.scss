@@ -49,6 +49,11 @@
           animation: baloon 15s ease-out alternate infinite;
 }
 
+.main-logo #main {
+  position: relative;
+  animation: main-rot 1s ease-out alternate infinite;
+}
+
 #character {
   position: relative;
   -webkit-animation: character 1s ease-out alternate infinite;
@@ -62,16 +67,69 @@
   animation: shadow 1s ease-out alternate infinite;
 }
 
-@keyframes shadow {
+@-webkit-keyframes main-rot {
   0% {
-    transform: scale(1);
-    -webkit-transform: translateY(0);
-    -webkit-transform: translateX(2px);
+    -webkit-transform: rotateZ(-3deg);
   }
   100% {
-    transform: scale(1.01);
-    -webkit-transform: translateY(-7px);
-    -webkit-transform: translateX(-2px);
+    -webkit-transform: rotateZ(3deg);
+  }
+}
+@-moz-keyframes main-rot {
+  0% {
+    -moz-transform: rotateZ(-3deg);
+  }
+  100% {
+    -moz-transform: rotateZ(3deg);
+  }
+}
+@-ms-keyframes main-rot {
+  0% {
+    -ms-transform:  rotateZ(-3deg);
+  }
+  100% {
+    -ms-transform: rotateZ(3deg);
+  }
+}
+@keyframes main-rot {
+  0% {
+    transform: rotateZ(-3deg);
+  }
+  100% {
+    transform: rotateZ(3deg);
+  }
+}
+
+@-webkit-keyframes shadow {
+  0% {
+    -webkit-transform: translate(2px, 0);
+  }
+  100% {
+    -webkit-transform: translate(-2px, -7px), scale(1.01);
+  }
+}
+@-moz-keyframes shadow {
+  0% {
+    -moz-transform: translate(2px, 0);
+  }
+  100% {
+    -moz-transform: translate(-2px, -7px), scale(1.01);
+  }
+}
+@-ms-keyframes shadow {
+  0% {
+    -ms-transform: translate(2px, 0);
+  }
+  100% {
+    -ms-transform: translate(-2px, -7px), scale(1.01);
+  }
+}
+@keyframes shadow {
+  0% {
+    transform: translate(2px, 0);
+  }
+  100% {
+    transform: translate(-2px, -7px), scale(1.01);
   }
 }
 
