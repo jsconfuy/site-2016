@@ -48,13 +48,13 @@ Proposal.add(
     votes: {
       // TODO: Custom field type Vote / Organizer
       pricco: { label: 'Pablo Ricco', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
-      gchertok: { label: 'Gabriel Chertok', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
-      pdejuan: { label: 'Pablo Dejuan', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
-      respinosa: { label: 'Rodrigo Espinosa', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
-      lcal: { label: 'Luis Cal', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
       ssassi: { label: 'Sebastian Sassi', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
+      pdejuan: { label: 'Pablo Dejuan', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
       mprunell: { label: 'Martin Prunell', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
-      gcura: { label: 'Guillermo Cura', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] }
+      guest1: { label: 'Guest 1', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
+      guest2: { label: 'Guest 2', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
+      guest3: { label: 'Guest 3', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
+      guest4: { label: 'Guest 4', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] }
     }
   }
 )
