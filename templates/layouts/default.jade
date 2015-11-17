@@ -87,8 +87,9 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
               a(href='/proposals') Call for Proposals
             //li(class=(section == 'cfw' ? 'active' : null))
             //  a(href='/workshops') Call for Workshops
-            li
-              a(href='/#speakers') Speakers
+            if hasSpeakers
+              li
+                a(href='/#speakers') Speakers
             li
               a(href='/#sponsors') Sponsors
             li.nav-logo
