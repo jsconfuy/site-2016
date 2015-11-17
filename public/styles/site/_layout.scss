@@ -163,7 +163,7 @@ body > header {
 
 body > footer {
   margin: 80px 0 0 0;
-  background-color: $black;
+  background-color: $red;
   min-height: 100%;
   .footer {
     @include clearfix();
@@ -210,10 +210,14 @@ body > footer {
         }
       }
       .info {
+        color: $blue-dark;
         display: block;
         margin: 50px auto;
         max-width: 450px;
         padding: 30px 0;
+        a {
+          color: $white;
+        }
         h3{
           color: $white;
           display: block;
@@ -269,12 +273,12 @@ body > footer {
     }
   }
   .copy {
-    background-color: $black;
+    background-color: $red;
     display: block;
     text-align: center;
     width: 100%;
     .box {
-      border-top: 1px solid lighten($black, 10%);
+      border-top: 1px solid lighten($white, 10%);
       width: 80%;
       margin: 0 auto;
       text-align: center;

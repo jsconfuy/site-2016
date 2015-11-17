@@ -6635,7 +6635,7 @@ body > header {
 /* Begin Footer */
 body > footer {
   margin: 80px 0 0 0;
-  background-color: #1A1A1A;
+  background-color: #c5473d;
   min-height: 100%; }
   body > footer .footer {
     position: relative;
@@ -6685,10 +6685,13 @@ body > footer {
           background-size: 230px auto;
           padding-top: 250px; }
       body > footer .footer .venue-info .info {
+        color: #172636;
         display: block;
         margin: 50px auto;
         max-width: 450px;
         padding: 30px 0; }
+        body > footer .footer .venue-info .info a {
+          color: #ffffff; }
         body > footer .footer .venue-info .info h3 {
           color: #ffffff;
           display: block;
@@ -6749,12 +6752,12 @@ body > footer {
           body > footer .footer .venue-info .info .social a {
             font-size: 30px; }
   body > footer .copy {
-    background-color: #1A1A1A;
+    background-color: #c5473d;
     display: block;
     text-align: center;
     width: 100%; }
     body > footer .copy .box {
-      border-top: 1px solid #343434;
+      border-top: 1px solid white;
       width: 80%;
       margin: 0 auto;
       text-align: center;
