@@ -1612,19 +1612,19 @@ textarea.input-lg, .form-horizontal .form-group-lg textarea.form-control, .input
 
 .btn-success {
   color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c; }
+  background-color: #5596C0;
+  border-color: #448ab7; }
   .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
     color: #fff;
-    background-color: #449d44;
-    border-color: #398439; }
+    background-color: #3d7ca5;
+    border-color: #33698b; }
   .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
     background-image: none; }
   .btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus, .btn-success.disabled:active, .btn-success.disabled.active, .btn-success[disabled], .btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled]:active, .btn-success[disabled].active, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success.active {
-    background-color: #5cb85c;
-    border-color: #4cae4c; }
+    background-color: #5596C0;
+    border-color: #448ab7; }
   .btn-success .badge {
-    color: #5cb85c;
+    color: #5596C0;
     background-color: #fff; }
 
 .btn-info {
@@ -2681,9 +2681,9 @@ a.label:hover, a.label:focus {
     background-color: #17283f; }
 
 .label-success {
-  background-color: #5cb85c; }
+  background-color: #5596C0; }
   .label-success[href]:hover, .label-success[href]:focus {
-    background-color: #449d44; }
+    background-color: #3d7ca5; }
 
 .label-info {
   background-color: #5bc0de; }
@@ -2902,7 +2902,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   box-shadow: none; }
 
 .progress-bar-success {
-  background-color: #5cb85c; }
+  background-color: #5596C0; }
   .progress-striped .progress-bar-success {
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
     background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -5745,6 +5745,8 @@ body > header {
     line-height: 70px; } }
 
 @media (max-width: 1470px) {
+  body {
+    padding-top: 140px; }
   .navbar .navbar-nav > li.nav-logo {
     position: absolute;
     top: 0;
@@ -5753,6 +5755,8 @@ body > header {
     padding-top: 70px; } }
 
 @media (max-width: 767px) {
+  body {
+    padding-top: 70px; }
   .navbar .navbar-brand img {
     position: absolute;
     top: 0;
@@ -6589,6 +6593,20 @@ body > footer {
   font-size: 0.8em; }
 .hotels .row.featurette {
   padding: 60px 0; }
+.hotels .img {
+  margin: 0 auto;
+  display: block;
+  /* max-height: 100%; */
+  -webkit-mask: url(../images/home/mask-2.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-mask-size: cover;
+  -webkit-mask-position: center center;
+  padding: 31%; }
 
 #dress {
   opacity: 0;

@@ -62,6 +62,9 @@ body > header {
 }
 
 @media (max-width: 1470px) {
+  body {
+    padding-top: ($navbar-height * 2);
+  }
   .navbar .navbar-nav > li.nav-logo {
     position: absolute;
     top: 0;
@@ -74,6 +77,10 @@ body > header {
 }
 
 @media (max-width: 767px) {
+  body {
+    padding-top: $navbar-height;
+  }
+
   .navbar .navbar-brand img {
     position: absolute;
     top: 0;
