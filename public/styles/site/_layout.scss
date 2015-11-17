@@ -1,5 +1,5 @@
 body {
-  padding-top: $navbar-height + 50;
+  padding-top: $navbar-height;
 }
 
 /* Begin Base */
@@ -138,6 +138,19 @@ body > header {
 }
 
 /* End Header */
+
+.page-title {
+  color: #ffffff;
+  padding: 100px;
+  width: 100%;
+  background-image: url('/images/base/pattern.png');
+  background-color: #fafafa;
+  margin-bottom: 30px;
+  h1, h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
 
 /* Begin Footer */
 

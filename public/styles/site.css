@@ -5695,7 +5695,7 @@ button.close {
   content: "\f23a"; }
 
 body {
-  padding-top: 120px; }
+  padding-top: 70px; }
 
 /* Begin Base */
 h1 {
@@ -5799,6 +5799,17 @@ body > header {
     margin-right: 70px; } }
 
 /* End Header */
+.page-title {
+  color: #ffffff;
+  padding: 100px;
+  width: 100%;
+  background-image: url('/images/base/pattern.png');
+  background-color: #fafafa;
+  margin-bottom: 30px; }
+  .page-title h1, .page-title h2 {
+    text-transform: uppercase;
+    font-weight: bold; }
+
 /* Begin Footer */
 body > footer {
   margin: 80px 0 0 0;

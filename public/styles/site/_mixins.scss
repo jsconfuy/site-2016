@@ -19,3 +19,21 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
+@mixin badge-zoom($badge-image) {
+  display: block;
+  background: url($badge-image) no-repeat;
+  background-position: center;
+  height: 300px;
+  margin: auto;
+  -webkit-transition: transform 200ms;
+  -moz-transition: transform 200ms;
+  transition: transform 200ms;
+  width: 100%;
+
+  &:hover {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+}
