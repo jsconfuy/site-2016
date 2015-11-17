@@ -5913,6 +5913,8 @@ body > footer {
           text-align: center;
           margin: 20px 0 0 0;
           text-transform: uppercase; }
+          body > footer .footer .venue-info .info .social a {
+            font-size: 30px; }
   body > footer .copy {
     background-color: #1A1A1A;
     display: block;
