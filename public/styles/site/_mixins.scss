@@ -1,8 +1,8 @@
-@mixin crossBrowser($property, $css) {
-    -webkit-#{$property} : $css;
-    -moz-#{$property} : $css;
-    -o-#{$property} : $css;
-    #{$property} : $css;
+@mixin cross-browser($property, $css) {
+  -webkit-#{$property}: $css;
+  -moz-#{$property}: $css;
+  -o-#{$property}: $css;
+  #{$property}: $css;
 }
 
 @mixin calc($property, $expression) {
@@ -12,12 +12,12 @@
 }
 
 @mixin background-size-cover() {
-    background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 @mixin badge-zoom($badge-image) {
@@ -32,8 +32,8 @@
   width: 100%;
 
   &:hover {
-    -webkit-transform: scale(1.05);
     -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
     transform: scale(1.05);
   }
 }

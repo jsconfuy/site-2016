@@ -1,24 +1,24 @@
-$fa-font-path: "../../fonts";
+$fa-font-path: '../../fonts';
 
 
 // Colors
 $blue-dark:       #172636 !default;
 $blue:            #254064 !default;
-$blue-light:      #5596C0 !default;
+$blue-light:      #5596c0 !default;
 
-$black:           #1A1A1A !default;
+$black:           #1a1a1a !default;
 
-$red-dark:        #99352E !default;
+$red-dark:        #99352e !default;
 $red:             #c5473d !default;
-$red-light:       #DC3943 !default;
+$red-light:       #dc3943 !default;
 
 $gray-darker:     #3b3b3b !default;
-$gray-dark:       #666666 !default;
-$gray:            #999999 !default;
+$gray-dark:       #666 !default;
+$gray:            #999 !default;
 $gray-light:      #e0e0d9 !default;
 $gray-lighter:    #e0e0d9 !default;
 
-$white:           #ffffff !default;
+$white:           #fff !default;
 
 // Copy from bootrap _variables.scss:
 
@@ -62,24 +62,24 @@ $link-hover-color:      $blue-dark !default;
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-$font-family-quicksand:   "Quicksand", Helvetica, Arial, sans-serif !default;
-$font-family-sans-serif:  "Open Sans", Helvetica, Arial, sans-serif !default;
-$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-quicksand:   'Quicksand', Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:  'Open Sans', Helvetica, Arial, sans-serif !default;
+$font-family-serif:       Georgia, 'Times New Roman', Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-monospace:   Menlo, Monaco, Consolas, 'Courier New', monospace !default;
 $font-family-base:        $font-family-quicksand !default;
 
 $font-size-base:          18px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-medium:        ceil(($font-size-base * 0.98)) !default; // ~12px
-$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+$font-size-medium:        ceil(($font-size-base * .98)) !default; // ~12px
+$font-size-small:         ceil(($font-size-base * .85)) !default; // ~12px
 
 $font-size-h1:            4.35em !default;
 $font-size-h2:            2.5em !default;
 $font-size-h3:            1.7em !default; // ~24px
 $font-size-h4:            1.4em !default; // ~18px
 $font-size-h5:            $font-size-base !default;
-$font-size-h6:            0.8em !default; // ~12px
+$font-size-h6:            .8em !default; // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
 // $line-height-base:        1.428571429 !default; // 20/14
@@ -101,12 +101,12 @@ $headings-color:          $blue !default;
 //** Load fonts from this directory.
 
 // [converter] Asset helpers such as Sprockets and Node.js Mincer do not resolve relative paths
-$icon-font-path: "../fonts/" !default;
+$icon-font-path: '../fonts/' !default;
 
 //** File name for all font files.
-$icon-font-name:          "glyphicons-halflings-regular" !default;
+$icon-font-name:          'glyphicons-halflings-regular' !default;
 //** Element ID within SVG icon file.
-$icon-font-svg-id:        "glyphicons_halflingsregular" !default;
+$icon-font-svg-id:        'glyphicons_halflingsregular' !default;
 
 
 //== Components
@@ -241,7 +241,7 @@ $input-group-addon-border-color: $input-border !default;
 //** Background for the dropdown menu.
 $dropdown-bg:                    #fff !default;
 //** Dropdown menu `border-color`.
-$dropdown-border:                rgba(0,0,0,.15) !default;
+$dropdown-border:                rgba(0, 0, 0, .15) !default;
 //** Dropdown menu `border-color` **for IE8**.
 $dropdown-fallback-border:       #ccc !default;
 //** Divider color for between dropdown items.
@@ -548,7 +548,7 @@ $popover-bg:                          #fff !default;
 //** Popover maximum width
 $popover-max-width:                   276px !default;
 //** Popover border color
-$popover-border-color:                rgba(0,0,0,.2) !default;
+$popover-border-color:                rgba(0, 0, 0, .2) !default;
 //** Popover fallback border color
 $popover-fallback-border-color:       #ccc !default;
 
@@ -563,7 +563,7 @@ $popover-arrow-color:                 #fff !default;
 //** Popover outer arrow width
 $popover-arrow-outer-width:           ($popover-arrow-width + 1) !default;
 //** Popover outer arrow color
-$popover-arrow-outer-color:           fade_in($popover-border-color, 0.05) !default;
+$popover-arrow-outer-color:           fade-in($popover-border-color, .05) !default;
 //** Popover outer arrow fallback color
 $popover-arrow-outer-fallback-color:  darken($popover-fallback-border-color, 20%) !default;
 
@@ -606,7 +606,7 @@ $modal-title-line-height:     $line-height-base !default;
 //** Background color of modal content area
 $modal-content-bg:                             #fff !default;
 //** Modal content border color
-$modal-content-border-color:                   rgba(0,0,0,.2) !default;
+$modal-content-border-color:                   rgba(0, 0, 0, .2) !default;
 //** Modal content border color **for IE8**
 $modal-content-fallback-border-color:          #999 !default;
 
@@ -802,14 +802,14 @@ $breadcrumb-color:              #ccc !default;
 //** Text color of current page in the breadcrumb
 $breadcrumb-active-color:       $gray-light !default;
 //** Textual separator for between breadcrumb elements
-$breadcrumb-separator:          "/" !default;
+$breadcrumb-separator:          '/' !default;
 
 
 //== Carousel
 //
 //##
 
-$carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6) !default;
+$carousel-text-shadow:                        0 1px 2px rgba(0, 0, 0, .6) !default;
 
 $carousel-control-color:                      #fff !default;
 $carousel-control-width:                      15% !default;
@@ -828,7 +828,7 @@ $carousel-caption-color:                      #fff !default;
 
 $close-font-weight:           bold !default;
 $close-color:                 #000 !default;
-$close-text-shadow:           0 1px 0 #fff !default;
+$close-text-shadow:           0 1px 0 $white !default;
 
 
 //== Code

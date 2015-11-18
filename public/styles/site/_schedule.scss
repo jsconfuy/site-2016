@@ -1,124 +1,160 @@
 .schedule {
+
   .coming {
-    border-radius: 4px;
-    padding: 50px 0;
     background-color: $gray-light;
+    border-radius: 4px;
     color: $blue;
+    padding: 50px 0;
     text-align: center;
   }
+
   table {
     margin: 30px auto;
     width: 100%;
+
     tr {
       margin: 5px 0;
+
       &:first-of-type {
-        font-size: 0.8em;
+        font-size: .8em;
         height: 60px;
       }
-      td, th {
+
+      td,
+      th {
         border-radius: 5px;
         padding: 5px;
         text-align: center;
         vertical-align: top;
       }
+
       th {
+
         &.track {
           width: 50%;
         }
       }
+
       td {
         color: $blue-dark;
+
         &.time {
           color: $gray;
           padding: 15px;
         }
+
         &.slot {
+
           .box {
-            background: rgba(85, 150, 192, 0.20);
+            background: rgba(85, 150, 192, .20);
             border-radius: 5px;
             display: block;
             height: 100%;
             padding: 10px;
             width: 100%;
+
             .title {
               color: $blue-dark;
               text-transform: uppercase;
+
               &.has-description {
                 cursor: pointer;
+
                 &:hover {
+
                   &:after {
+                    -moz-transform: rotate(360deg);
                     -webkit-transform: rotate(360deg);
-                       -moz-transform: rotate(360deg);
-                            transform: rotate(360deg);
+                    transform: rotate(360deg);
                   }
                 }
+
                 &:after {
                   color: $red;
-                  content: "+";
-                  margin-left: 4px;
+                  content: '+';
                   cursor: pointer;
                   display: inline-block;
                   font-weight: 700;
+                  margin-left: 4px;
+                  -moz-transition: all 100ms;
                   -webkit-transition: all 100ms;
-                     -moz-transition: all 100ms;
-                          transition: all 100ms;
+                  transition: all 100ms;
                 }
               }
             }
+
             .description {
               color: $gray-dark;
               display: block;
+              font-size: .75em;
               height: 0;
-              font-size: 0.75em;
+              margin: 0;
               opacity: 0;
               overflow: hidden;
-              margin: 0;
-              text-align: left;
               padding: 0 15px;
+              text-align: left;
+              -moz-transition: all ease-out 100ms;
               -webkit-transition: all ease-out 100ms;
-                 -moz-transition: all ease-out 100ms;
-                      transition: all ease-out 100ms;
+              transition: all ease-out 100ms;
+
               &.active {
-                margin-top: 15px;
                 height: auto;
+                margin-top: 15px;
                 opacity: 1;
               }
             }
           }
         }
-        &.slot-break, &.slot-lunch {
+
+        &.slot-break,
+        &.slot-lunch {
+
           .box {
-            background: rgba(85, 150, 192, 0.40);
+            background: rgba(85, 150, 192, .40);
           }
         }
-        &.slot-talk, &.slot-workshop, &.slot-keynote, &.slot-empty {
+
+        &.slot-talk,
+        &.slot-workshop,
+        &.slot-keynote,
+        &.slot-empty {
+
           .box {
             background: transparent;
           }
         }
-        &.slot-talk, &.slot-workshop, &.slot-keynote, {
+
+        &.slot-talk,
+        &.slot-workshop,
+        &.slot-keynote, {
           position: relative;
+
           .box {
             position: relative;
             z-index: 1;
+
             .speakers {
               margin-top: 15px;
+
               .speaker {
+
                 .name {
                   color: $blue-dark;
+                  font-size: 80%;
                   font-weight: 700;
                   text-transform: uppercase;
-                  font-size: 80%;
                 }
+
                 .picture {
-                  margin: 0 auto;
+                  @include background-size-cover();
+                  -webkit-clip-path: url('../images/schedule/mask-small.svg');
+                  clip-path: url('../images/schedule/mask-small.svg#hexagonPath');
                   display: block;
                   height: 40px;
+                  margin: 0 auto;
+                  -webkit-mask: url('../images/schedule/mask-small.svg');
                   width: 40px;
-                  -webkit-clip-path: url(../images/schedule/mask-small.svg);
-                  clip-path: url(../images/schedule/mask-small.svg#hexagonPath);
-                   -webkit-mask: url(../images/schedule/mask-small.svg);
-                  @include background-size-cover();
+
                   &.empty {
                     background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
                     background-size: 70% auto;
@@ -127,35 +163,40 @@
               }
             }
           }
+
           &:before {
+            @include calc(width, '100% - 10px');
             border: 1px solid $gray-light;
             border-radius: 5px;
-            content: "";
+            content: '';
             display: block;
             height: -webkit-calc(100% - 10px);
             height: -moz-calc(100% - 10px);
             left: 5px;
             position: absolute;
             top: 5px;
-            width: -webkit-calc(100% - 10px);
-            width: -moz-calc(100% - 10px);
             z-index: 0;
           }
         }
+
         &.slot-keynote {
+
           .box {
-            // background: rgba(22, 38, 54, 0.75);
-            background-size: cover;
             background-position: 50% 50%;
+            background-size: cover;
             border: 0;
             color: $white;
             font-weight: 700;
+
             .title {
               text-transform: uppercase;
             }
-            .title, .description, .speakers .speaker .name {
+
+            .title,
+            .description,
+            .speakers .speaker .name {
               color: $white;
-              text-shadow: 1px 1px 1px rgba(20, 20, 20, 0.5);
+              text-shadow: 1px 1px 1px rgba(20, 20, 20, .5);
             }
           }
         }

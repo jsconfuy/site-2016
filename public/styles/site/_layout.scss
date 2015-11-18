@@ -1,87 +1,314 @@
 body {
   padding-top: $navbar-height;
+
+  > header {
+    -webkit-box-shadow: 0 .063em .25em rgba(37, 50, 55, .25); // 1 4
+    box-shadow: 0 .063em .25em rgba(37, 50, 55, .25); // 1 4
+    height: $navbar-height;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  > footer {
+    background-color: $red;
+    margin: 80px 0 0;
+    min-height: 100%;
+
+    .footer {
+      @include clearfix();
+      display: block;
+      position: relative;
+
+      .map,
+      .venue-info {
+        display: block;
+        height: 100%;
+        margin: 0;
+        width: 100%;
+        @media (min-width: $screen-sm-min) {
+          width: 50%;
+        }
+      }
+
+      .map {
+        @include background-size-cover();
+        background-color: $blue-light;
+        display: none;
+
+        @media (min-width: $screen-sm-min) {
+          bottom: 0;
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        #map {
+          display: block;
+          min-height: 100%;
+          width: 100%;
+        }
+      }
+
+      .venue-info {
+        padding: 0 15px;
+
+        .venue {
+          display: block;
+          margin: 50px auto;
+
+          h1,
+          h2 {
+            color: $white;
+          }
+
+          h1 {
+            background: transparent url('../images/base/ok.svg') no-repeat 50% 0;
+            background-size: 230px auto;
+            padding-top: 250px;
+          }
+        }
+
+        .info {
+          color: $blue-dark;
+          display: block;
+          margin: 50px auto;
+          max-width: 450px;
+          padding: 30px 0;
+
+          a {
+            color: $white;
+          }
+
+          h3 {
+            color: $white;
+            display: block;
+            margin: 30px auto;
+            text-align: center;
+          }
+
+          .data {
+            display: block;
+
+            .group {
+              margin-bottom: 45px;
+              position: relative;
+
+              label {
+                color: $white;
+                font-size: 18px;
+                font-weight: normal;
+                left: 5px;
+                pointer-events: none;
+                position: absolute;
+                top: 10px;
+                -moz-transition: .2s ease all;
+                -webkit-transition: .2s ease all;
+                transition: .2s ease all;
+              }
+
+              input:focus ~ label,
+              input:valid ~ label {
+                color: $white;
+                font-size: 14px;
+                top: -20px;
+              }
+
+              input {
+                background: none;
+                border: 0;
+                border-bottom: 1px solid $white;
+                color: $white;
+                display: block;
+                font-size: 18px;
+                padding: 10px 10px 10px 5px;
+                width: 100%;
+
+                &:focus {
+                  outline: none;
+                }
+              }
+            }
+
+            button {
+              @include cross-browser(appearance, none);
+              @include cross-browser(border-radius, 0 3px 3px 0);
+              @include cross-browser(transition, all 100ms);
+
+              background-color: $blue;
+              border: 0;
+              color: $white;
+              display: inline-block;
+              height: 70px;
+              vertical-align: top;
+              width: 110px;
+
+              &:focus {
+                outline: none;
+              }
+
+              &:hover {
+                background-color: lighten($blue, 5%);
+              }
+            }
+          }
+
+          .social {
+            display: block;
+            margin: 20px 0 0;
+            text-align: center;
+            text-transform: uppercase;
+
+            a {
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    .copy {
+      background-color: $red;
+      display: block;
+      text-align: center;
+      width: 100%;
+
+      .box {
+        margin: 0 auto;
+        padding: 10px 0 20px;
+        text-align: center;
+        width: 80%;
+        @media (min-width: $screen-sm-min) {
+          padding: 0;
+        }
+
+        a {
+          color: $white;
+          display: block;
+          font-weight: bold;
+          margin: 0;
+          text-transform: uppercase;
+          vertical-align: bottom;
+          @media (min-width: $screen-sm-min) {
+            display: inline-block;
+            line-height: 70px;
+          }
+          @media (min-width: $screen-sm-min) {
+
+            &:after {
+              content: '-';
+              margin: 0 15px;
+            }
+          }
+
+          &:hover {
+            color: $white;
+            text-decoration: none;
+          }
+
+          &:last-of-type {
+
+            &:after {
+              content: '';
+            }
+          }
+        }
+      }
+    }
+
+    a {
+      color: $blue-light;
+      margin: 0 5px;
+
+      &:hover {
+        color: lighten($blue-light, 10%);
+      }
+    }
+  }
 }
 
-/* Begin Base */
+// Begin Base
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: bold;
   text-transform: uppercase;
 }
 
 h1 {
-  // font-size: 4.750em;
-  text-align: center;
   margin: 30px auto;
+  text-align: center;
 }
 
 h2 {
   font-size: 2.500em;
-  text-align: center;
   margin: 10px auto;
+  text-align: center;
 }
 
-span.lowercase {
+.lowercase {
+  font-size: .8em;
   text-transform: lowercase;
-  font-size: 0.8em;
 }
 
+// End Base
 
-
-
-/* End Base */
-
-/* Begin Header */
-
-body > header {
-  height: $navbar-height;
-  -webkit-box-shadow: 0 0.063em 0.25em rgba( 37, 50, 55, .25 ); /* 1 4 */
-  box-shadow: 0 0.063em 0.25em rgba( 37, 50, 55, .25 ); /* 1 4 */
-  width: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-}
+// Begin Header
 
 .navbar {
-  border: none;
-}
+  border: 0;
 
-.navbar .navbar-brand {
-  padding: 0px;
-}
+  .navbar-brand {
+    padding: 0;
 
-.navbar .navbar-brand img {
-  display: none;
-  width: $navbar-height;
-}
+    img {
+      display: none;
+      width: $navbar-height;
+    }
 
-.navbar .navbar-nav > li > a {
-  font-size: 18px;
-  text-transform: uppercase;
-}
+    > li > a {
+      color: $blue-dark;
+      font-family: $headings-font-family;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      text-transform: uppercase;
 
-.navbar .navbar-nav > li.nav-logo > a > img {
-  width: ($navbar-height * 2);
+      &:hover {
+        background-color: $white;
+        color: $blue;
+      }
+    }
+
+    > .nav-logo > a > img {
+      width: ($navbar-height * 2);
+    }
+  }
 }
 
 @media (min-width: 768px) {
+
   .navbar .navbar-nav > li > a {
+    line-height: $navbar-height;
     padding: 0 15px;
     vertical-align: middle;
-    line-height: $navbar-height;
   }
 }
 
 @media (max-width: 1470px) {
+
   body {
     padding-top: ($navbar-height * 2);
   }
-  .navbar .navbar-nav > li.nav-logo {
+
+  .navbar .navbar-nav > .nav-logo {
+    left: calc(50% - 70px);
     position: absolute;
     top: 0;
-    left: calc(50% - 70px);
   }
 
   .navbar .navbar-nav {
@@ -90,417 +317,256 @@ body > header {
 }
 
 @media (max-width: 767px) {
+
   body {
     padding-top: $navbar-height;
   }
 
   .navbar .navbar-brand img {
+    @include calc(left, "50% - #{$navbar-height}");
+    display: block;
+    height: $navbar-height;
     position: absolute;
     top: 0;
-    @include calc(left, "50% - #{$navbar-height}");
-    height: $navbar-height;
-    display: block;
     width: ($navbar-height * 2);
   }
 
-  .navbar .navbar-nav > li.nav-logo {
+  .navbar .navbar-nav > .nav-logo {
     display: none;
   }
 
   .navbar .navbar-nav {
-    padding-top: 0px;
+    padding-top: 0;
   }
-}
-
-.navbar .navbar-nav > li > a {
-  color: $blue-dark;
-  font-weight: bold;
-  text-decoration: none;
-  font-family: $headings-font-family;
-}
-
-.navbar .navbar-nav > li > a:hover {
-  color: #004165;
-  background-color: #fff;
 }
 
 .navbar-toggle {
   border: 0;
   border-radius: 0;
+
+  .icon-bar {
+    background-color: $blue-dark;
+  }
 }
 
 .navbar-toggle:hover,
 .navbar-toggle:focus {
-  background-color: #5dade2;
-}
-
-.navbar-toggle .icon-bar {
-  background-color: #004165;
+  background-color: $blue-light;
 }
 
 .navbar-toggle:hover .icon-bar,
 .navbar-toggle:focus .icon-bar {
-  background-color: #ffffff;
+  background-color: $white;
 }
 
 @media (min-width: 768px) {
+
   .navbar-nav {
-    width: 100%;
     text-align: center;
+    width: 100%;
+
     > li {
-      float: none;
       display: inline-block;
+      float: none;
     }
   }
+
   .navbar-collapse.collapse {
     margin-left: $navbar-height;
     margin-right: $navbar-height;
   }
 }
 
-/* End Header */
+// End Header
 
 .page-title {
-  color: #ffffff;
+  background-color: #fafafa;
+  background-image: url('/images/base/pattern.png');
+  color: $white;
+  margin-bottom: 30px;
   padding: 100px;
   width: 100%;
-  background-image: url('/images/base/pattern.png');
-  background-color: #fafafa;
-  margin-bottom: 30px;
-  h1, h2 {
-    text-transform: uppercase;
+
+  h1,
+  h2 {
     font-weight: bold;
+    text-transform: uppercase;
   }
 }
-
-/* Begin Footer */
-
-body > footer {
-  margin: 80px 0 0 0;
-  background-color: $red;
-  min-height: 100%;
-  .footer {
-    @include clearfix();
-    position: relative;
-    display: block;
-    .map, .venue-info {
-      display: block;
-      margin: 0 ;
-      height: 100%;
-      width: 100%;
-      @media (min-width: $screen-sm-min) {
-        width: 50%;
-      }
-    }
-    .map {
-      display: none;
-      @media (min-width: $screen-sm-min) {
-        display: block;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        position: absolute;
-      }
-      #map {
-        display: block;
-        min-height: 100%;
-        width: 100%;
-      }
-      background-color: $blue-light;
-      @include background-size-cover();
-    }
-    .venue-info {
-      padding: 0 15px;
-      .venue {
-        display: block;
-        margin: 50px auto;
-        h1, h2 {
-          color: $white;
-        }
-        h1 {
-          background: transparent url('../images/base/ok.svg') no-repeat 50% 0;
-          background-size: 230px auto;
-          padding-top: 250px;
-        }
-      }
-      .info {
-        color: $blue-dark;
-        display: block;
-        margin: 50px auto;
-        max-width: 450px;
-        padding: 30px 0;
-        a {
-          color: $white;
-        }
-        h3{
-          color: $white;
-          display: block;
-          margin: 30px auto;
-          text-align: center;
-        }
-        .data {
-          display: block;
-          .group {
-            position:relative;
-            margin-bottom:45px;
-            label {
-              color:$white;
-              font-size:18px;
-              font-weight:normal;
-              position:absolute;
-              pointer-events:none;
-              left:5px;
-              top:10px;
-              transition:0.2s ease all;
-              -moz-transition:0.2s ease all;
-              -webkit-transition:0.2s ease all;
-            }
-            input:focus ~ label, input:valid ~ label {
-              top:-20px;
-              font-size:14px;
-              color: $white;
-            }
-            input{
-              color: $white;
-              font-size:18px;
-              padding:10px 10px 10px 5px;
-              display:block;
-              width:100%;
-              border:none;
-              background: none;
-              border-bottom:1px solid $white;
-              &:focus{
-                outline: none;
-              }
-            }
-          }
-          button{
-            background-color: $blue;
-            border: none;
-            color: $white;
-            display: inline-block;
-            height: 70px;
-            vertical-align: top;
-            vertical-align: top;
-            width: 110px;
-            @include crossBrowser(appearance, none);
-            @include crossBrowser(border-radius, 0 3px 3px 0);
-            @include crossBrowser(transition, all 100ms);
-            &:focus{
-              outline: none;
-            }
-            &:hover{
-              background-color: lighten($blue, 5%)
-            }
-          }
-        }
-        .social {
-          display: block;
-          text-align: center;
-          margin: 20px 0 0 0;
-          text-transform: uppercase;
-          a {
-            font-size: 30px;
-          }
-        }
-      }
-    }
-  }
-  .copy {
-    background-color: $red;
-    display: block;
-    text-align: center;
-    width: 100%;
-    .box {
-      width: 80%;
-      margin: 0 auto;
-      text-align: center;
-      padding: 10px 0 20px;
-      @media (min-width: $screen-sm-min) {
-        padding: 0;
-      }
-      a {
-        color: $white;
-        display: block;
-        text-transform: uppercase;
-        font-weight: bold;
-        @media (min-width: $screen-sm-min) {
-          display: inline-block;
-          line-height: 70px;
-        }
-        margin: 0;
-        vertical-align: bottom;
-        @media (min-width: $screen-sm-min) {
-          &:after {
-            content: "-";
-            margin: 0 15px;
-          }
-        }
-        &:hover{
-          color: $white;
-          text-decoration: none;
-        }
-        &:last-of-type {
-          &:after {
-            content: "";
-          }
-        }
-      }
-    }
-  }
-  a{
-    color: $blue-light;
-    margin: 0 5px;
-    &:hover{
-      color: lighten($blue-light, 10%);
-    }
-  }
-}
-
-/* End Footer */
 
 // Tickets
 #buy {
+
   .intro {
+
     button {
       position: absolute;
-      top: 20px;
       right: 30px;
+      top: 20px;
     }
+
     img {
       display: block;
-      width: 60%;
-      max-width: 400px;
       margin: 0 auto;
+      max-width: 400px;
+      width: 60%;
     }
   }
+
   .indicators {
+    @include clearfix();
     margin: 0;
     padding: 0;
-    @include clearfix();
+
     .indicator {
-      padding: 20px 0;
-      width: 33.3333%;
       float: left;
-      text-align: center;
       font-size: 30px;
+      padding: 20px 0;
+      text-align: center;
+      width: 33.3333%;
+
       i {
+        color: $gray-light;
         vertical-align: middle;
-        color: $gray-light;
       }
+
       span {
-        display: block;
-        margin: 10px 0 0 0;
-        font-size: 14px;
-        text-align: center;
         color: $gray-light;
+        display: block;
+        font-size: 14px;
+        margin: 10px 0 0;
+        text-align: center;
       }
+
       &.active {
+
         span {
           color: $gray;
         }
+
         i {
           color: $blue;
         }
       }
     }
   }
+
   .steps {
+
     .step {
-      margin: 20px 0 0 0;
+      margin: 20px 0 0;
+
       .note {
         @include clearfix();
         border-top: 1px solid $gray-light;
-        margin: 10px 0 0 0;
-        padding: 10px 0 0 0;
-        font-size: 80%;
         color: $gray;
+        font-size: 80%;
+        margin: 10px 0 0;
+        padding: 10px 0 0;
       }
+
       &.step-select {
+
         .loading {
-          position: relative;
           height: 150px;
+          position: relative;
         }
+
         .description {
-          & > span {
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 20px;
+
+          > span {
             color: $blue;
             display: block;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
           }
+
           ul {
             @include clearfix();
             margin: 10px 20px 30px;
             padding: 0;
+
             li {
-              list-style: none;
-              width: 50%;
               float: left;
-              padding: 10px;
               font-size: 80%;
+              list-style: none;
+              padding: 10px;
+              width: 50%;
             }
           }
         }
+
         .discount {
+          font-size: 16px;
+          font-weight: bold;
+          margin: 0 0 20px;
           text-align: center;
           text-transform: uppercase;
-          font-weight: bold;
-          font-size: 16px;
-          margin: 0 0 20px 0;
+
           .code {
+            background-color: $white;
+            border: 2px solid $blue;
+            color: $blue;
             display: inline-block;
             padding: 4px 8px;
-            border: 2px solid $blue;
-            background-color: $white;
-            color: $blue;
+
             &.error {
-              border: 2px solid $brand-danger;
               background-color: $brand-danger;
+              border: 2px solid $brand-danger;
               color: $white;
             }
           }
         }
+
         .tickets {
+
           ul {
+            margin: 0 0 40px;
             padding: 0;
-            margin: 0 0 40px 0;
+
             li {
               @include clearfix();
               display: block;
+              margin: 0 0 20px;
               padding: 0;
-              margin: 0 0 20px 0;
+
               .name {
-                text-align: left;
-                text-transform: uppercase;
-                font-weight: bold;
                 color: $blue;
                 float: left;
+                font-weight: bold;
+                text-align: left;
+                text-transform: uppercase;
                 width: 50%;
               }
+
               .buy {
                 float: left;
-                width: 50%;
                 text-align: right;
+                width: 50%;
+
                 input {
-                  padding: 2px;
                   border: 2px solid $gray;
                   border-right-color: $blue;
-                  width: 3em;
                   margin: 0 0 0 4px;
+                  padding: 2px;
                   text-align: center;
+                  width: 3em;
+
                   &:focus {
                     outline: 2px solid $blue;
                   }
                 }
+
                 button {
-                  padding: 4px 14px;
                   background-color: $blue;
-                  color: $white;
                   border: 0;
+                  color: $white;
+                  padding: 4px 14px;
                   width: 100px;
-                  &:focus{
+
+                  &:focus {
                     outline: none;
                   }
                 }
@@ -508,155 +574,185 @@ body > footer {
             }
           }
         }
+
         .soldout {
-          text-align: center;
-          text-transform: uppercase;
-          font-weight: bold;
-          padding: 10px 20px;
           border: 3px solid $blue;
           color: $blue;
           font-size: 20px;
-          width: 270px;
+          font-weight: bold;
           margin: 40px auto;
+          padding: 10px 20px;
+          text-align: center;
+          text-transform: uppercase;
+          width: 270px;
         }
       }
+
       &.step-payment {
+
         .loading {
-          position: relative;
           height: 150px;
+          position: relative;
         }
+
         .important {
+          color: $blue;
           font-size: 80%;
           padding: 0 10%;
-          color: $blue;
           text-align: center;
         }
+
         .invoice {
           @include clearfix();
           display: block;
+          margin: 0 0 20px;
           padding: 0;
-          margin: 0 0 20px 0;
+
           .detail {
-            text-align: left;
-            text-transform: uppercase;
-            font-weight: bold;
             color: $blue;
             float: left;
+            font-weight: bold;
+            text-align: left;
+            text-transform: uppercase;
             width: 60%;
           }
+
           .pay {
             float: left;
-            width: 40%;
             text-align: right;
+            width: 40%;
+
             button {
-              padding: 4px 14px;
               background-color: $blue;
-              color: $white;
               border: 0;
-              &:focus{
+              color: $white;
+              padding: 4px 14px;
+
+              &:focus {
                 outline: none;
               }
             }
           }
         }
       }
+
       &.step-assign {
+
         .thanks {
-          text-align: center;
-          text-transform: uppercase;
-          font-weight: bold;
-          padding: 10px 20px;
           color: $blue;
           font-size: 20px;
+          font-weight: bold;
           margin: 20px auto 0;
-        }
-        .save {
+          padding: 10px 20px;
           text-align: center;
+          text-transform: uppercase;
+        }
+
+        .save {
           margin: 10px auto 20px;
+          text-align: center;
+
           button {
-            padding: 4px 14px;
             background-color: $blue;
-            color: $white;
             border: 0;
-            &:focus{
+            color: $white;
+            padding: 4px 14px;
+
+            &:focus {
               outline: none;
             }
           }
         }
+
         ul {
-          padding: 0;
           margin: 0;
+          padding: 0;
+
           li {
-            padding: 0;
-            margin: 0 0 20px 0;
             list-style: none;
+            margin: 0 0 20px;
+            padding: 0;
+
             .title {
-              text-align: center;
-              text-transform: uppercase;
-              font-weight: bold;
-              padding: 10px;
               color: $blue;
               font-size: 18px;
-              width: 200px;
+              font-weight: bold;
               margin: 0 auto 10px;
+              padding: 10px;
+              text-align: center;
+              text-transform: uppercase;
+              width: 200px;
             }
+
             .personal {
               @include clearfix();
-              padding: 0 0 10px 0;
+              padding: 0 0 10px;
+
               .name {
                 float: left;
-                width: 40%;
                 padding: 0 10px 0 0;
+                width: 40%;
+
                 input {
-                  display: block;
-                  width: 100%;
-                  padding: 4px 8px;
                   border: 1px solid $gray;
+                  display: block;
+                  padding: 4px 8px;
+                  width: 100%;
+
                   &:focus {
                     outline: 2px solid $blue;
                   }
                 }
               }
+
               .email {
                 float: left;
                 padding: 0 10px 0 0;
                 width: 40%;
+
                 input {
-                  display: block;
-                  width: 100%;
-                  padding: 4px 8px;
                   border: 1px solid $gray;
+                  display: block;
+                  padding: 4px 8px;
+                  width: 100%;
+
                   &:focus {
                     outline: 2px solid $blue;
                   }
                 }
               }
+
               .tshirt {
                 float: left;
                 width: 20%;
+
                 select {
-                  display: block;
-                  width: 100%;
-                  height: 38px;
-                  padding: 4px 8px;
+                  background: $white;
                   border: 1px solid $gray;
                   border-radius: none;
-                  background: $white;
+                  display: block;
+                  height: 38px;
+                  padding: 4px 8px;
+                  width: 100%;
+
                   &:focus {
                     outline: 2px solid $blue;
                   }
                 }
               }
             }
+
             .extra {
               @include clearfix();
               width: 100%;
+
               textarea {
-                width: 100%;
-                max-width: 100%;
-                height: 80px;
-                padding: 4px 8px;
                 border: 1px solid $gray;
+                height: 80px;
+                max-width: 100%;
+                padding: 4px 8px;
+                width: 100%;
+
                 &:focus {
                   outline: 2px solid $blue;
                 }
@@ -669,57 +765,66 @@ body > footer {
   }
 }
 
-/* Loader */
+// Loader
 
 .loader:before,
 .loader:after,
 .loader {
-  border-radius: 50%;
-  width: 2.5em;
-  height: 2.5em;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
   -webkit-animation: load7 1.8s infinite ease-in-out;
   animation: load7 1.8s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  border-radius: 50%;
+  height: 2.5em;
+  width: 2.5em;
 }
+
 .loader {
-  margin: 8em auto;
+  -webkit-animation-delay: .16s;
+  animation-delay: .16s;
   font-size: 10px;
+  margin: 8em auto;
   position: relative;
   text-indent: -9999em;
-  -webkit-animation-delay: 0.16s;
-  animation-delay: 0.16s;
 }
+
 .loader:before {
   left: -3.5em;
 }
+
 .loader:after {
+  -webkit-animation-delay: .32s;
+  animation-delay: .32s;
   left: 3.5em;
-  -webkit-animation-delay: 0.32s;
-  animation-delay: 0.32s;
 }
+
 .loader:before,
 .loader:after {
   content: '';
   position: absolute;
   top: 0;
 }
+
 @-webkit-keyframes load7 {
+
   0%,
   80%,
   100% {
     box-shadow: 0 2.5em 0 -1.3em $blue;
   }
+
   40% {
     box-shadow: 0 2.5em 0 0 $blue;
   }
 }
+
 @keyframes load7 {
   0%,
   80%,
   100% {
     box-shadow: 0 2.5em 0 -1.3em $blue;
   }
+
   40% {
     box-shadow: 0 2.5em 0 0 $blue;
   }

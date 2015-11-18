@@ -1,31 +1,35 @@
 .blog {
 
   .image {
-    min-width: 100%;
-    max-width: 100%;
     margin-bottom: 20px;
+    max-width: 100%;
+    min-width: 100%;
   }
 
   .categories {
+    display: block;
     margin: 40px 0 0;
     padding: 0;
-    display: block;
     text-align: left;
+
     li {
-      list-style: none;
       display: inline-block;
-      padding: 0;
+      list-style: none;
       margin-right: -5px;
+      padding: 0;
+
       a {
+        font-size: .9em;
         text-transform: uppercase;
-        font-size: 0.9em;
       }
+
       &:after {
-        content: "-";
+        content: '-';
         padding: 0 15px;
       }
+
       &:last-child:after {
-        content: "";
+        content: '';
       }
     }
   }

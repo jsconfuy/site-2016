@@ -18,10 +18,10 @@
   }
 
   .lead {
-    margin-bottom: 20px;
     font-size: 21px;
     font-weight: 300;
     line-height: 1.4;
+    margin-bottom: 20px;
   }
 
   .featurette-heading {
@@ -29,25 +29,25 @@
   }
 
   .hotel-description {
-    font-size: 0.8em;
+    font-size: .8em;
   }
 
   .row.featurette {
     padding: 60px 0;
   }
+
   .img {
-    margin: 0 auto;
-    display: block;
-    /* max-height: 100%; */
-    -webkit-mask: url(../images/home/mask-2.svg);
-    background-repeat: no-repeat;
     background-position: center center;
-    -webkit-background-size: cover;
+    background-repeat: no-repeat;
     -moz-background-size: cover;
     -o-background-size: cover;
+    -webkit-background-size: cover;
     background-size: cover;
-    -webkit-mask-size: cover;
+    display: block;
+    margin: 0 auto;
+    -webkit-mask: url('../images/home/mask-2.svg');
     -webkit-mask-position: center center;
+    -webkit-mask-size: cover;
     padding: 31%;
   }
 

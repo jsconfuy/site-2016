@@ -24,7 +24,12 @@
     "gulp-watch": "^4.3.5",
     "standard": "^5.1.0",
     "gulp-jshint": "~1.12.0",
-    "jshint-stylish": "~2.1.0"
+    "jshint-stylish": "~2.1.0",
+    "scss-lint": "0.0.0",
+    "jscs": "~2.5.1",
+    "gulp-scss-lint": "~0.3.8",
+    "gulp-eslint": "~1.1.0",
+    "gulp-jscs": "~3.0.2"
   },
   "engines": {
     "node": ">=0.10.22",
