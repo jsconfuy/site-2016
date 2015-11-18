@@ -6776,7 +6776,6 @@ body > footer {
     text-align: center;
     width: 100%; }
     body > footer .copy .box {
-      border-top: 1px solid white;
       width: 80%;
       margin: 0 auto;
       text-align: center;
@@ -6785,8 +6784,10 @@ body > footer {
         body > footer .copy .box {
           padding: 0; } }
       body > footer .copy .box a {
-        color: #cccccc;
+        color: #ffffff;
         display: block;
+        text-transform: uppercase;
+        font-weight: bold;
         margin: 0;
         vertical-align: bottom; }
         @media (min-width: 768px) {
