@@ -5,13 +5,14 @@ block vars
   - var klass = 'post';
 
 block content
+  if data.post
+    .page-title
+      h1= data.post.title
   .container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
     article
       if !data.post
         h2 Invalid Post.
       else
-        header
-          h1= data.post.title
         .post
           if data.post.image.exists
             img.image(src=data.post._.image.fit(750,450))
