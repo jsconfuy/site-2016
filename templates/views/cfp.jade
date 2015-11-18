@@ -38,17 +38,17 @@ block content
             | If you get selected as a speaker, here's what you get:
             ul
               li
-                b We cover your stay in Montevideo 
+                b We cover your stay in Montevideo
                 | in a nice hotel (including free Wifi) for the days of the conference two nights before and one after.
                 | If you want to stay longer, we can arrange things, just let us know.
-                | You will have to cover extra nights, though. If your employer can cover your travel and hotel, 
+                | You will have to cover extra nights, though. If your employer can cover your travel and hotel,
                 | we are happy to list them as an awesome company sponsor. The money we save will be used to make a better conference.
               li
-                | Depending on our budget, we may pay for your 
+                | Depending on our budget, we may pay for your
                 b plane/ferry to Montevideo
                 | .
               li
-                b Speakers' dinner. 
+                b Speakers' dinner.
                 | All speakers are invited to taste uruguayan food at a dinner the evening before the event.
               li
                 b An awesome JSConfUY t-shirt
@@ -104,6 +104,10 @@ block content
               .form-group(class=errors.email ? 'has-error' : null)
                 label(for='email') Speaker's Email *
                 input#email(type='email', name='email', value=data.email).form-control
+              .form-group(class=errors.demoTalk ? 'has-error' : null)
+                label(for='demoTalk') Speaker's Demo Talk *
+                input#residence(type='demoTalk', name='demoTalk', value=data.demoTalk, placeholder='Video Url...').form-control
+                p.help-block We would like to see you are an effective speaker, does not need to be on the topic you are presenting. If you don't have a talk please create a video of a couple of minutes so we may see you dissertation
               .form-group(class=errors.residence ? 'has-error' : null)
                 label(for='residence') Speaker's Residence *
                 input#residence(type='residence', name='residence', value=data.residence, placeholder='In case we\'ll need to buy the flights...').form-control

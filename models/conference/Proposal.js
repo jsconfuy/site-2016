@@ -40,6 +40,7 @@ Proposal.add(
     biography: { type: Types.Textarea },
     extra: { type: Types.Markdown },
     tags: { type: Types.Relationship, ref: 'Tag', many: true },
+    demoTalk: { type: String },
     notes: { type: Types.Markdown }
   },
   'Votes',
