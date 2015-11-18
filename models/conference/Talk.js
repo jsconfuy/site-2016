@@ -1,5 +1,5 @@
-var keystone = require('keystone')
-var Types = keystone.Field.Types
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 /**
  * Talks Model
@@ -12,7 +12,7 @@ var Talk = new keystone.List('Talk', {
   map: { name: 'title' },
   sortable: true,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
-})
+});
 
 Talk.add({
   assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
@@ -29,10 +29,10 @@ Talk.add({
     { value: 'D', label: 'Declined' }]},
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
   notes: { type: Types.Markdown }
-})
+});
 
-Talk.relationship({ ref: 'Speaker', path: 'speakers' })
-Talk.relationship({ ref: 'Tag', path: 'tags' })
+Talk.relationship({ ref: 'Speaker', path: 'speakers' });
+Talk.relationship({ ref: 'Tag', path: 'tags' });
 
-Talk.defaultColumns = 'title, speakers, tags, status, assignee, language'
-Talk.register()
+Talk.defaultColumns = 'title, speakers, tags, status, assignee, language';
+Talk.register();

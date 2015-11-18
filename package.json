@@ -22,7 +22,9 @@
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-watch": "^4.3.5",
-    "standard": "^5.1.0"
+    "standard": "^5.1.0",
+    "gulp-jshint": "~1.12.0",
+    "jshint-stylish": "~2.1.0"
   },
   "engines": {
     "node": ">=0.10.22",

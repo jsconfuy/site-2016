@@ -1,6 +1,6 @@
-var keystone = require('keystone')
-var Types = keystone.Field.Types
-var countries = require('country-list')()
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
+var countries = require('country-list')();
 
 /**
  * Speakers Model
@@ -13,9 +13,9 @@ var Speaker = new keystone.List('Speaker', {
   autokey: { path: 'slug', from: 'name', unique: true },
   sortable: true,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
-})
+});
 
-Speaker.STATUS_CONFIRMED = 'C'
+Speaker.STATUS_CONFIRMED = 'C';
 
 Speaker.add(
   {
@@ -44,7 +44,10 @@ Speaker.add(
       ]},
     country: {
       label: 'Country', type: Types.Select, options: countries.getData().map(function (country) {
-        return {label: country.name, value: country.code}
+        return {
+          label: country.name,
+          value: country.code
+        };
       })},
     picture: { type: Types.CloudinaryImage },
     biography: {
@@ -74,10 +77,10 @@ Speaker.add(
       notes: {type: Types.Textarea}
     }
   }
-)
+);
 
-Speaker.relationship({ ref: 'Talk', refPath: 'speakers', path: 'talks' })
-Speaker.relationship({ ref: 'Workshop', refPath: 'speakers', path: 'workshops' })
+Speaker.relationship({ ref: 'Talk', refPath: 'speakers', path: 'talks' });
+Speaker.relationship({ ref: 'Workshop', refPath: 'speakers', path: 'workshops' });
 
-Speaker.defaultColumns = 'name, tags, status, assignee'
-Speaker.register()
+Speaker.defaultColumns = 'name, tags, status, assignee';
+Speaker.register();

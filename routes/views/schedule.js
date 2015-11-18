@@ -1,12 +1,12 @@
-var keystone = require('keystone')
-var schedule = require('../../lib/schedule')
-var moment = require('moment-timezone')
+var keystone = require('keystone');
+var schedule = require('../../lib/schedule');
+var moment = require('moment-timezone');
 
 exports = module.exports = function (req, res) {
-  var view = new keystone.View(req, res)
+  var view = new keystone.View(req, res);
   schedule.getTimetable(function (timetable) {
-    res.locals.timetable = timetable
-    res.locals.moment = moment
-    view.render('schedule')
-  })
-}
+    res.locals.timetable = timetable;
+    res.locals.moment = moment;
+    view.render('schedule');
+  });
+};

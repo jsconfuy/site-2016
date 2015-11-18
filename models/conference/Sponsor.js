@@ -1,5 +1,5 @@
-var keystone = require('keystone')
-var Types = keystone.Field.Types
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 /**
  * Sponsors Model
@@ -11,9 +11,9 @@ var Sponsor = new keystone.List('Sponsor', {
   perPage: 200,
   sortable: true,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
-})
+});
 
-Sponsor.STATUS_CONFIRMED = 'C'
+Sponsor.STATUS_CONFIRMED = 'C';
 
 Sponsor.add({
   name: { type: String, required: true },
@@ -36,7 +36,7 @@ Sponsor.add({
   published: { type: Types.Datetime },
   notes: { type: Types.Markdown },
   tags: { type: Types.Relationship, ref: 'Tag', many: true }
-})
+});
 
-Sponsor.defaultColumns = 'name, level, tags, status, published, paid, price, assignee'
-Sponsor.register()
+Sponsor.defaultColumns = 'name, level, tags, status, published, paid, price, assignee';
+Sponsor.register();

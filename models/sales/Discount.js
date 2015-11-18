@@ -1,5 +1,5 @@
-var keystone = require('keystone')
-var Types = keystone.Field.Types
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 /**
  * Discounts Model
@@ -11,7 +11,7 @@ var Discount = new keystone.List('Discount', {
   sortable: true,
   autokey: { path: 'code', from: 'name', unique: true },
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
-})
+});
 
 Discount.add({
   name: { type: String, required: true },
@@ -26,7 +26,7 @@ Discount.add({
   min: { type: Types.Number, default: 1, note: 'Minimun per purchase' },
   max: { type: Types.Number, default: 5, note: 'Maximun per purchase' },
   tickets: { type: Types.Relationship, ref: 'Ticket', many: true }
-})
+});
 
-Discount.defaultColumns = 'name, code, valid.from, valid.until, percentage, flat, limit, tickets'
-Discount.register()
+Discount.defaultColumns = 'name, code, valid.from, valid.until, percentage, flat, limit, tickets';
+Discount.register();

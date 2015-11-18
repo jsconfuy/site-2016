@@ -36,6 +36,5 @@ exports = module.exports = function (req, res) {
 
   view.render('cfw')
   */
-  res.redirect('/')
-
-}
+  res.redirect('/');
+};

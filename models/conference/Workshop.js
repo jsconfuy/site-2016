@@ -1,5 +1,5 @@
-var keystone = require('keystone')
-var Types = keystone.Field.Types
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 /**
  * Workshops Model
@@ -12,7 +12,7 @@ var Workshop = new keystone.List('Workshop', {
   autokey: { path: 'slug', from: 'name', unique: true },
   sortable: true,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
-})
+});
 
 Workshop.add({
   assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
@@ -31,10 +31,10 @@ Workshop.add({
   instructions: { type: Types.Markdown },
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
   notes: { type: Types.Markdown }
-})
+});
 
-Workshop.relationship({ ref: 'Speaker', path: 'speakers' })
-Workshop.relationship({ ref: 'Tag', path: 'tags' })
+Workshop.relationship({ ref: 'Speaker', path: 'speakers' });
+Workshop.relationship({ ref: 'Tag', path: 'tags' });
 
-Workshop.defaultColumns = 'title, speakers, tags, status, hours, assignee, language'
-Workshop.register()
+Workshop.defaultColumns = 'title, speakers, tags, status, hours, assignee, language';
+Workshop.register();

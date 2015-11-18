@@ -1,5 +1,5 @@
-var keystone = require('keystone')
-var Types = keystone.Field.Types
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 /**
  * Proposals Model
@@ -11,7 +11,7 @@ var Proposal = new keystone.List('Proposal', {
   perPage: 200,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true },
   sortable: true
-})
+});
 
 Proposal.add(
   {
@@ -57,27 +57,27 @@ Proposal.add(
       guest4: { label: 'Guest 4', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] }
     }
   }
-)
+);
 
 Proposal.schema.pre('save', function (next) {
-  var votes = 0
-  var score = 0
+  var votes = 0;
+  var score = 0;
   var inc = function (vote) {
-    score += vote || 0
-    votes += vote ? 1 : 0
-  }
-  inc(this.votes.pricco)
-  inc(this.votes.gchertok)
-  inc(this.votes.pdejuan)
-  inc(this.votes.respinosa)
-  inc(this.votes.lcal)
-  inc(this.votes.ssassi)
-  inc(this.votes.mprunell)
-  inc(this.votes.gcura)
-  this.score = (votes ? score / votes : 0).toFixed(1)
-  next()
-})
+    score += vote || 0;
+    votes += vote ? 1 : 0;
+  };
+  inc(this.votes.pricco);
+  inc(this.votes.gchertok);
+  inc(this.votes.pdejuan);
+  inc(this.votes.respinosa);
+  inc(this.votes.lcal);
+  inc(this.votes.ssassi);
+  inc(this.votes.mprunell);
+  inc(this.votes.gcura);
+  this.score = (votes ? score / votes : 0).toFixed(1);
+  next();
+});
 
-Proposal.relationship({ ref: 'Tag', path: 'tags' })
-Proposal.defaultColumns = 'topic|30%, name, coasted, tags, status, score, assignee'
-Proposal.register()
+Proposal.relationship({ ref: 'Tag', path: 'tags' });
+Proposal.defaultColumns = 'topic|30%, name, coasted, tags, status, score, assignee';
+Proposal.register();

@@ -1,11 +1,11 @@
-require('dotenv').load()
+require('dotenv').load();
 
-process.env.TZ = process.env.TZ || 'America/Montevideo'
-process.env.TICKET_RESERVATION = process.env.TICKET_RESERVATION || 8
+process.env.TZ = process.env.TZ || 'America/Montevideo';
+process.env.TICKET_RESERVATION = process.env.TICKET_RESERVATION || 8;
 
-var keystone = require('keystone')
+var keystone = require('keystone');
 
-require('./lib/patchs')
+require('./lib/patchs');
 
 keystone.init({
 
@@ -26,27 +26,27 @@ keystone.init({
   'user model': 'User',
   'cookie secret': '^v]|AGh(!xqsSq>OUl%<vSwxEh6WzFyN&v"Si0auh<xW1.6p_>lt>u8N"m.Q_Hzu'
 
-})
+});
 
-keystone.import('models')
+keystone.import('models');
 
 keystone.set('locals', {
   _: require('underscore'),
   env: keystone.get('env'),
   utils: keystone.utils,
   editable: keystone.content.editable
-})
+});
 
-keystone.set('routes', require('./routes'))
+keystone.set('routes', require('./routes'));
 
 if (keystone.get('env') !== 'production') {
-  keystone.set('sass options', { force: true })
+  keystone.set('sass options', { force: true });
 }
-keystone.set('cloudinary secure', true)
+keystone.set('cloudinary secure', true);
 
 keystone.set('email locals', {
   base_url: process.env.BASE_URL
-})
+});
 
 keystone.set('nav', {
   'conference': ['proposals', 'speakers', 'talks', 'workshops', 'organizers', 'volunteers', 'attendees', 'sponsors', 'sponsor-levels'],
@@ -54,6 +54,6 @@ keystone.set('nav', {
   'sales': ['tickets', 'discounts', 'orders'],
   'blog': ['posts', 'post-categories'],
   'others': ['users', 'tags', 'galleries']
-})
+});
 
-keystone.start()
+keystone.start();

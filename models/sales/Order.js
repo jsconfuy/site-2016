@@ -1,6 +1,6 @@
-var keystone = require('keystone')
-var mongoose = require('mongoose')
-var Types = keystone.Field.Types
+var keystone = require('keystone');
+var mongoose = require('mongoose');
+var Types = keystone.Field.Types;
 
 /**
  * Orders Model
@@ -12,7 +12,7 @@ var Order = new keystone.List('Order', {
   perPage: 200,
   track: {createdBy: true, createdAt: true, updatedBy: true, updatedAt: true},
   nocreate: true
-})
+});
 
 Order.add({
   name: {type: String},
@@ -38,19 +38,19 @@ Order.add({
     invoice: {type: String}
   },
   tags: {type: Types.Relationship, ref: 'Tag', many: true}
-})
+});
 
-Order.schema.add({'payment.data': mongoose.Schema.Types.Mixed})
+Order.schema.add({'payment.data': mongoose.Schema.Types.Mixed});
 
-Order.relationship({ref: 'Attendee', refPath: 'order', path: 'attendees'})
-Order.relationship({ ref: 'Tag', path: 'tags' })
+Order.relationship({ref: 'Attendee', refPath: 'order', path: 'attendees'});
+Order.relationship({ ref: 'Tag', path: 'tags' });
 
 Order.schema.methods.sendOrderConfirmation = function (callback) {
   if (typeof callback !== 'function') {
-    callback = function () {}
+    callback = function () {};
   }
-  var order = this
-  if (!order.email) return callback()
+  var order = this;
+  if (!order.email) return callback();
 
   new keystone.Email('order-confirmation').send({
     to: order.email,
@@ -60,8 +60,8 @@ Order.schema.methods.sendOrderConfirmation = function (callback) {
     },
     subject: 'Thank you!',
     order: order
-  }, callback)
-}
+  }, callback);
+};
 
-Order.defaultColumns = 'id, name, email, reserved, canceled, paid, ticket, discount, quantity'
-Order.register()
+Order.defaultColumns = 'id, name, email, reserved, canceled, paid, ticket, discount, quantity';
+Order.register();

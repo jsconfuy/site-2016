@@ -25,15 +25,14 @@ exports.initLocals = function (req, res, next) {
   var q = list.model.find().where('published').lte(Date.now()).where('status', list.STATUS_CONFIRMED).sort('sortOrder');
   q.exec(function (err, results) {
     locals.hasSpeakers = results.length;
-    console.log('hola');
-    next(err)
+    next(err);
   });
 };
 
 exports.requireUser = function (req, res, next) {
   if (!req.user) {
-    res.redirect('/keystone/signin')
+    res.redirect('/keystone/signin');
   } else {
-    next()
+    next();
   }
-}
+};

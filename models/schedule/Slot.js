@@ -1,5 +1,5 @@
-var keystone = require('keystone')
-var Types = keystone.Field.Types
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 /**
  * Slot Model
@@ -11,7 +11,7 @@ var Slot = new keystone.List('Slot', {
   sortable: true,
   perPage: 200,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
-})
+});
 
 Slot.add({
   name: {type: Types.Text, required: true, initial: true},
@@ -35,7 +35,7 @@ Slot.add({
   workshop: {type: Types.Relationship, ref: 'Workshop'},
   title: {type: Types.Text},
   description: {type: Types.Markdown}
-})
+});
 
-Slot.defaultColumns = 'name, day, track, duration, kind, content, talk, workshop'
-Slot.register()
+Slot.defaultColumns = 'name, day, track, duration, kind, content, talk, workshop';
+Slot.register();
