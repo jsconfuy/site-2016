@@ -31,6 +31,10 @@ body {
         @media (min-width: $screen-sm-min) {
           width: 50%;
         }
+
+        h1 {
+          font-size: 3em;
+        }
       }
 
       .map {

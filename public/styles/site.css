@@ -6543,6 +6543,9 @@ body {
           body > footer .footer .map,
           body > footer .footer .venue-info {
             width: 50%; } }
+        body > footer .footer .map h1,
+        body > footer .footer .venue-info h1 {
+          font-size: 3em; }
       body > footer .footer .map {
         background-repeat: no-repeat;
         background-position: center center;
