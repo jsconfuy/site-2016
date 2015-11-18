@@ -6651,6 +6651,8 @@ body {
             text-transform: uppercase; }
             body > footer .footer .venue-info .info .social a {
               font-size: 30px; }
+              body > footer .footer .venue-info .info .social a img {
+                width: 70px; }
     body > footer .copy {
       background-color: #c5473d;
       display: block;
