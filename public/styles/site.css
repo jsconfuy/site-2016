@@ -6523,6 +6523,10 @@ h2 {
   text-align: center;
   margin: 10px auto; }
 
+h1, h2, h3 {
+  font-weight: bold;
+  text-transform: uppercase; }
+
 /* End Base */
 /* Begin Header */
 body > header {
