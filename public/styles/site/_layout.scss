@@ -113,7 +113,8 @@ body > header {
 }
 
 .navbar .navbar-nav > li > a {
-  color: #777777;
+  color: $blue-dark;
+  font-weight: bold;
   text-decoration: none;
   font-family: $headings-font-family;
 }

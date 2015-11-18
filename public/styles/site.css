@@ -6596,7 +6596,8 @@ body > header {
     padding-top: 0px; } }
 
 .navbar .navbar-nav > li > a {
-  color: #777777;
+  color: #172636;
+  font-weight: bold;
   text-decoration: none;
   font-family: "Quicksand", Helvetica, Arial, sans-serif; }
 
