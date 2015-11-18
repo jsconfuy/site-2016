@@ -391,17 +391,22 @@ h2 {
 // End Header
 
 .page-title {
-  background-color: #fafafa;
-  background-image: url('/images/base/pattern.png');
+  background-color: $blue;
+  //background-image: url('/images/base/pattern.png');
   color: $white;
   margin-bottom: 30px;
   padding: 100px;
   width: 100%;
+  text-align: center;
 
   h1,
   h2 {
     font-weight: bold;
     text-transform: uppercase;
+  }
+
+  img {
+    width: 70%;
   }
 }
 

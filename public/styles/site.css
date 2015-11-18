@@ -6793,16 +6793,18 @@ h2 {
     margin-right: 70px; } }
 
 .page-title {
-  background-color: #fafafa;
-  background-image: url("/images/base/pattern.png");
+  background-color: #254064;
   color: #fff;
   margin-bottom: 30px;
   padding: 100px;
-  width: 100%; }
+  width: 100%;
+  text-align: center; }
   .page-title h1,
   .page-title h2 {
     font-weight: bold;
     text-transform: uppercase; }
+  .page-title img {
+    width: 70%; }
 
 #buy .intro button {
   position: absolute;

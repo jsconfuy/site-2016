@@ -12,23 +12,21 @@ mixin post(post)
     p!= post.content.brief.html
     if post.content.extended
       p.read-more: a(href='/blog/post/' + post.slug) Read more...
-    p.text-muted Posted 
+    p.text-muted Posted
       if post.published
-        | on #{post._.published.format('MMMM Do, YYYY')} 
+        | on #{post._.published.format('MMMM Do, YYYY')}
       if post.categories && post.categories.length
-        | in 
+        | in
         each cat, i in post.categories
           a(href='/blog/' + cat.key)= cat.name
           if i < post.categories.length - 1
-            | , 
-          else
-            |  
+            | ,
       if post.author
         | by #{post.author.name}
 
 block content
   .page-title
-    h1= data.category ? data.category.name : 'Blog'
+    img(src='/images/titles/blog.svg')
   .container: .row
     .col-md-8.col-md-offset-2
       if filters.category && !data.category
