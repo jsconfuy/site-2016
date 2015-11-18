@@ -14,18 +14,21 @@
       draggable: false,
       scrollwheel: false,
       panControl: false,
+      mapTypeControl: false,
       streetViewControl: false,
+      styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#193341"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#2c5a71"}]},{"featureType":"road","elementType":"geometry","stylers":[{"color":"#29768a"},{"lightness":-37}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#406d80"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#406d80"}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#3e606f"},{"weight":2},{"gamma":0.84}]},{"elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"weight":0.6},{"color":"#1a3541"}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#2c5a71"}]}]
     }
   );
   var marker = new google.maps.Marker({
     position: point,
     map: map,
     icon: {
-      url: '/images/base/logo.png',
-      size: new google.maps.Size(32, 32),
-      scaledSize: new google.maps.Size(32, 32),
+      // url: '/images/base/logo.png',
+      url: 'https://s3.amazonaws.com/uploads.hipchat.com/32900/709766/VFJMcUpVNHsaq5O/main.png',
+      size: new google.maps.Size(468, 468),
+      scaledSize: new google.maps.Size(100, 100),
       origin: new google.maps.Point(0, 0),
-      anchor: new google.maps.Point(0, 32),
+      anchor: new google.maps.Point(50, 100),
     }
   });
 
