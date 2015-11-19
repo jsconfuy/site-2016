@@ -6513,8 +6513,10 @@ button.close {
 body {
   padding-top: 70px; }
   body > header {
-    -webkit-box-shadow: 0 0.063em 0.25em rgba(37, 50, 55, 0.25);
-    box-shadow: 0 0.063em 0.25em rgba(37, 50, 55, 0.25);
+    -webkit-box-shadow: "0 .063em .25em rgba(37, 50, 55, .25)";
+    -moz-box-shadow: "0 .063em .25em rgba(37, 50, 55, .25)";
+    -o-box-shadow: "0 .063em .25em rgba(37, 50, 55, .25)";
+    box-shadow: "0 .063em .25em rgba(37, 50, 55, .25)";
     height: 70px;
     left: 0;
     position: fixed;
@@ -6547,12 +6549,12 @@ body {
         body > footer .footer .venue-info h1 {
           font-size: 3em; }
       body > footer .footer .map {
-        background-repeat: no-repeat;
-        background-position: center center;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
         background-color: #5596c0;
         display: none; }
         @media (min-width: 768px) {
@@ -6597,6 +6599,10 @@ body {
               margin-bottom: 45px;
               position: relative; }
               body > footer .footer .venue-info .info .data .group label {
+                -webkit-transition: "2.s ease all";
+                -moz-transition: "2.s ease all";
+                -o-transition: "2.s ease all";
+                transition: "2.s ease all";
                 color: #fff;
                 font-size: 18px;
                 font-weight: normal;
@@ -6605,8 +6611,6 @@ body {
                 position: absolute;
                 text-transform: uppercase;
                 top: 10px;
-                -moz-transition: .2s ease all;
-                -webkit-transition: .2s ease all;
                 transition: .2s ease all; }
               body > footer .footer .venue-info .info .data .group input:focus ~ label,
               body > footer .footer .venue-info .info .data .group input:valid ~ label {
@@ -6755,9 +6759,10 @@ h2 {
   body {
     padding-top: 70px; }
   .navbar .navbar-brand img {
-    left: -webkit-calc(50% - 70px);
-    left: -moz-calc(50% - 70px);
-    left: -o-calc(50% - 70px);
+    -webkit-left: calc(50% - 70px);
+    -moz-left: calc(50% - 70px);
+    -o-left: calc(50% - 70px);
+    left: calc(50% - 70px);
     display: block;
     height: 70px;
     position: absolute;
@@ -6798,8 +6803,8 @@ h2 {
   color: #fff;
   margin-bottom: 30px;
   padding: 100px;
-  width: 100%;
-  text-align: center; }
+  text-align: center;
+  width: 100%; }
   .page-title h1,
   .page-title h2 {
     font-weight: bold;
@@ -7079,17 +7084,23 @@ h2 {
 .loader:before,
 .loader:after,
 .loader {
-  -webkit-animation: load7 1.8s infinite ease-in-out;
-  animation: load7 1.8s infinite ease-in-out;
+  -webkit-animation: "load7 1.8s infinite ease-in-out";
+  -moz-animation: "load7 1.8s infinite ease-in-out";
+  -o-animation: "load7 1.8s infinite ease-in-out";
+  animation: "load7 1.8s infinite ease-in-out";
   -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
   animation-fill-mode: both;
   border-radius: 50%;
   height: 2.5em;
   width: 2.5em; }
 
 .loader {
-  -webkit-animation-delay: .16s;
-  animation-delay: .16s;
+  -webkit-animation-delay: 0.16s;
+  -moz-animation-delay: 0.16s;
+  -o-animation-delay: 0.16s;
+  animation-delay: 0.16s;
   font-size: 10px;
   margin: 8em auto;
   position: relative;
@@ -7099,8 +7110,10 @@ h2 {
   left: -3.5em; }
 
 .loader:after {
-  -webkit-animation-delay: .32s;
-  animation-delay: .32s;
+  -webkit-animation-delay: 0.32s;
+  -moz-animation-delay: 0.32s;
+  -o-animation-delay: 0.32s;
+  animation-delay: 0.32s;
   left: 3.5em; }
 
 .loader:before,
@@ -7225,18 +7238,23 @@ h2 {
           vertical-align: top;
           width: 282px; }
           .home body .speakers ul li .img {
-            background-repeat: no-repeat;
-            background-position: center center;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-            -webkit-clip-path: url("../images/home/mask.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            -webkit-clip-path: url("../images/home/mask.svg#hexagonPath");
+            -moz-clip-path: url("../images/home/mask.svg#hexagonPath");
+            -o-clip-path: url("../images/home/mask.svg#hexagonPath");
             clip-path: url("../images/home/mask.svg#hexagonPath");
+            -webkit-mask: url("../images/home/mask.svg");
+            -moz-mask: url("../images/home/mask.svg");
+            -o-mask: url("../images/home/mask.svg");
+            mask: url("../images/home/mask.svg");
             display: block;
             height: 230px;
             margin: 0 auto;
-            -webkit-mask: url("../images/home/mask.svg");
             width: 230px; }
             .home body .speakers ul li .img.empty {
               background: transparent url("../images/base/george.svg") no-repeat 50% 50%;
@@ -7282,21 +7300,23 @@ h2 {
         .home body .tickets-sale .buy-tickets .sold-out,
         .home body .call-for-proposal .buy-tickets a,
         .home body .call-for-proposal .buy-tickets .sold-out {
+          -webkit-transition: transform 200ms;
+          -moz-transition: transform 200ms;
+          -o-transition: transform 200ms;
+          transition: transform 200ms;
           display: block;
           background: url("/images/home/tickets.svg") no-repeat;
           background-position: center;
           height: 300px;
           margin: auto;
-          -webkit-transition: transform 200ms;
-          -moz-transition: transform 200ms;
-          transition: transform 200ms;
           width: 100%; }
           .home body .tickets-sale .buy-tickets a:hover,
           .home body .tickets-sale .buy-tickets .sold-out:hover,
           .home body .call-for-proposal .buy-tickets a:hover,
           .home body .call-for-proposal .buy-tickets .sold-out:hover {
-            -moz-transform: scale(1.05);
             -webkit-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+            -o-transform: scale(1.05);
             transform: scale(1.05); }
         .home body .tickets-sale .buy-tickets .sold-out,
         .home body .call-for-proposal .buy-tickets .sold-out {
@@ -7307,19 +7327,21 @@ h2 {
         text-align: center; }
         .home body .tickets-sale .call-proposal a,
         .home body .call-for-proposal .call-proposal a {
+          -webkit-transition: transform 200ms;
+          -moz-transition: transform 200ms;
+          -o-transition: transform 200ms;
+          transition: transform 200ms;
           display: block;
           background: url("/images/home/cft.svg") no-repeat;
           background-position: center;
           height: 300px;
           margin: auto;
-          -webkit-transition: transform 200ms;
-          -moz-transition: transform 200ms;
-          transition: transform 200ms;
           width: 100%; }
           .home body .tickets-sale .call-proposal a:hover,
           .home body .call-for-proposal .call-proposal a:hover {
-            -moz-transform: scale(1.05);
             -webkit-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+            -o-transform: scale(1.05);
             transform: scale(1.05); }
       .home body .tickets-sale .countdown .countdown-title,
       .home body .call-for-proposal .countdown .countdown-title {
@@ -7351,12 +7373,12 @@ h2 {
             padding: 24px;
             vertical-align: top; }
             .home body .sponsors ul ul li .img {
-              background-repeat: no-repeat;
-              background-position: center center;
               -webkit-background-size: cover;
               -moz-background-size: cover;
               -o-background-size: cover;
               background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center center;
               display: block;
               margin: 0 auto;
               text-decoration: none; }
@@ -7387,18 +7409,23 @@ h2 {
           width: 282px; }
           .home body .organizers ul li .img,
           .home body .volunteers ul li .img {
-            background-repeat: no-repeat;
-            background-position: center center;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
             -webkit-clip-path: url("../images/home/mask.svg");
-            clip-path: url("../images/home/mask.svg#hexagonPath");
+            -moz-clip-path: url("../images/home/mask.svg");
+            -o-clip-path: url("../images/home/mask.svg");
+            clip-path: url("../images/home/mask.svg");
+            -webkit-mask: url("../images/home/mask.svg");
+            -moz-mask: url("../images/home/mask.svg");
+            -o-mask: url("../images/home/mask.svg");
+            mask: url("../images/home/mask.svg");
             display: block;
             height: 230px;
             margin: 0 auto;
-            -webkit-mask: url("../images/home/mask.svg");
             width: 230px; }
             .home body .organizers ul li .img.empty,
             .home body .volunteers ul li .img.empty {
@@ -7468,17 +7495,27 @@ h2 {
   padding: 60px 0; }
 
 .hotels .img {
-  background-position: center center;
-  background-repeat: no-repeat;
+  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-mask: url("../images/home/mask-2.svg");
+  -moz-mask: url("../images/home/mask-2.svg");
+  -o-mask: url("../images/home/mask-2.svg");
+  mask: url("../images/home/mask-2.svg");
+  -webkit-mask-position: "center center";
+  -moz-mask-position: "center center";
+  -o-mask-position: "center center";
+  mask-position: "center center";
+  -webkit-mask-size: cover;
+  -moz-mask-size: cover;
+  -o-mask-size: cover;
+  mask-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   background-size: cover;
   display: block;
   margin: 0 auto;
-  -webkit-mask: url("../images/home/mask-2.svg");
-  -webkit-mask-position: center center;
-  -webkit-mask-size: cover;
   padding: 31%; }
 
 .main-logo #main {
@@ -7639,20 +7676,26 @@ h2 {
           .schedule table tr td.slot .box .title.has-description {
             cursor: pointer; }
             .schedule table tr td.slot .box .title.has-description:hover:after {
-              -moz-transform: rotate(360deg);
               -webkit-transform: rotate(360deg);
+              -moz-transform: rotate(360deg);
+              -o-transform: rotate(360deg);
               transform: rotate(360deg); }
             .schedule table tr td.slot .box .title.has-description:after {
+              -webkit-transition: all 100ms;
+              -moz-transition: all 100ms;
+              -o-transition: all 100ms;
+              transition: all 100ms;
               color: #c5473d;
               content: '+';
               cursor: pointer;
               display: inline-block;
               font-weight: 700;
-              margin-left: 4px;
-              -moz-transition: all 100ms;
-              -webkit-transition: all 100ms;
-              transition: all 100ms; }
+              margin-left: 4px; }
         .schedule table tr td.slot .box .description {
+          -webkit-transition: all east-out 100ms;
+          -moz-transition: all east-out 100ms;
+          -o-transition: all east-out 100ms;
+          transition: all east-out 100ms;
           color: #666;
           display: block;
           font-size: .75em;
@@ -7661,10 +7704,7 @@ h2 {
           opacity: 0;
           overflow: hidden;
           padding: 0 15px;
-          text-align: left;
-          -moz-transition: all ease-out 100ms;
-          -webkit-transition: all ease-out 100ms;
-          transition: all ease-out 100ms; }
+          text-align: left; }
           .schedule table tr td.slot .box .description.active {
             height: auto;
             margin-top: 15px;
@@ -7686,32 +7726,40 @@ h2 {
               font-weight: 700;
               text-transform: uppercase; }
             .schedule table tr td.slot-talk .box .speakers .speaker .picture, .schedule table tr td.slot-workshop .box .speakers .speaker .picture, .schedule table tr td.slot-keynote .box .speakers .speaker .picture {
-              background-repeat: no-repeat;
-              background-position: center center;
               -webkit-background-size: cover;
               -moz-background-size: cover;
               -o-background-size: cover;
               background-size: cover;
-              -webkit-clip-path: url("../images/schedule/mask-small.svg");
+              background-repeat: no-repeat;
+              background-position: center center;
+              -webkit-clip-path: url("../images/schedule/mask-small.svg#hexagonPath");
+              -moz-clip-path: url("../images/schedule/mask-small.svg#hexagonPath");
+              -o-clip-path: url("../images/schedule/mask-small.svg#hexagonPath");
               clip-path: url("../images/schedule/mask-small.svg#hexagonPath");
+              -webkit-mask: url("../images/schedule/mask-small.svg");
+              -moz-mask: url("../images/schedule/mask-small.svg");
+              -o-mask: url("../images/schedule/mask-small.svg");
+              mask: url("../images/schedule/mask-small.svg");
               display: block;
               height: 40px;
               margin: 0 auto;
-              -webkit-mask: url("../images/schedule/mask-small.svg");
               width: 40px; }
               .schedule table tr td.slot-talk .box .speakers .speaker .picture.empty, .schedule table tr td.slot-workshop .box .speakers .speaker .picture.empty, .schedule table tr td.slot-keynote .box .speakers .speaker .picture.empty {
                 background: transparent url("../images/base/george.svg") no-repeat 50% 50%;
                 background-size: 70% auto; }
         .schedule table tr td.slot-talk:before, .schedule table tr td.slot-workshop:before, .schedule table tr td.slot-keynote:before {
-          width: -webkit-calc(100% - 10px);
-          width: -moz-calc(100% - 10px);
-          width: -o-calc(100% - 10px);
+          -webkit-width: calc(100% - 10px);
+          -moz-width: calc(100% - 10px);
+          -o-width: calc(100% - 10px);
+          width: calc(100% - 10px);
+          -webkit-height: calc(100% - 10px);
+          -moz-height: calc(100% - 10px);
+          -o-height: calc(100% - 10px);
+          height: calc(100% - 10px);
           border: 1px solid #e0e0d9;
           border-radius: 5px;
           content: '';
           display: block;
-          height: -webkit-calc(100% - 10px);
-          height: -moz-calc(100% - 10px);
           left: 5px;
           position: absolute;
           top: 5px;

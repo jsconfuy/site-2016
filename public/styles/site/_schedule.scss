@@ -63,27 +63,24 @@
                 &:hover {
 
                   &:after {
-                    -moz-transform: rotate(360deg);
-                    -webkit-transform: rotate(360deg);
-                    transform: rotate(360deg);
+                    @include cross-browser(transform, rotate(360deg));
                   }
                 }
 
                 &:after {
+                  @include cross-browser(transition, all 100ms);
                   color: $red;
                   content: '+';
                   cursor: pointer;
                   display: inline-block;
                   font-weight: 700;
                   margin-left: 4px;
-                  -moz-transition: all 100ms;
-                  -webkit-transition: all 100ms;
-                  transition: all 100ms;
                 }
               }
             }
 
             .description {
+              @include cross-browser(transition, all east-out 100ms);
               color: $gray-dark;
               display: block;
               font-size: .75em;
@@ -93,9 +90,6 @@
               overflow: hidden;
               padding: 0 15px;
               text-align: left;
-              -moz-transition: all ease-out 100ms;
-              -webkit-transition: all ease-out 100ms;
-              transition: all ease-out 100ms;
 
               &.active {
                 height: auto;
@@ -147,12 +141,11 @@
 
                 .picture {
                   @include background-size-cover();
-                  -webkit-clip-path: url('../images/schedule/mask-small.svg');
-                  clip-path: url('../images/schedule/mask-small.svg#hexagonPath');
+                  @include cross-browser(clip-path, url('../images/schedule/mask-small.svg#hexagonPath'));
+                  @include cross-browser(mask, url('../images/schedule/mask-small.svg'));
                   display: block;
                   height: 40px;
                   margin: 0 auto;
-                  -webkit-mask: url('../images/schedule/mask-small.svg');
                   width: 40px;
 
                   &.empty {
@@ -166,12 +159,11 @@
 
           &:before {
             @include calc(width, '100% - 10px');
+            @include calc(height, '100% - 10px');
             border: 1px solid $gray-light;
             border-radius: 5px;
             content: '';
             display: block;
-            height: -webkit-calc(100% - 10px);
-            height: -moz-calc(100% - 10px);
             left: 5px;
             position: absolute;
             top: 5px;

@@ -128,15 +128,12 @@
           width: 282px;
 
           .img {
-
             @include background-size-cover();
-
-            -webkit-clip-path: url('../images/home/mask.svg');
-            clip-path: url('../images/home/mask.svg#hexagonPath');
+            @include cross-browser(clip-path, url('../images/home/mask.svg#hexagonPath'));
+            @include cross-browser(mask, url('../images/home/mask.svg'));
             display: block;
             height: 230px;
             margin: 0 auto;
-            -webkit-mask: url('../images/home/mask.svg');
             width: 230px;
 
             &.empty {
@@ -302,12 +299,11 @@
 
           .img {
             @include background-size-cover();
-            -webkit-clip-path: url('../images/home/mask.svg');
-            clip-path: url('../images/home/mask.svg#hexagonPath');
+            @include cross-browser(clip-path, url('../images/home/mask.svg'));
+            @include cross-browser(mask, url('../images/home/mask.svg'));
             display: block;
             height: 230px;
             margin: 0 auto;
-            -webkit-mask: url('../images/home/mask.svg');
             width: 230px;
 
             &.empty {

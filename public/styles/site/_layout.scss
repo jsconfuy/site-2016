@@ -2,8 +2,7 @@ body {
   padding-top: $navbar-height;
 
   > header {
-    -webkit-box-shadow: 0 .063em .25em rgba(37, 50, 55, .25); // 1 4
-    box-shadow: 0 .063em .25em rgba(37, 50, 55, .25); // 1 4
+    @include cross-browser(box-shadow, '0 .063em .25em rgba(37, 50, 55, .25)');
     height: $navbar-height;
     left: 0;
     position: fixed;
@@ -102,6 +101,7 @@ body {
               position: relative;
 
               label {
+                @include cross-browser(transition, '2.s ease all');
                 color: $white;
                 font-size: 18px;
                 font-weight: normal;
@@ -110,8 +110,6 @@ body {
                 position: absolute;
                 text-transform: uppercase;
                 top: 10px;
-                -moz-transition: .2s ease all;
-                -webkit-transition: .2s ease all;
                 transition: .2s ease all;
               }
 
@@ -392,13 +390,13 @@ h2 {
 // End Header
 
 .page-title {
-  background-color: $blue;
   //background-image: url('/images/base/pattern.png');
+  background-color: $blue;
   color: $white;
   margin-bottom: 30px;
   padding: 100px;
-  width: 100%;
   text-align: center;
+  width: 100%;
 
   h1,
   h2 {
@@ -787,18 +785,15 @@ h2 {
 .loader:before,
 .loader:after,
 .loader {
-  -webkit-animation: load7 1.8s infinite ease-in-out;
-  animation: load7 1.8s infinite ease-in-out;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+  @include cross-browser(animation, 'load7 1.8s infinite ease-in-out');
+  @include cross-browser(animation-fill-mode, both);
   border-radius: 50%;
   height: 2.5em;
   width: 2.5em;
 }
 
 .loader {
-  -webkit-animation-delay: .16s;
-  animation-delay: .16s;
+  @include cross-browser(animation-delay, .16s);
   font-size: 10px;
   margin: 8em auto;
   position: relative;
@@ -810,8 +805,7 @@ h2 {
 }
 
 .loader:after {
-  -webkit-animation-delay: .32s;
-  animation-delay: .32s;
+  @include cross-browser(animation-delay, .32s);
   left: 3.5em;
 }
 

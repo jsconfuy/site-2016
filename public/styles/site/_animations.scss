@@ -16,6 +16,46 @@
   position: relative;
 }
 
+@mixin cross-animation($id, $first, $second) {
+  @content;
+  @-webkit-keyframes #{id} {
+    0% {
+      -webkit-transform: $first;
+    }
+
+    100% {
+      -webkit-transform: $second;
+    }
+  }
+  @-moz-keyframes #{id} {
+    0% {
+      -moz-transform: $first;
+    }
+
+    100% {
+      -moz-transform: $second;
+    }
+  }
+  @-ms-keyframes #{id} {
+    0% {
+      -ms-transform: $first;
+    }
+
+    100% {
+      -ms-transform: $second;
+    }
+  }
+  @keyframes #{id} {
+    0% {
+      transform: $first;
+    }
+
+    100% {
+      transform: $second;
+    }
+  }
+}
+
 @-webkit-keyframes main-rot {
   0% {
     -webkit-transform: rotateZ(-3deg);

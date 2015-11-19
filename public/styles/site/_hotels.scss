@@ -37,17 +37,15 @@
   }
 
   .img {
+    @include cross-browser(background-size, cover);
+    @include cross-browser(mask, url('../images/home/mask-2.svg'));
+    @include cross-browser(mask-position, 'center center');
+    @include cross-browser(mask-size, cover);
     background-position: center center;
     background-repeat: no-repeat;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -webkit-background-size: cover;
     background-size: cover;
     display: block;
     margin: 0 auto;
-    -webkit-mask: url('../images/home/mask-2.svg');
-    -webkit-mask-position: center center;
-    -webkit-mask-size: cover;
     padding: 31%;
   }
 
