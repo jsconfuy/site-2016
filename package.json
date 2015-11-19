@@ -1,8 +1,8 @@
 {
   "name": "jsconfuy",
-  "version": "0.0.1",
+  "version": "0.0.2016",
   "private": true,
-  "homepage": "http://2015.jsconf.uy/",
+  "homepage": "http://2016.jsconf.uy/",
   "license": "MIT",
   "dependencies": {
     "async": "^1.4.2",
