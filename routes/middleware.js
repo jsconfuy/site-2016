@@ -1,6 +1,5 @@
 // Load .env for development environments
 require('dotenv').load();
-var keystone = require('keystone');
 
 exports.initLocals = function (req, res, next) {
   var locals = res.locals;
@@ -20,13 +19,7 @@ exports.initLocals = function (req, res, next) {
   locals.paypalEnv = process.env.PAYPAL_ENV;
   locals.paypalBusiness = process.env.PAYPAL_BUSINESS;
   locals.gold = req.query.g === '' ? 'gold' : '';
-
-  var list = keystone.list('Speaker');
-  var q = list.model.find().where('published').lte(Date.now()).where('status', list.STATUS_CONFIRMED).sort('sortOrder');
-  q.exec(function (err, results) {
-    locals.hasSpeakers = results.length;
-    next(err);
-  });
+  next();
 };
 
 exports.requireUser = function (req, res, next) {

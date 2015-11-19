@@ -83,18 +83,17 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
           ul.nav.navbar-nav
             li(class=(section == 'cft' ? 'active' : null))
               a(href='/proposals') Call for Talks
-            //li(class=(section == 'cfw' ? 'active' : null))
-            //  a(href='/workshops') Call for Workshops
-            if hasSpeakers
-              li
-                a(href='/#speakers') Speakers
+            li(class=(section == 'cfw' ? 'active' : null))
+              a(href='/workshops') Call for Workshops
             li
-              a(href='/#sponsors') Sponsors
+              a(href='/#speakers') Speakers
             //li(class=(section == 'schedule' ? 'active' : null))
               a(href='/schedule') Schedule
             li.nav-logo
               a(href='/')
                 img(src="/images/base/small-logo.svg")
+            li
+              a(href='/#sponsors') Sponsors
             li(class=(section == 'venue' ? 'active' : null))
               a(href='/venue') Venue
             //li(class=(section == 'hotels' ? 'active' : null))
