@@ -6603,6 +6603,7 @@ body {
                 left: 5px;
                 pointer-events: none;
                 position: absolute;
+                text-transform: uppercase;
                 top: 10px;
                 -moz-transition: .2s ease all;
                 -webkit-transition: .2s ease all;

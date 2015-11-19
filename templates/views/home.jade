@@ -92,17 +92,18 @@ block content
           a.name(href='//twitter.com/#{organizer.twitter}')
             != organizer.name
 
-  .volunteers
-    h1 Volunteers
-    ul
-      each volunteer in volunteers
-        li
-          if volunteer.picture.exists
-            .img(style='background-image: url(#{volunteer._.picture.fill(230,230)})')
-          else
-            .img.empty
-          a.name(href='//twitter.com/#{volunteer.twitter}')
-            != volunteer.name
+  if volunteers.length
+    .volunteers
+      h1 Volunteers
+      ul
+        each volunteer in volunteers
+          li
+            if volunteer.picture.exists
+              .img(style='background-image: url(#{volunteer._.picture.fill(230,230)})')
+            else
+              .img.empty
+            a.name(href='//twitter.com/#{volunteer.twitter}')
+              != volunteer.name
 
 block js
   script(src='/js/lib/jquery.countdown.min.js')
