@@ -7308,7 +7308,7 @@ h2 {
         .home body .tickets-sale .call-proposal a,
         .home body .call-for-proposal .call-proposal a {
           display: block;
-          background: url("/images/home/cfp.svg") no-repeat;
+          background: url("/images/home/cft.svg") no-repeat;
           background-position: center;
           height: 300px;
           margin: auto;
