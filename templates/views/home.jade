@@ -12,12 +12,11 @@ block top
       img(src='/images/home/city-background.svg', class='background')
     ul
       li(class=(section == 'cfp' ? 'active' : null))
-        a(href='/proposals') Call for Proposals
-      // li(class=(section == 'cfw' ? 'active' : null))
-      //   a(href='/workshops') Call for Workshops
-      if speakers.length > 0
-        li
-          a(href='/#speakers') Speakers
+        a(href='/proposals') Call for Talks
+      li(class=(section == 'cfw' ? 'active' : null))
+        a(href='/workshops') Call for Workshops
+      li
+        a(href='/#speakers') Speakers
       li
         a(href='/#sponsors') Sponsors
       //li

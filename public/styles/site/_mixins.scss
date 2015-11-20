@@ -6,34 +6,25 @@
 }
 
 @mixin calc($property, $expression) {
-  #{$property}: -webkit-calc(#{$expression});
-  #{$property}: -moz-calc(#{$expression});
-  #{$property}: -o-calc(#{$expression});
+  @include cross-browser(#{$property}, calc(#{$expression}));
 }
 
 @mixin background-size-cover() {
+  @include cross-browser(background-size, cover);
   background-repeat: no-repeat;
   background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
 @mixin badge-zoom($badge-image) {
+  @include cross-browser(transition, transform 200ms);
   display: block;
   background: url($badge-image) no-repeat;
   background-position: center;
   height: 300px;
   margin: auto;
-  -webkit-transition: transform 200ms;
-  -moz-transition: transform 200ms;
-  transition: transform 200ms;
   width: 100%;
 
   &:hover {
-    -moz-transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    @include cross-browser(transform, scale(1.05));
   }
 }

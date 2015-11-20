@@ -26,5 +26,5 @@ exports = module.exports = function (req, res) {
       next();
     });
   });
-  view.render('cfp');
+  view.render('cft');
 };
