@@ -12,7 +12,7 @@ block top
       img(src='/images/home/city-background.svg', class='background')
     ul
       li(class=(section == 'cfp' ? 'active' : null))
-        a(href='/proposals') Call for Talks
+        a(href='/talks') Call for Talks
       li(class=(section == 'cfw' ? 'active' : null))
         a(href='/workshops') Call for Workshops
       li
@@ -45,7 +45,7 @@ block content
        span.countdown-clock
   #call-for-proposal.call-for-proposal
     .call-proposal
-      a(href='/proposals')  
+      a(href='/talks')  
   if speakers.length 
     #speakers.speakers
         h1 Meet the Speakers

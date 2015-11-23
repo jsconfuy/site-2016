@@ -17,7 +17,7 @@ exports = module.exports = function (app) {
   app.get('/agenda', routes.views.agenda);
   app.get('/schedule', routes.views.schedule);
   app.get('/code-of-conduct', routes.views.coc);
-  app.all('/proposals', routes.views.cft);
+  app.all('/talks', routes.views.cft);
   app.all('/workshops', routes.views.cfw);
   app.get('/blog/:category?', routes.views.blog);
   app.get('/blog/post/:post', routes.views.post);
