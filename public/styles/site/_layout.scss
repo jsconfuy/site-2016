@@ -1,5 +1,5 @@
 body {
-  padding-top: $navbar-height;
+  padding-top: $navbar-height * 2;
 
   > header {
     @include cross-browser(box-shadow, '0 .063em .25em rgba(37, 50, 55, .25)');
@@ -269,6 +269,16 @@ h2 {
 .navbar {
   border: 0;
 
+  .navbar-nav {
+    padding-top: $navbar-height;
+
+    > .nav-logo {
+      left: calc(50% - 70px);
+      position: absolute;
+      top: 0;
+    }
+  }
+
   .navbar-brand {
     padding: 0;
 
@@ -306,23 +316,6 @@ h2 {
     line-height: $navbar-height;
     padding: 0 15px;
     vertical-align: middle;
-  }
-}
-
-@media (max-width: 1470px) {
-
-  body {
-    padding-top: ($navbar-height * 2);
-  }
-
-  .navbar .navbar-nav > .nav-logo {
-    left: calc(50% - 70px);
-    position: absolute;
-    top: 0;
-  }
-
-  .navbar .navbar-nav {
-    padding-top: $navbar-height;
   }
 }
 
