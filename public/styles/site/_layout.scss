@@ -387,7 +387,7 @@ h2 {
   background-color: $blue;
   color: $white;
   margin-bottom: 30px;
-  padding: 100px;
+  padding: 5%;
   text-align: center;
   width: 100%;
 
@@ -398,7 +398,7 @@ h2 {
   }
 
   img {
-    width: 70%;
+    max-width: 70%;
   }
 }
 
