@@ -90,7 +90,7 @@ block content
             p We'll contact you shortly.
           else
             h2#submit Submit
-            form(method='post', action='/talks#submit')
+            form(method='post', action='/talks#submit').upper-form
               - var errors = cfp.errors || {}
               - var data = cfp.data || {}
               input(type='hidden', name='action', value='submit')

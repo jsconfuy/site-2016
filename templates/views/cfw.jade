@@ -57,7 +57,7 @@ block content
             p We'll contact you shortly.
           else
             h2#submit Submit
-            form(method='post', action='/workshops#submit')
+            form(method='post', action='/workshops#submit').upper-form
               - var errors = cfw.errors || {}
               - var data = cfw.data || {}
               input(type='hidden', name='action', value='submit')

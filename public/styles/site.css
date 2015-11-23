@@ -6823,6 +6823,9 @@ h2 {
     left: 0;
     background: url("/images/base/form-mid.svg") top left repeat-y; }
 
+.upper-form label {
+  text-transform: uppercase; }
+
 #buy .intro button {
   position: absolute;
   right: 30px;
