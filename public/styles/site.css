@@ -6808,6 +6808,21 @@ h2 {
   .page-title img {
     width: 70%; }
 
+.borderd-form {
+  position: relative;
+  z-index: 2;
+  background: url("/images/base/form-top.svg") top left no-repeat, url("/images/base/form-bottom.svg") bottom left no-repeat;
+  background-size: 100% 100px; }
+  .borderd-form:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 99px;
+    right: 0;
+    bottom: 99px;
+    left: 0;
+    background: url("/images/base/form-mid.svg") top left repeat-y; }
+
 #buy .intro button {
   position: absolute;
   right: 30px;
