@@ -11,10 +11,10 @@ block top
       include ../../public/images/home/main.svg
       img(src='/images/home/city-background.svg', class='background')
     ul
-      li(class=(section == 'cfp' ? 'active' : null))
-        a(href='/talks') Call for Talks
-      li(class=(section == 'cfw' ? 'active' : null))
-        a(href='/workshops') Call for Workshops
+      // li(class=(section == 'cfp' ? 'active' : null))
+      //   a(href='/talks') Call for Talks
+      // li(class=(section == 'cfw' ? 'active' : null))
+      //   a(href='/workshops') Call for Workshops
       li
         a(href='/#speakers') Speakers
       li
@@ -43,9 +43,9 @@ block content
        h2.countdown-title
          | Final batch starts in...
        span.countdown-clock
-  #call-for-proposal.call-for-proposal
-    .call-proposal
-      a(href='/talks')  
+  // #call-for-proposal.call-for-proposal
+  //   .call-proposal
+  //     a(href='/talks')  
   if speakers.length 
     #speakers.speakers
         h1 Meet the Speakers
