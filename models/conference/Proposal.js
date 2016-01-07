@@ -17,10 +17,10 @@ Proposal.add(
   {
     assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
     topic: { type: String, required: true, intial: true },
-    status: { type: Types.Select, default: 'N', options: [
-      { value: 'N', label: 'New' },
+    status: { type: Types.Select, default: 'P', options: [
       { value: 'P', label: 'Pending' },
       { value: 'A', label: 'Accepted' },
+      { value: 'O', label: 'Confirmed' },
       { value: 'C', label: 'Canceled' },
       { value: 'D', label: 'Declined' }
     ]},
