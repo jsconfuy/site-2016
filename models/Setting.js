@@ -16,6 +16,7 @@ Setting.add({
   description: { type: String }
 });
 
+/*
 Setting.get = function (key, def, errback, callback) {
   Setting.model.findOne({key: key}).exec(function (err, setting) {
     if (err) {
@@ -27,6 +28,7 @@ Setting.get = function (key, def, errback, callback) {
     }
   });
 };
+*/
 
 Setting.defaultColumns = 'name, description, value';
 Setting.register();
