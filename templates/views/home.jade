@@ -35,18 +35,18 @@ block top
       //  a(href='javascript:void(0);', data-buy) Buy Ticket!
 
 block content
-  //#tickets-sale.tickets-sale
-     .buy-tickets
-       //a.sold-out(href='javascript:void(0);')
-       a(href='javascript:void(0);', data-buy)
-     .countdown
-       h2.countdown-title
-         | Final batch starts in...
-       span.countdown-clock
+  #tickets-sale.tickets-sale
+   .buy-tickets
+     // span.sold-out
+     a(href='javascript:void(0);', data-buy)
+   .countdown
+     h2.countdown-title
+       | Early Bird batch starts in...
+     span.countdown-clock
   // #call-for-proposal.call-for-proposal
   //   .call-proposal
-  //     a(href='/talks')  
-  if speakers.length 
+  //     a(href='/talks')
+  if speakers.length
     #speakers.speakers
         h1 Meet the Speakers
         ul

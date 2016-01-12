@@ -1,4 +1,4 @@
-;(function() {
+(function ($) {
   'use strict';
 
   var countdownTime = '';
@@ -13,7 +13,7 @@
     }
   });
 
-  var start = new Date(Date.UTC(2015, 3, 6, 19, 0, 0));
+  var start = new Date(Date.UTC(2016, 0, 12, 15, 0, 0));
   var countdown = $('.countdown-clock').countdown(start);
 
   countdown.on('update.countdown', function (clock) {
@@ -34,5 +34,4 @@
     $('.countdown').hide();
     $('.buy-tickets').fadeIn(200);
   });
-
-}());
+}(window.jQuery));
