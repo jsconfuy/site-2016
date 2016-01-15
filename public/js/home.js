@@ -13,7 +13,7 @@
     }
   });
 
-  var start = new Date(Date.UTC(2016, 0, 12, 15, 0, 0));
+  var start = new Date(Date.UTC(2016, 0, 18, 15, 0, 0));
   var countdown = $('.countdown-clock').countdown(start);
 
   countdown.on('update.countdown', function (clock) {
