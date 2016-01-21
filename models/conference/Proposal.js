@@ -17,7 +17,8 @@ Proposal.add(
   {
     assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
     topic: { type: String, required: true, intial: true },
-    status: { type: Types.Select, default: 'P', options: [
+    status: { type: Types.Select, default: 'E', options: [
+      { value: 'E', label: 'Enqueued' },
       { value: 'P', label: 'Pending' },
       { value: 'A', label: 'Accepted' },
       { value: 'O', label: 'Confirmed' },
