@@ -33,7 +33,9 @@ Proposal.add(
       { value: 'W', label: 'Workshop' }
     ]},
     summary: { type: Types.Textarea},
+    diversity: { type: Types.Boolean, default: false, indent: true },
     coasted: { type: Types.Boolean, intial: true, default: false, indent: true },
+    estimated: { type: Types.Money, required: false, default: 0 },
     name: { type: String },
     email: { type: Types.Email },
     residence: { type: String },
@@ -68,13 +70,13 @@ Proposal.schema.pre('save', function (next) {
     votes += vote ? 1 : 0;
   };
   inc(this.votes.pricco);
-  inc(this.votes.gchertok);
   inc(this.votes.pdejuan);
-  inc(this.votes.respinosa);
-  inc(this.votes.lcal);
   inc(this.votes.ssassi);
   inc(this.votes.mprunell);
-  inc(this.votes.gcura);
+  inc(this.votes.guest1);
+  inc(this.votes.guest2);
+  inc(this.votes.guest3);
+  inc(this.votes.guest4);
   this.score = (votes ? score / votes : 0).toFixed(1);
   next();
 });
