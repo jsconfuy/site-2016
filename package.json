@@ -29,6 +29,7 @@
     "jscs": "~2.5.1",
     "gulp-scss-lint": "~0.3.8",
     "gulp-eslint": "~1.1.0",
+    "gulp-svgmin": "^1.2.1",
     "gulp-jscs": "~3.0.2"
   },
   "engines": {
