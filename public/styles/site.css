@@ -6743,7 +6743,8 @@ h2 {
       background-color: #fff;
       color: #254064; }
   .navbar .navbar-nav > .nav-logo > a > img {
-    width: 140px; }
+    width: 140px;
+    height: 70px; }
 
 @media (min-width: 768px) {
   .navbar .navbar-nav > li > a {
@@ -7618,36 +7619,6 @@ h2 {
     transform: translateY(0); }
   100% {
     transform: translateY(-10px); } }
-
-.gold a {
-  color: #d4af37; }
-
-.gold.home .top {
-  background: transparent url("/images/base/gold.jpg") repeat; }
-  .gold.home .top ul li a {
-    color: #14150c; }
-  .gold.home .top #city #dress {
-    opacity: 1; }
-
-.gold.home .organizers {
-  background: transparent url("/images/base/gold.jpg") repeat; }
-
-.gold.home .speakers ul li .name {
-  color: #d4af37; }
-
-.gold h1,
-.gold h2,
-.gold h3 {
-  color: #d4af37; }
-
-.gold body > footer {
-  background: #fff; }
-  .gold body > footer .footer .venue-info .venue h1,
-  .gold body > footer .footer .venue-info .venue h2,
-  .gold body > footer .footer .venue-info .info h3 {
-    color: #d4af37; }
-  .gold body > footer .footer .venue-info .info .data button {
-    background-color: #d4af37; }
 
 .schedule .coming {
   background-color: #e0e0d9;

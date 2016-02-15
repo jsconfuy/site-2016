@@ -14,27 +14,36 @@ var Workshop = new keystone.List('Workshop', {
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 });
 
-Workshop.add({
-  assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
-  title: { type: String, required: true },
-  speakers: { type: Types.Relationship, ref: 'Speaker', many: true },
-  description: { type: Types.Markdown },
-  language: { type: Types.Select, default: 'E', options: [
-    { value: 'E', label: 'English' },
-    { value: 'S', label: 'Spanish' }]},
-  status: { type: Types.Select, default: 'P', options: [
-    { value: 'P', label: 'Pending' },
-    { value: 'W', label: 'Waiting' },
-    { value: 'C', label: 'Confirmed' },
-    { value: 'D', label: 'Declined' }]},
-  hours: { type: Types.Number },
-  instructions: { type: Types.Markdown },
-  tags: { type: Types.Relationship, ref: 'Tag', many: true },
-  notes: { type: Types.Markdown }
-});
+Workshop.add(
+  'Organization',
+  {
+    proposal: { type: Types.Relationship, ref: 'Proposal', many: false },
+    invitation: { type: Types.Relationship, ref: 'Invitation', many: false },
+    assignee: { type: Types.Relationship, ref: 'Member', index: true },
+    status: { type: Types.Select, default: 'D', options: [
+      { value: 'D', label: 'Draft' },
+      { value: 'T', label: 'To Publish' },
+      { value: 'P', label: 'Published' }
+    ]},
+    tags: {type: Types.Relationship, ref: 'Tag', many: true},
+    notes: {type: Types.Markdown}
+  },
+  'Details',
+  {
+    title: { type: String, required: true },
+    speakers: { type: Types.Relationship, ref: 'Speaker', many: true },
+    description: { type: Types.Markdown },
+    language: { type: Types.Select, default: 'E', options: [
+      { value: 'E', label: 'English' },
+      { value: 'S', label: 'Spanish' }]},
+    hours: { type: Types.Number },
+    instructions: { type: Types.Markdown },
+  }
+);
 
 Workshop.relationship({ ref: 'Speaker', path: 'speakers' });
 Workshop.relationship({ ref: 'Tag', path: 'tags' });
+Workshop.relationship({ ref: 'Slot', refPath: 'workshop', path: 'slots' });
 
 Workshop.defaultColumns = 'title, speakers, tags, status, hours, assignee, language';
 Workshop.register();

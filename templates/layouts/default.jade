@@ -4,7 +4,7 @@
 block vars
 
 doctype html
-html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
+html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
 
   head
     meta(charset="utf-8")
@@ -72,10 +72,7 @@ html(class='#{gold} #{klass}', lang='en', prefix='og: http://ogp.me/ns#')
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/')
-            if gold
-              img(src='/images/base/logo-gold.png', alt='JSConf Uruguay')
-            else
-              img(src='/images/base/small-logo.svg', alt='JSConf Uruguay')
+            img(src='/images/base/small-logo.svg', alt='JSConf Uruguay')
         .collapse.navbar-collapse
           ul.nav.navbar-nav
             // li(class=(section == 'cft' ? 'active' : null))

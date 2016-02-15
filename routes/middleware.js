@@ -18,7 +18,6 @@ exports.initLocals = function (req, res, next) {
   locals.twocoSellerId = process.env.TWOCO_SELLER_ID;
   locals.paypalEnv = process.env.PAYPAL_ENV;
   locals.paypalBusiness = process.env.PAYPAL_BUSINESS;
-  locals.gold = req.query.g === '' ? 'gold' : '';
   next();
 };
 

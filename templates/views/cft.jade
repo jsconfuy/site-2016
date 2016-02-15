@@ -107,9 +107,9 @@ block content
               .form-group(class=errors.email ? 'has-error' : null)
                 label(for='email') Speaker's Email *
                 input#email(type='email', name='email', value=data.email).form-control
-              .form-group(class=errors.demoTalk ? 'has-error' : null)
-                label(for='demoTalk') Speaker's Demo Talk *
-                input#residence(type='demoTalk', name='demoTalk', value=data.demoTalk, placeholder='Video Url...').form-control
+              .form-group(class=errors.demo ? 'has-error' : null)
+                label(for='demo') Speaker's Demo Talk *
+                input#residence(type='demo', name='demo', value=data.demo, placeholder='Video Url...').form-control
                 p.help-block We would like to see you are an effective speaker, does not need to be on the topic you are presenting. If you don't have a talk please create a video of a couple of minutes so we may see you dissertation
               .form-group(class=errors.residence ? 'has-error' : null)
                 label(for='residence') Speaker's Residence *

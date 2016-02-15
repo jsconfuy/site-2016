@@ -14,8 +14,8 @@ exports = module.exports = function (req, res) {
     var updater = proposal.getUpdateHandler(req);
 
     updater.process(req.body, {
-      required: 'topic, summary, name, email, residence, demoTalk',
-      fields: 'topic, summary, name, email, residence, demoTalk, extra, coasted',
+      required: 'topic, summary, name, email, residence, demo',
+      fields: 'topic, summary, name, email, residence, demo, extra, coasted',
       errorMessage: 'There was a problem submitting your proposal:'
     }, function (err) {
       if (err) {

@@ -15,17 +15,22 @@ var Speaker = new keystone.List('Speaker', {
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 });
 
-Speaker.STATUS_CONFIRMED = 'C';
-
 Speaker.add(
+  'Organization',
   {
-    assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
+    assignee: { type: Types.Relationship, ref: 'Member', index: true },
     status: { type: Types.Select, default: 'P', options: [
-      { value: 'P', label: 'Pending' },
-      { value: 'W', label: 'Waiting' },
-      { value: 'C', label: 'Confirmed' },
-      { value: 'D', label: 'Declined' }]},
+      { value: 'S', label: 'Paused' },
+      { value: 'T', label: 'To Publish' },
+      { value: 'P', label: 'Published' }]},
     published: { type: Types.Datetime },
+    proposal: { type: Types.Relationship, ref: 'Proposal', many: false },
+    invitation: { type: Types.Relationship, ref: 'Invitation', many: false },
+    tags: {type: Types.Relationship, ref: 'Tag', many: true},
+    notes: {type: Types.Markdown}
+  },
+  'Details',
+  {
     name: { type: String, required: true },
     email: { type: Types.Email },
     tshirt: {
@@ -57,8 +62,6 @@ Speaker.add(
     company: { type: String },
     twitter: { type: String },
     residence: { type: String },
-    tags: {type: Types.Relationship, ref: 'Tag', many: true},
-    notes: {type: Types.Markdown}
   },
   'Transport & Accommodation',
   {
@@ -68,12 +71,12 @@ Speaker.add(
     },
     arrival: {
       date: {type: Types.Datetime},
-      assignee: {type: Types.Relationship, ref: 'Organizer', index: true},
+      assignee: {type: Types.Relationship, ref: 'Member', index: true},
       notes: {type: Types.Textarea}
     },
     departure: {
       date: {type: Types.Datetime},
-      assignee: {type: Types.Relationship, ref: 'Organizer', index: true},
+      assignee: {type: Types.Relationship, ref: 'Member', index: true},
       notes: {type: Types.Textarea}
     }
   }

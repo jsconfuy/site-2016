@@ -10,7 +10,7 @@ exports = module.exports = function (req, res) {
   locals.speakers = [];
   view.on('init', function (next) {
     var list = keystone.list('Speaker');
-    var q = list.model.find().where('published').lte(Date.now()).where('status', list.STATUS_CONFIRMED).sort('sortOrder');
+    var q = list.model.find().where('published').lte(Date.now()).where('status', 'P').sort('sortOrder');
     q.exec(function (err, results) {
       locals.speakers = results;
       next(err);
@@ -23,7 +23,7 @@ exports = module.exports = function (req, res) {
   locals.sponsorLevels = [];
   view.on('init', function (next) {
     var Sponsor = keystone.list('Sponsor');
-    var q = Sponsor.model.find({}).where('published').lte(Date.now()).where('status', Sponsor.STATUS_CONFIRMED).sort('sortOrder').populate('level');
+    var q = Sponsor.model.find({}).where('published').lte(Date.now()).where('status', 'P').sort('sortOrder').populate('level');
 
     q.exec(function (err, results) {
       // TODO: handle err!
@@ -59,12 +59,12 @@ exports = module.exports = function (req, res) {
   });
 
   /**
-   * Organizers
+   * Members
    */
   locals.organizers = [];
   view.on('init', function (next) {
-    var list = keystone.list('Organizer');
-    var q = list.model.find().sort('sortOrder');
+    var list = keystone.list('Member');
+    var q = list.model.find({role: 'O'}).where('published').lte(Date.now()).sort('sortOrder');
     q.exec(function (err, results) {
       // TODO: handle err!
       if (err) console.error(err);
@@ -75,8 +75,8 @@ exports = module.exports = function (req, res) {
 
   locals.volunteers = [];
   view.on('init', function (next) {
-    var list = keystone.list('Volunteer');
-    var q = list.model.find().sort('sortOrder');
+    var list = keystone.list('Member');
+    var q = list.model.find({role: 'V'}).where('published').lte(Date.now()).sort('sortOrder');
     q.exec(function (err, results) {
       // TODO: handle err!
       if (err) console.error(err);

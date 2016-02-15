@@ -13,30 +13,39 @@ var Sponsor = new keystone.List('Sponsor', {
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 });
 
-Sponsor.STATUS_CONFIRMED = 'C';
-
-Sponsor.add({
-  name: { type: String, required: true },
-  assignee: { type: Types.Relationship, ref: 'Organizer', index: true },
-  status: { type: Types.Select, options: [
-    { value: 'P', label: 'Pending' },
-    { value: 'W', label: 'Waiting' },
-    { value: Sponsor.STATUS_CONFIRMED, label: 'Confirmed' },
-    { value: 'D', label: 'Declined' }]},
-  level: { type: Types.Relationship, ref: 'SponsorLevel', index: true },
-  description: { type: Types.Markdown },
-  logo: { type: Types.CloudinaryImage },
-  url: { type: Types.Url },
-  contact: {
-    name: { type: String },
-    email: { type: Types.Email }
+Sponsor.add(
+  'Organization',
+  {
+    assignee: { type: Types.Relationship, ref: 'Member', index: true },
+    status: { type: Types.Select, default: 'O', options: [
+      { value: 'O', label: 'To Contact' },
+      { value: 'W', label: 'Waiting Response' },
+      { value: 'E', label: 'No Response' },
+      { value: 'C', label: 'Sponsor Accepts' },
+      { value: 'R', label: 'Sponsor Rejects' },
+      { value: 'T', label: 'To Publish' },
+      { value: 'P', label: 'Published' }
+    ]},
+    level: { type: Types.Relationship, ref: 'SponsorLevel', index: true },
+    published: { type: Types.Datetime },
+    price: { type: Types.Money, required: true, default: 0 },
+    paid: { type: Types.Datetime },
+    channels: { type: Types.Relationship, ref: 'Channel', many: true },
+    tags: {type: Types.Relationship, ref: 'Tag', many: true},
+    notes: {type: Types.Markdown}
   },
-  price: { type: Types.Money, required: true, default: 0 },
-  paid: { type: Types.Datetime },
-  published: { type: Types.Datetime },
-  notes: { type: Types.Markdown },
-  tags: { type: Types.Relationship, ref: 'Tag', many: true }
-});
+  'Details',
+  {
+    name: { type: String, required: true },
+    description: { type: Types.Markdown },
+    logo: { type: Types.CloudinaryImage },
+    url: { type: Types.Url },
+    contact: {
+      name: { type: String },
+      email: { type: Types.Email }
+    },
+  }
+);
 
 Sponsor.defaultColumns = 'name, level, tags, status, published, paid, price, assignee';
 Sponsor.register();

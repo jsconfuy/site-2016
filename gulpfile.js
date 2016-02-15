@@ -45,3 +45,5 @@ gulp.task('codestyle', function () {
 gulp.task('watch', function () {
   gulp.watch(paths.jsSrc.concat(paths.scssSrc), ['lint-js', 'lint-scss', 'codestyle']);
 });
+
+gulp.task('test', function () {});
