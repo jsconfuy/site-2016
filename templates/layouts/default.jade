@@ -230,6 +230,15 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
     script(src='/js/lib/jquery.bootstrap-autohidingnavbar.js')
     script(src='/js/base.js')
 
+    // Twitter single-event website tag code
+    script(src='//platform.twitter.com/oct.js', type='text/javascript')
+    script(type='text/javascript').
+      twttr.conversion.trackPid('l5ueo', { tw_sale_amount: 0, tw_order_quantity: 0 });
+    noscript
+      img(height='1', width='1', style='display:none;', alt='', src='https://analytics.twitter.com/i/adsct?txn_id=l5ueo&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0')
+      img(height='1', width='1', style='display:none;', alt='', src='//t.co/i/adsct?txn_id=l5ueo&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0')
+    // End Twitter single-event website tag code
+
     script(type='text/javascript').
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-40076270-1']);
