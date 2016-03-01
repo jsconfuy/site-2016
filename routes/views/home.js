@@ -15,18 +15,18 @@ exports = module.exports = function (req, res) {
       .exec(function (err, speakers) {
         locals.speakers = speakers;
         keystone.list('Talk').model.find().exec(function (err, talks) {
-          talks.forEach(function (talk) {
-            speakers.forEach(function (speaker) {
-              speaker.talks = speakers.talks || [];
+          speakers.forEach(function (speaker) {
+            speaker.talks = speakers.talks || [];
+            talks.forEach(function (talk) {
               if (talk.speakers.indexOf(speaker._id) > -1) {
                 speaker.talks.push(talk);
               }
             });
           });
           keystone.list('Workshop').model.find().exec(function (err, workshops) {
-            workshops.forEach(function (workshop) {
-              speakers.forEach(function (speaker) {
-                speaker.workshops = speakers.workshops || [];
+            speakers.forEach(function (speaker) {
+              speaker.workshops = speakers.workshops || [];
+              workshops.forEach(function (workshop) {
                 if (workshop.speakers.indexOf(speaker._id) > -1) {
                   speaker.workshops.push(workshop);
                 }
