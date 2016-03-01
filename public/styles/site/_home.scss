@@ -173,6 +173,36 @@
             text-transform: uppercase;
           }
 
+          .talk:before {
+            content: "TALK";
+            font-size: 50%;
+            font-weight: bold;
+            margin: 0;
+          }
+
+          .workshop:before {
+            content: "WORKSHOP";
+            font-size: 50%;
+            font-weight: bold;
+            margin: 0;
+          }
+
+          .talk,
+          .workshop {
+
+            .title {
+              font-style: italic;
+
+              &:before {
+                content: "“";
+              }
+
+              &:after {
+                content: "”";
+              }
+            }
+          }
+
           a {
             color: $blue-light;
 

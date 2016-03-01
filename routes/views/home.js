@@ -9,12 +9,33 @@ exports = module.exports = function (req, res) {
    */
   locals.speakers = [];
   view.on('init', function (next) {
-    var list = keystone.list('Speaker');
-    var q = list.model.find().where('published').lte(Date.now()).where('status', 'P').sort('sortOrder');
-    q.exec(function (err, results) {
-      locals.speakers = results;
-      next(err);
-    });
+    keystone.list('Speaker').model.find()
+      .where('published').lte(Date.now()).where('status', 'P')
+      .sort('sortOrder')
+      .exec(function (err, speakers) {
+        locals.speakers = speakers;
+        keystone.list('Talk').model.find().exec(function (err, talks) {
+          talks.forEach(function (talk) {
+            speakers.forEach(function (speaker) {
+              speaker.talks = speakers.talks || [];
+              if (talk.speakers.indexOf(speaker._id) > -1) {
+                speaker.talks.push(talk);
+              }
+            });
+          });
+          keystone.list('Workshop').model.find().exec(function (err, workshops) {
+            workshops.forEach(function (workshop) {
+              speakers.forEach(function (speaker) {
+                speaker.workshops = speakers.workshops || [];
+                if (workshop.speakers.indexOf(speaker._id) > -1) {
+                  speaker.workshops.push(workshop);
+                }
+              });
+            });
+            next(err);
+          });
+        });
+      });
   });
 
   /**

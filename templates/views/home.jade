@@ -66,6 +66,12 @@ block content
               if speaker.twitter
                 a(href='//twitter.com/#{speaker.twitter}')
                   i(class='fa fa-twitter')
+              each talk in speaker.talks
+                .talk
+                  .title= talk.title
+              each workshop in speaker.workshops
+                .workshop
+                  .title= workshop.title
   #sponsors.sponsors
     h1 Sponsors
     ul
