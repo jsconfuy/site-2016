@@ -269,16 +269,6 @@ h2 {
 .navbar {
   border: 0;
 
-  .navbar-nav {
-    padding-top: $navbar-height;
-
-    > .nav-logo {
-      left: calc(50% - 70px);
-      position: absolute;
-      top: 0;
-    }
-  }
-
   .navbar-brand {
     padding: 0;
 
@@ -289,6 +279,18 @@ h2 {
   }
 
   .navbar-nav {
+    padding-top: $navbar-height;
+
+    > .nav-logo {
+      left: calc(50% - 70px);
+      position: absolute;
+      top: 0;
+
+      > a > img {
+        height: $navbar-height;
+        width: ($navbar-height * 2);
+      }
+    }
 
     > li > a {
       color: $blue-dark;
@@ -302,11 +304,6 @@ h2 {
         background-color: $white;
         color: $blue;
       }
-    }
-
-    > .nav-logo > a > img {
-      width: ($navbar-height * 2);
-      height: $navbar-height;
     }
   }
 }
@@ -404,21 +401,20 @@ h2 {
 }
 
 .borderd-form {
+  background: url('/images/base/form-top.svg') top left no-repeat, url('/images/base/form-bottom.svg') bottom left no-repeat;
+  background-size: 100% 100px;
   position: relative;
   z-index: 2;
-  background: url('/images/base/form-top.svg') top left no-repeat,
-  url('/images/base/form-bottom.svg') bottom left no-repeat;
-  background-size: 100% 100px;
 
   &:before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: 99px;
-    right: 0;
-    bottom: 99px;
-    left: 0;
     background: url('/images/base/form-mid.svg') top left repeat-y;
+    bottom: 99px;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 99px;
+    z-index: -1;
   }
 }
 
@@ -427,8 +423,6 @@ h2 {
     text-transform: uppercase;
   }
 }
-
-
 
 // Tickets
 #buy {
@@ -541,6 +535,13 @@ h2 {
           text-align: center;
           text-transform: uppercase;
 
+          img {
+            display: block;
+            margin: 0 auto;
+            max-height: 200px;
+            max-width: 30%;
+          }
+
           .code {
             background-color: $white;
             border: 2px solid $blue;
@@ -568,19 +569,34 @@ h2 {
               margin: 0 0 20px;
               padding: 0;
 
+              .logo {
+                float: left;
+                width: 10%;
+                height: 36px;
+
+                img {
+                  max-height: 28px;
+                  max-width: 100%;
+                }
+              }
+
               .name {
                 color: $blue;
                 float: left;
                 font-weight: bold;
                 text-align: left;
                 text-transform: uppercase;
-                width: 50%;
+                width: 40%;
               }
 
               .buy {
                 float: left;
                 text-align: right;
                 width: 50%;
+
+                del {
+                  font-size: 80%;
+                }
 
                 input {
                   border: 2px solid $gray;
@@ -600,7 +616,6 @@ h2 {
                   border: 0;
                   color: $white;
                   padding: 4px 14px;
-                  width: 100px;
 
                   &:focus {
                     outline: none;

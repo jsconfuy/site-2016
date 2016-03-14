@@ -129,23 +129,28 @@
       if (response.error) {
         return showError(response.error, true);
       }
-      if (response.messages.invalid_discount) {
+      if (response.messages.invalidDiscount) {
         modal.find('.discount').show().find('.code').addClass('error').text('Invalid Code');
+        modal.find('.discount img').remove();
       }
       if (response.discount) {
         modal.find('.discount').show().find('.code').removeClass('error').text('Code Applied: ' + response.discount.code);
+        modal.find('.discount').prepend(response.discount.logo ? $('<img />').attr('src', response.discount.logo) : null);
       }
       if (response.tickets.length) {
         modal.find('.tickets ul').html('');
         response.tickets.forEach(function (ticket) {
           var input = $('<input type="number" />').attr('min', ticket.min).attr('max', ticket.max).val(ticket.min);
           $('<li />')
-            .append($('<div />').addClass('name').text(ticket.name))
+            .append(
+              $('<div />').addClass('logo').append(ticket.logo ? $('<img />').attr('src', ticket.logo) : null),
+              $('<div />').addClass('name').text(ticket.name)
+            )
             .append(
               $('<div />').addClass('buy').append(
-                $('<span />').text((ticket.price > 0 ? 'USD ' + ticket.price : 'Free') + ' × '),
+                $('<del />').text(ticket.price != ticket.retail ? 'USD ' + ticket.retail : ''),
                 input,
-                $('<button />').text(ticket.price ? 'Select' : 'Confirm').click(function (e) {
+                $('<button />').text(ticket.price ? ' x ' + ticket.price + ' USD' : ' x Free').click(function (e) {
                   select(ticket.code, response.discount && response.discount.code, input.val());
                 })
               )
@@ -184,7 +189,7 @@
         } else if (response.order.paid) {
           assign(response.order.id);
         } else {
-          modal.find('.step-payment .invoice .detail').text(response.order.quantity + ' ' + response.order.ticket + ' × $ ' + response.order.price + ' USD');
+          modal.find('.step-payment .invoice .detail').text(response.order.ticket + ': ' + response.order.quantity + ' × $ ' + response.order.price + ' USD');
           modal.find('.step-payment .invoice .pay button').data('order', response.order.id).text('Pay $ ' + response.order.total + ' USD');
           modal.find('.step-payment > *').show();
           modal.find('.step-payment .loading').hide();

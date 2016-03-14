@@ -12,15 +12,18 @@ module.exports.available = function (req, res, next) {
       return {
         code: ticket.code,
         name: ticket.name,
+        logo: ticket.logo,
         available: Math.min(ticket.available, discount ? discount.available : ticket.available),
         min: Math.max(ticket.min, discount ? discount.min : ticket.min),
         max: Math.min(ticket.max, discount ? discount.max : ticket.max),
+        retail: (Math.round(ticket.price * 100) / 100),
         price: (Math.round(ticket.price * 100) / 100) - (Math.round(Ticket.calculateDiscount(ticket, discount) * 100) / 100)
       };
     });
     if (discount) {
       discount = {
-        code: discount.code
+        code: discount.code,
+        logo: discount.logo
       };
     }
     res.apiResponse({tickets: tickets, discount: discount, messages: messages});
