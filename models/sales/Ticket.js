@@ -7,14 +7,14 @@ var Types = keystone.Field.Types;
  */
 
 var Ticket = new keystone.List('Ticket', {
-  autokey: { path: 'code', from: 'name', unique: true },
   sortable: true,
   map: { name: 'name' },
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 });
 
 Ticket.add({
-  name: { type: String, required: true },
+  name: { type: String, required: true, initial: true },
+  code: { type: String, required: true, unique: true, initial: true },
   logo: { type: Types.CloudinaryImage },
   description: { type: Types.Markdown },
   sale: {
@@ -39,6 +39,14 @@ Ticket.calculateDiscount = function (ticket, discount) {
   }
   return value;
 };
+
+Ticket.schema.pre('validate', function(next) {
+  // Because we need custom code (no auto slug) and Keystone doesn't support mongoose validation
+  if (! /^[a-z0-9-]+$/.test(this.code)) {
+      return next(Error('Invalid code format. Use numbers, letters or -.'));
+  }
+  next();
+});
 
 Ticket.defaultColumns = 'name, code, sale.from, sale.until, price, sold, total, secret';
 Ticket.register();

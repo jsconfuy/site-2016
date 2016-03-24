@@ -9,7 +9,7 @@ var Types = keystone.Field.Types;
 var Workshop = new keystone.List('Workshop', {
   map: { name: 'title' },
   perPage: 200,
-  autokey: { path: 'slug', from: 'name', unique: true },
+  autokey: { path: 'slug', from: 'title', unique: true },
   sortable: true,
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 });

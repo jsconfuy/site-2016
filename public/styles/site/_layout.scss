@@ -292,17 +292,23 @@ h2 {
       }
     }
 
-    > li > a {
-      color: $blue-dark;
-      font-family: $headings-font-family;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      text-transform: uppercase;
+    > li {
+      > a {
+        color: $blue-dark;
+        font-family: $headings-font-family;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
 
-      &:hover {
-        background-color: $white;
-        color: $blue;
+        &:hover {
+          background-color: $white;
+          color: $blue;
+        }
+      }
+
+      &.buy > a {
+        color: $red;
       }
     }
   }

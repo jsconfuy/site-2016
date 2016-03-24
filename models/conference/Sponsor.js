@@ -10,6 +10,7 @@ var Sponsor = new keystone.List('Sponsor', {
   map: { name: 'name' },
   perPage: 200,
   sortable: true,
+  autokey: { path: 'slug', from: 'name', unique: true },
   track: { createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 });
 

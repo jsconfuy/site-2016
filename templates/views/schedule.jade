@@ -30,7 +30,7 @@ block content
                       .box(style='#{slot.kind == "keynote" ? "background-image: url(" + slot.talk.speakers[0]._.picture.fill(230,230, {transformation: {effect: "blur:1500", opacity: 90}}) + ");" : ""}')
                         - var item = slot.talk || slot.workshop
                         if item
-                          .title(class='#{item.description && item.description.html ? "has-description" : ""}')
+                          .title(class='#{item.description && item.description.html ? "has-description" : ""}', id='#{item.slug}')
                             = item.title || slot.name
                           if item.description && item.description.html
                             .description
@@ -39,8 +39,8 @@ block content
                             for speaker in item.speakers
                               .speaker
                                 .picture(style='background-image: url(#{speaker._.picture.fill(40,40)})')
-                                .name
-                                  =speaker.name
+                                a.name(href='/##{speaker.slug}')
+                                  = speaker.name
                         else
                           if slot.kind != 'empty'
                             .title(class='#{slot.description && slot.description.html ? "has-description" : ""}')

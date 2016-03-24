@@ -6745,6 +6745,8 @@ h2 {
       .navbar .navbar-nav > li > a:hover {
         background-color: #fff;
         color: #254064; }
+    .navbar .navbar-nav > li.buy > a {
+      color: #c5473d; }
 
 @media (min-width: 768px) {
   .navbar .navbar-nav > li > a {
@@ -7293,42 +7295,47 @@ h2 {
             font-family: "Quicksand", Helvetica, Arial, sans-serif;
             font-size: 23px;
             font-weight: bold;
-            margin: 10px 0;
+            margin: 10px 0 0;
             text-decoration: none;
+            text-transform: uppercase; }
+          .home body .speakers ul li .company {
+            font-size: 75%;
+            font-weight: bold;
+            margin: 0 16px 2px;
             text-transform: uppercase; }
           .home body .speakers ul li .bio {
             color: #999;
             font-size: 16px;
             line-height: 1.4em;
-            margin: 10px 16px 0; }
+            margin: 2px 16px 0; }
             .home body .speakers ul li .bio strong {
               color: #254064;
               font-weight: normal; }
-          .home body .speakers ul li .company {
-            color: #254064;
-            font-size: 75%;
-            font-weight: bold;
-            margin: 8px 16px 2px;
-            text-transform: uppercase; }
+          .home body .speakers ul li .twitter {
+            background: url("/images/base/twitter.svg") no-repeat;
+            background-size: cover;
+            display: block;
+            font-size: 4em;
+            height: 30px;
+            margin: 0 auto;
+            width: 30px; }
           .home body .speakers ul li .talk:before {
-            content: "TALK";
+            content: 'TALK';
             font-size: 50%;
             font-weight: bold;
             margin: 0; }
           .home body .speakers ul li .workshop:before {
-            content: "WORKSHOP";
+            content: 'WORKSHOP';
             font-size: 50%;
             font-weight: bold;
             margin: 0; }
-          .home body .speakers ul li .talk .title,
-          .home body .speakers ul li .workshop .title {
-            font-style: italic; }
-            .home body .speakers ul li .talk .title:before,
-            .home body .speakers ul li .workshop .title:before {
-              content: "“"; }
-            .home body .speakers ul li .talk .title:after,
-            .home body .speakers ul li .workshop .title:after {
-              content: "”"; }
+          .home body .speakers ul li .talk,
+          .home body .speakers ul li .workshop {
+            margin: 0 16px; }
+            .home body .speakers ul li .talk .title,
+            .home body .speakers ul li .workshop .title {
+              display: block;
+              font-style: italic; }
           .home body .speakers ul li a {
             color: #5596c0; }
             .home body .speakers ul li a:hover {
@@ -7402,6 +7409,19 @@ h2 {
         .home body .tickets-sale .countdown .countdown-clock .days,
         .home body .call-for-proposal .countdown .countdown-clock .days {
           font-size: .5em; }
+      .home body .tickets-sale .twitter,
+      .home body .call-for-proposal .twitter {
+        margin: 10px 0;
+        text-align: center; }
+        .home body .tickets-sale .twitter a,
+        .home body .call-for-proposal .twitter a {
+          background: url("/images/base/twitter.svg") no-repeat;
+          background-size: cover;
+          display: block;
+          font-size: 4em;
+          height: 90px;
+          margin: 0 auto;
+          width: 90px; }
     .home body .sponsors {
       padding: 30px 0; }
       .home body .sponsors ul {

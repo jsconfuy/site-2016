@@ -19,30 +19,32 @@ block top
         a(href='/#speakers') Speakers
       li
         a(href='/#sponsors') Sponsors
-      //li
+      li
         a(href='/schedule') Schedule
       li
         a(href='/venue') Venue
-      //li
+      li
         a(href='/hotels') Hotels
-      // li
-      //   a(href='/code-of-conduct') Code of Conduct
+      li
+        a(href='/code-of-conduct') Code of Conduct
       li
         a(href='/blog') Blog
       li
         a(href='http://2015.jsconf.uy/') Last Year
-      //li
-      //  a(href='javascript:void(0);', data-buy) Buy Ticket!
+      li
+        a(href='javascript:void(0);', data-buy) Buy Ticket!
 
 block content
   #tickets-sale.tickets-sale
-   .buy-tickets
-     // span.sold-out
-     a(href='javascript:void(0);', data-buy)
-   .countdown
-     h2.countdown-title
-       | Regular batch (at 119 usd)  starts in...
-     span.countdown-clock
+    .buy-tickets
+      // span.sold-out
+      a(href='javascript:void(0);', data-buy)
+    .twitter
+      a(href='https://twitter.com/jsconfuy', target='_blank')
+    .countdown
+      h2.countdown-title
+        | Conference starts in...
+      span.countdown-clock
   // #call-for-proposal.call-for-proposal
   //   .call-proposal
   //     a(href='/talks')
@@ -51,34 +53,33 @@ block content
         h1 Meet the Speakers
         ul
           each speaker in speakers
-            li
+            li(id='#{speaker.slug}')
               if speaker.picture.exists
                 .img(style='background-image: url(#{speaker._.picture.fill(230,230)})')
               else
                 .img.empty
               .name
                 != speaker.name
-              .bio
-                != speaker.biography.short.html
               if speaker.company
                 .company
                   != speaker.company
+              .bio
+                != speaker.biography.short.html
               if speaker.twitter
-                a(href='//twitter.com/#{speaker.twitter}')
-                  i(class='fa fa-twitter')
+                a.twitter(href='//twitter.com/#{speaker.twitter}')
               each talk in speaker.talks
                 .talk
-                  .title= talk.title
+                  a.title(href='/schedule##{talk.slug}')= talk.title
               each workshop in speaker.workshops
                 .workshop
-                  .title= workshop.title
+                  a.title(href='/schedule#{workshop.slug}')= workshop.title
   #sponsors.sponsors
     h1 Sponsors
     ul
       each sponsorLevel in sponsorLevels
         ul
           each sponsor in sponsorLevel.sponsors
-            li
+            li(id='#{sponsor.slug}')
               a.img(href='#{sponsor.url}', target='_blank', style='height: #{sponsor.level.size}px; width: #{sponsor.level.size}px; background-image: url(#{sponsor._.logo.pad(sponsor.level.size, sponsor.level.size)})')
 
     h2 Interested?

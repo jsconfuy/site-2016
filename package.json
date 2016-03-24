@@ -9,7 +9,7 @@
     "country-list": "0.0.3",
     "dotenv": "^2.0.0",
     "eslint": "^2.0.0",
-    "keystone": "^0.3.14",
+    "keystone": "^0.3.17",
     "keystone-utils": "^0.3.0",
     "loggly": "^1.0.8",
     "moment": "^2.10.6",

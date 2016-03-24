@@ -14,7 +14,7 @@ exports = module.exports = function (req, res) {
       .sort('sortOrder')
       .exec(function (err, speakers) {
         locals.speakers = speakers;
-        keystone.list('Talk').model.find().exec(function (err, talks) {
+        keystone.list('Talk').model.find().where('status', 'P').exec(function (err, talks) {
           speakers.forEach(function (speaker) {
             speaker.talks = speakers.talks || [];
             talks.forEach(function (talk) {
@@ -23,7 +23,7 @@ exports = module.exports = function (req, res) {
               }
             });
           });
-          keystone.list('Workshop').model.find().exec(function (err, workshops) {
+          keystone.list('Workshop').model.find().where('status', 'P').exec(function (err, workshops) {
             speakers.forEach(function (speaker) {
               speaker.workshops = speakers.workshops || [];
               workshops.forEach(function (workshop) {

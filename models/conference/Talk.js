@@ -7,7 +7,7 @@ var Types = keystone.Field.Types;
  */
 
 var Talk = new keystone.List('Talk', {
-  autokey: { path: 'slug', from: 'name', unique: true },
+  autokey: { path: 'slug', from: 'title', unique: true },
   perPage: 200,
   map: { name: 'title' },
   sortable: true,

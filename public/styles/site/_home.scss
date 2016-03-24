@@ -148,8 +148,15 @@
             font-family: $headings-font-family;
             font-size: $font-size-large;
             font-weight: bold;
-            margin: 10px 0;
+            margin: 10px 0 0;
             text-decoration: none;
+            text-transform: uppercase;
+          }
+
+          .company {
+            font-size: 75%;
+            font-weight: bold;
+            margin: 0 16px 2px;
             text-transform: uppercase;
           }
 
@@ -157,7 +164,7 @@
             color: $gray;
             font-size: $font-size-small;
             line-height: 1.4em;
-            margin: 10px 16px 0;
+            margin: 2px 16px 0;
 
             strong {
               color: $blue;
@@ -165,23 +172,25 @@
             }
           }
 
-          .company {
-            color: $blue;
-            font-size: 75%;
-            font-weight: bold;
-            margin: 8px 16px 2px;
-            text-transform: uppercase;
+          .twitter {
+            background: url('/images/base/twitter.svg') no-repeat;
+            background-size: cover;
+            display: block;
+            font-size: 4em;
+            height: 30px;
+            margin: 0 auto;
+            width: 30px;
           }
 
           .talk:before {
-            content: "TALK";
+            content: 'TALK';
             font-size: 50%;
             font-weight: bold;
             margin: 0;
           }
 
           .workshop:before {
-            content: "WORKSHOP";
+            content: 'WORKSHOP';
             font-size: 50%;
             font-weight: bold;
             margin: 0;
@@ -189,17 +198,11 @@
 
           .talk,
           .workshop {
+            margin: 0 16px;
 
             .title {
+              display: block;
               font-style: italic;
-
-              &:before {
-                content: "“";
-              }
-
-              &:after {
-                content: "”";
-              }
             }
           }
 
@@ -245,7 +248,6 @@
       }
 
       .countdown {
-
         .countdown-title {
           color: $white;
         }
@@ -259,6 +261,21 @@
           .days {
             font-size: .5em;
           }
+        }
+      }
+
+      .twitter {
+        margin: 10px 0;
+        text-align: center;
+
+        a {
+          background: url('/images/base/twitter.svg') no-repeat;
+          background-size: cover;
+          display: block;
+          font-size: 4em;
+          height: 90px;
+          margin: 0 auto;
+          width: 90px;
         }
       }
     }
