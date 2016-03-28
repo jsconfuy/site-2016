@@ -1,3 +1,4 @@
+var async = require('async');
 var keystone = require('keystone');
 var mongoose = require('mongoose');
 var Types = keystone.Field.Types;
@@ -8,13 +9,17 @@ var Types = keystone.Field.Types;
  */
 
 var Order = new keystone.List('Order', {
-  map: {name: 'id'},
-  perPage: 200,
+  map: {name: 'reference'},
+  perPage: 400,
   track: {createdBy: true, createdAt: true, updatedBy: true, updatedAt: true},
   nocreate: true
 });
 
 Order.add({
+  action: {type: Types.Select, options: [
+    {value: 'send-email', label: 'Send Thank You Email.'}
+  ]},
+  reference: {type: String, unique: true, noedit: true},
   name: {type: String},
   email: {type: Types.Email},
   ticket: {type: Types.Relationship, ref: 'Ticket', index: true},
@@ -45,6 +50,39 @@ Order.schema.add({'payment.data': mongoose.Schema.Types.Mixed});
 Order.relationship({ref: 'Attendee', refPath: 'order', path: 'attendees'});
 Order.relationship({ ref: 'Tag', path: 'tags' });
 
+Order.schema.pre('save', function (next) {
+  var order =  this;
+  async.series([
+    // Custom actions
+    function (callback) {
+      order.execute(callback);
+    },
+    // Generate reference code
+    function (callback) {
+      var reference = function () {
+        order.reference = Math.random().toString(36).slice(2, 6).toUpperCase();
+        Order.model.find().where('reference', order.reference).exec(function (err, results) {
+          if (!results.length) return callback();
+          return reference();
+        });
+      };
+      return reference();
+    },
+  ], next);
+});
+
+
+Order.schema.methods.execute = function (callback) {
+  if (this.action === 'send-email') {
+    this.action = null;
+    this.sendOrderConfirmation(function (err) {
+      callback();
+    });
+    return;
+  }
+  callback();
+};
+
 Order.schema.methods.sendOrderConfirmation = function (callback) {
   if (typeof callback !== 'function') {
     callback = function () {};
@@ -56,12 +94,14 @@ Order.schema.methods.sendOrderConfirmation = function (callback) {
     to: order.email,
     from: {
       name: 'JSConfUY',
-      email: 'hola@jsconfuy.com'
+      email: 'hola@jsconf.uy'
     },
-    subject: 'Thank you!',
-    order: order
-  }, callback);
+    subject: 'Thank you! - ' + order.quantity + ' × tickets registered by ' + order.name,
+    order: order,
+  }, function () {
+    callback();
+  });
 };
 
-Order.defaultColumns = 'id, name, email, reserved, canceled, paid, ticket, discount, quantity';
+Order.defaultColumns = 'reference, name, email, reserved, paid, ticket, discount, quantity';
 Order.register();

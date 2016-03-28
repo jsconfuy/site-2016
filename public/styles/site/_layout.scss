@@ -49,7 +49,7 @@ body {
           top: 0;
         }
 
-        #map {
+        #map {  // scss-lint:disable IdSelector
           display: block;
           min-height: 100%;
           width: 100%;
@@ -431,7 +431,7 @@ h2 {
 }
 
 // Tickets
-#buy {
+#buy {  // scss-lint:disable IdSelector
 
   .intro {
 
@@ -459,6 +459,7 @@ h2 {
       font-size: 30px;
       padding: 20px 0;
       text-align: center;
+      text-transform: uppercase;
       width: 33.3333%;
 
       i {
@@ -475,9 +476,10 @@ h2 {
       }
 
       &.active {
+        border-bottom: 4px solid $blue;
 
         span {
-          color: $gray;
+          color: $blue;
         }
 
         i {
@@ -491,6 +493,13 @@ h2 {
 
     .step {
       margin: 20px 0 0;
+
+      .title {
+        color: $blue;
+        font-weight: bold;
+        margin: 0 0 6px;
+        text-transform: uppercase;
+      }
 
       .note {
         @include clearfix();
@@ -509,139 +518,128 @@ h2 {
         }
 
         .description {
-
-          > span {
-            color: $blue;
-            display: block;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            text-transform: uppercase;
-          }
+          @include clearfix();
+          margin: 0 0 20px;
 
           ul {
             @include clearfix();
-            margin: 10px 20px 30px;
+            list-style-type: none;
+            margin: 0;
             padding: 0;
 
             li {
-              float: left;
-              font-size: 80%;
-              list-style: none;
-              padding: 10px;
-              width: 50%;
+
+              i {
+                color: $blue;
+                float: right;
+              }
             }
           }
         }
 
-        .discount {
-          font-size: 16px;
-          font-weight: bold;
+        .order {
+          @include clearfix();
           margin: 0 0 20px;
-          text-align: center;
-          text-transform: uppercase;
 
-          img {
-            display: block;
-            margin: 0 auto;
-            max-height: 200px;
-            max-width: 30%;
-          }
-
-          .code {
-            background-color: $white;
-            border: 2px solid $blue;
-            color: $blue;
-            display: inline-block;
-            padding: 4px 8px;
+          .discount {
+            font-size: 16px;
+            margin: 0 0 20px;
+            text-align: right;
 
             &.error {
-              background-color: $brand-danger;
-              border: 2px solid $brand-danger;
-              color: $white;
+              color: $red;
+            }
+
+            img {
+              display: inline-block;
+              max-height: 30px;
+              max-width: 40px;
+              vertical-align: middle;
+            }
+
+            strong {
+              color: $blue;
+              font-weight: bold;
+
             }
           }
-        }
 
-        .tickets {
+          .tickets {
+            margin: 0 0 20px;
 
-          ul {
-            margin: 0 0 40px;
-            padding: 0;
-
-            li {
-              @include clearfix();
-              display: block;
-              margin: 0 0 20px;
+            ul {
+              margin: 0;
               padding: 0;
 
-              .logo {
-                float: left;
-                width: 10%;
-                height: 36px;
+              li {
+                @include clearfix();
+                display: block;
+                margin: 0 0 10px;
+                padding: 0;
 
-                img {
-                  max-height: 28px;
-                  max-width: 100%;
-                }
-              }
+                .name {
+                  float: left;
+                  font-weight: bold;
+                  line-height: 36px;
+                  text-align: left;
+                  width: 50%;
 
-              .name {
-                color: $blue;
-                float: left;
-                font-weight: bold;
-                text-align: left;
-                text-transform: uppercase;
-                width: 40%;
-              }
-
-              .buy {
-                float: left;
-                text-align: right;
-                width: 50%;
-
-                del {
-                  font-size: 80%;
-                }
-
-                input {
-                  border: 2px solid $gray;
-                  border-right-color: $blue;
-                  margin: 0 0 0 4px;
-                  padding: 2px;
-                  text-align: center;
-                  width: 3em;
-
-                  &:focus {
-                    outline: 2px solid $blue;
+                  img {
+                    display: inline-block;
+                    max-height: 36px;
+                    max-width: 40px;
+                    vertical-align: middle;
                   }
                 }
 
-                button {
-                  background-color: $blue;
-                  border: 0;
-                  color: $white;
-                  padding: 4px 14px;
+                .buy {
+                  float: left;
+                  text-align: right;
+                  width: 50%;
 
-                  &:focus {
-                    outline: none;
+                  del {
+                    font-size: 80%;
+                  }
+
+                  input {
+                    border: 2px solid $gray;
+                    border-right-color: $blue;
+                    margin: 0 0 0 4px;
+                    padding: 2px;
+                    text-align: center;
+                    width: 3em;
+
+                    &:focus {
+                      outline: 2px solid $blue;
+                    }
+                  }
+
+                  button {
+                    background-color: $blue;
+                    border: 0;
+                    color: $white;
+                    padding: 4px 14px;
+
+                    &:focus {
+                      outline: none;
+                    }
                   }
                 }
               }
             }
           }
-        }
 
-        .soldout {
-          border: 3px solid $blue;
-          color: $blue;
-          font-size: 20px;
-          font-weight: bold;
-          margin: 40px auto;
-          padding: 10px 20px;
-          text-align: center;
-          text-transform: uppercase;
-          width: 270px;
+          .soldout {
+            border: 3px solid $blue;
+            color: $blue;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 40px auto;
+            padding: 10px 20px;
+            text-align: center;
+            text-transform: uppercase;
+            width: 270px;
+          }
         }
       }
 
@@ -652,11 +650,43 @@ h2 {
           position: relative;
         }
 
-        .important {
-          color: $blue;
-          font-size: 80%;
-          padding: 0 10%;
-          text-align: center;
+        .details {
+          @include clearfix();
+          margin: 0 0 20px;
+
+          .name {
+            float: left;
+            padding: 0 10px 0 0;
+            width: 50%;
+
+            input {
+              border: 1px solid $gray;
+              display: block;
+              padding: 4px 8px;
+              width: 100%;
+
+              &:focus {
+                outline: 2px solid $blue;
+              }
+            }
+          }
+
+          .email {
+            float: left;
+            padding: 0;
+            width: 50%;
+
+            input {
+              border: 1px solid $gray;
+              display: block;
+              padding: 4px 8px;
+              width: 100%;
+
+              &:focus {
+                outline: 2px solid $blue;
+              }
+            }
+          }
         }
 
         .invoice {
@@ -666,28 +696,41 @@ h2 {
           padding: 0;
 
           .detail {
-            color: $blue;
-            float: left;
-            font-weight: bold;
-            text-align: left;
-            text-transform: uppercase;
-            width: 60%;
+
+            .description {
+              float: left;
+              text-transform: uppercase;
+            }
+
+            .total {
+              float: right;
+              text-align: right;
+            }
+          }
+        }
+
+        .payment {
+          .important {
+            padding: 0;
           }
 
-          .pay {
-            float: left;
-            text-align: right;
-            width: 40%;
+        }
 
-            button {
-              background-color: $blue;
-              border: 0;
-              color: $white;
-              padding: 4px 14px;
+        .pay,
+        .continue {
+          margin: 10px 0;
+          text-align: right;
+          width: 100%;
 
-              &:focus {
-                outline: none;
-              }
+          button {
+            background-color: $blue;
+            border: 0;
+            color: $white;
+            padding: 10px 14px;
+            width: 100%;
+
+            &:focus {
+              outline: none;
             }
           }
         }
@@ -703,6 +746,13 @@ h2 {
           padding: 10px 20px;
           text-align: center;
           text-transform: uppercase;
+        }
+
+        .link {
+          color: $blue;
+          font-size: 80%;;
+          margin: 10px auto 0;
+          text-align: right;
         }
 
         .save {
@@ -726,97 +776,157 @@ h2 {
           padding: 0;
 
           li {
+            @include clearfix();
+            background-color: $blue;
+            color: $white;
+            cursor: pointer;
             list-style: none;
-            margin: 0 0 20px;
-            padding: 0;
+            margin: 0 0 10px;
+            outline: 2px dashed $white;
+            outline-offset: -8px;
+            padding: 15px 30px;
+            transition: all .2s ease-in-out;
 
-            .title {
-              color: $blue;
-              font-size: 18px;
-              font-weight: bold;
-              margin: 0 auto 10px;
-              padding: 10px;
-              text-align: center;
-              text-transform: uppercase;
-              width: 200px;
+            &:hover {
+              transform: scale(1.05);
             }
 
-            .personal {
-              @include clearfix();
-              padding: 0 0 10px;
-
-              .name {
-                float: left;
-                padding: 0 10px 0 0;
-                width: 40%;
-
-                input {
-                  border: 1px solid $gray;
-                  display: block;
-                  padding: 4px 8px;
-                  width: 100%;
-
-                  &:focus {
-                    outline: 2px solid $blue;
-                  }
-                }
-              }
-
-              .email {
-                float: left;
-                padding: 0 10px 0 0;
-                width: 40%;
-
-                input {
-                  border: 1px solid $gray;
-                  display: block;
-                  padding: 4px 8px;
-                  width: 100%;
-
-                  &:focus {
-                    outline: 2px solid $blue;
-                  }
-                }
-              }
-
-              .tshirt {
-                float: left;
-                width: 20%;
-
-                select {
-                  background: $white;
-                  border: 1px solid $gray;
-                  border-radius: none;
-                  display: block;
-                  height: 38px;
-                  padding: 4px 8px;
-                  width: 100%;
-
-                  &:focus {
-                    outline: 2px solid $blue;
-                  }
-                }
-              }
+            .name {
+              float: left;
+              width: 70%;
             }
 
-            .extra {
-              @include clearfix();
-              width: 100%;
-
-              textarea {
-                border: 1px solid $gray;
-                height: 80px;
-                max-width: 100%;
-                padding: 4px 8px;
-                width: 100%;
-
-                &:focus {
-                  outline: 2px solid $blue;
-                }
-              }
+            .reference {
+              float: right;
+              text-align: right;
+              width: 30%;
             }
+
           }
         }
+      }
+    }
+  }
+}
+
+#attendee {  // scss-lint:disable IdSelector
+  .intro {
+    button {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 200px;
+      width: 60%;
+    }
+  }
+
+  .title {
+    color: $blue;
+    font-weight: bold;
+    margin: 0 0 6px;
+    text-transform: uppercase;
+  }
+
+  .link {
+    color: $blue;
+    font-size: 80%;;
+    margin: 10px auto 0;
+    text-align: right;
+  }
+
+  .save {
+    margin: 10px auto 20px;
+    text-align: center;
+
+    button {
+      background-color: $blue;
+      border: 0;
+      color: $white;
+      padding: 4px 14px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+
+  .personal {
+    @include clearfix();
+    padding: 0 0 10px;
+
+    .name {
+      float: left;
+      padding: 0 10px 0 0;
+      width: 40%;
+
+      input {
+        border: 1px solid $gray;
+        display: block;
+        padding: 4px 8px;
+        width: 100%;
+
+        &:focus {
+          outline: 2px solid $blue;
+        }
+      }
+    }
+
+    .email {
+      float: left;
+      padding: 0 10px 0 0;
+      width: 40%;
+
+      input {
+        border: 1px solid $gray;
+        display: block;
+        padding: 4px 8px;
+        width: 100%;
+
+        &:focus {
+          outline: 2px solid $blue;
+        }
+      }
+    }
+
+    .tshirt {
+      float: left;
+      width: 20%;
+
+      select {
+        background: $white;
+        border: 1px solid $gray;
+        border-radius: none;
+        display: block;
+        height: 38px;
+        padding: 4px 8px;
+        width: 100%;
+
+        &:focus {
+          outline: 2px solid $blue;
+        }
+      }
+    }
+  }
+
+  .extra {
+    @include clearfix();
+    width: 100%;
+
+    textarea {
+      border: 1px solid $gray;
+      height: 80px;
+      max-width: 100%;
+      padding: 4px 8px;
+      width: 100%;
+
+      &:focus {
+        outline: 2px solid $blue;
       }
     }
   }
@@ -858,8 +968,8 @@ h2 {
   top: 0;
 }
 
+// scss-lint:disable VendorPrefix
 @-webkit-keyframes load7 {
-
   0%,
   80%,
   100% {

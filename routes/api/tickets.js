@@ -16,13 +16,14 @@ module.exports.available = function (req, res, next) {
         available: Math.min(ticket.available, discount ? discount.available : ticket.available),
         min: Math.max(ticket.min, discount ? discount.min : ticket.min),
         max: Math.min(ticket.max, discount ? discount.max : ticket.max),
-        retail: (Math.round(ticket.price * 100) / 100),
+        retail: Math.round(ticket.price * 100) / 100,
         price: (Math.round(ticket.price * 100) / 100) - (Math.round(Ticket.calculateDiscount(ticket, discount) * 100) / 100)
       };
     });
     if (discount) {
       discount = {
         code: discount.code,
+        name: discount.name,
         logo: discount.logo
       };
     }
@@ -35,6 +36,7 @@ module.exports.select = function (req, res, next) {
     if (err) return next(err);
     order = {
       id: order._id,
+      reference: order.reference,
       ticket: order.ticket.name,
       quantity: order.quantity,
       paid: !!order.paid,
@@ -50,11 +52,13 @@ module.exports.assign = function (req, res, next) {
     if (err) return next(err);
     order = {
       id: order._id,
+      reference: order.reference,
       paid: !!order.paid
     };
     attendees = attendees.map(function (attendee) {
       return {
         id: attendee._id,
+        reference: attendee.reference,
         name: attendee.name,
         email: attendee.email,
         tshirt: attendee.tshirt,
@@ -65,14 +69,35 @@ module.exports.assign = function (req, res, next) {
   });
 };
 
+module.exports.details = function (req, res, next) {
+  tickets.details(req.body.order, req.body.name, req.body.email, function (err, messages) {
+    if (err) return next(ApiError(err.message, 'DB', true));
+    res.apiResponse({messages: messages});
+  });
+};
+
+module.exports.fill = function (req, res, next) {
+  tickets.fill(req.query.attendee, function (err, attendee, messages) {
+    if (err) return next(err);
+    attendee = {
+      id: attendee._id,
+      reference: attendee.reference,
+      name: attendee.name,
+      email: attendee.email,
+      tshirt: attendee.tshirt
+    };
+    res.apiResponse({attendee: attendee, messages: messages});
+  });
+};
+
 module.exports.save = function (req, res, next) {
   var fill = function (attendee) {
-    attendee.name = req.body[attendee._id + '_name'];
-    attendee.email = req.body[attendee._id + '_email'];
-    attendee.tshirt = req.body[attendee._id + '_tshirt'];
-    attendee.extra = req.body[attendee._id + '_extra'];
+    attendee.name = req.body['name'];
+    attendee.email = req.body['email'];
+    attendee.tshirt = req.body['tshirt'];
+    attendee.extra = req.body['extra'];
   };
-  tickets.save(req.body.order, fill, function (err, messages) {
+  tickets.save(req.body.id, fill, function (err, messages) {
     if (err) return next(ApiError(err.message, 'DB', true));
     res.apiResponse({messages: messages});
   });

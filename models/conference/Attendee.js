@@ -9,7 +9,7 @@ var countries = require('country-list')();
  */
 
 var Attendee = new keystone.List('Attendee', {
-  map: {name: 'name'},
+  map: {name: 'reference'},
   perPage: 400,
   track: {createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 });
@@ -17,6 +17,7 @@ var Attendee = new keystone.List('Attendee', {
 Attendee.add(
   'Organization',
   {
+    reference: {type: String, unique: true, noedit: true},
     order: {type: Types.Relationship, ref: 'Order', index: true, noedit: true},
     ticket: {type: Types.Relationship, ref: 'Ticket', index: true},
     discount: {type: Types.Relationship, ref: 'Discount', index: true},
@@ -50,6 +51,21 @@ Attendee.add(
   }
 );
 
+Attendee.schema.pre('save', function (next) {
+  if (!this.reference && !this.order) {
+    var that = this;
+    var reference = function () {
+      that.reference = Math.random().toString(36).slice(2, 6).toUpperCase() + '-1';
+      Attendee.model.find().where('reference', that.reference).exec(function (err, results) {
+        if (!results.length) return next();
+        return reference();
+      });
+    };
+    return reference();
+  }
+  next();
+});
+
 Attendee.schema.virtual('picture').get(function () {
   var email = (this.email || '').trim().toLowerCase();
   var hash = crypto.createHash('md5').update(email).digest('hex').toLowerCase();
@@ -60,5 +76,5 @@ Attendee.schema.virtual('image', {type: 'html'}).get(function () {
   return '<img style="width: 32px; height: 32px; border-radius: 32px;" src="' + this.picture + '"/>';
 });
 
-Attendee.defaultColumns = 'name, email, gender, tshirt, country, ticket, discount, order';
+Attendee.defaultColumns = 'reference, name, email, gender, tshirt, country, ticket, discount, order';
 Attendee.register();

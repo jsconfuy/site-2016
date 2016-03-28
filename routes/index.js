@@ -26,14 +26,18 @@ exports = module.exports = function (app) {
   app.all('/api*', keystone.middleware.api);
   app.get('/api/tickets/available', routes.api.tickets.available);
   app.post('/api/tickets/select', routes.api.tickets.select);
+  app.post('/api/tickets/details', routes.api.tickets.details);
   app.get('/api/tickets/assign', routes.api.tickets.assign);
+  app.get('/api/tickets/fill', routes.api.tickets.fill);
   app.post('/api/tickets/save', routes.api.tickets.save);
 
   app.use(function (req, res) {
     res.status(404);
     res.render('errors/404');
   });
+
   app.use('/api*', function (err, req, res, next) {
+    if (err) console.log(err);
     logger.log(err, function () {
       if (!err.internal) {
         res.apiResponse({error: {message: err.message, internal: false, code: err.code}});
@@ -42,8 +46,9 @@ exports = module.exports = function (app) {
       }
     });
   });
+
   app.use(function (err, req, res, next) {
-    console.log(err);
+    if (err) console.log(err);
     logger.log(err, function () {
       res.status(500);
       res.render('errors/500');

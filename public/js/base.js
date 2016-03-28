@@ -103,24 +103,26 @@
   marker.setMap(map);
 
   // Tickets
-  var modal = $('#buy');
+  var $buyModal = $('#buy');
+  var $attendeeModal = $('#attendee');
 
   var showError = function (err, exit) {
     if (exit) {
-      modal.modal('hide');
+      $buyModal.modal('hide');
+      $attendeeModal.modal('hide');
     }
     window.alert(err.message);
     return false;
   };
 
   var show = function (ticket, discount) {
-    modal.find('.indicator').removeClass('active');
-    modal.find('.indicator-select').addClass('active');
-    modal.find('.step').hide();
-    modal.find('.step-select > *').hide();
-    modal.find('.step-select .loading').show();
-    modal.find('.step-select').show();
-    modal.modal({
+    $buyModal.find('.indicator').removeClass('active');
+    $buyModal.find('.indicator-select').addClass('active');
+    $buyModal.find('.step').hide();
+    $buyModal.find('.step-select > *').hide();
+    $buyModal.find('.step-select .loading').show();
+    $buyModal.find('.step-select').show();
+    $buyModal.modal({
       backdrop: 'static',
       keyboard: false
     });
@@ -129,52 +131,64 @@
       if (response.error) {
         return showError(response.error, true);
       }
+      $buyModal.find('.step-select .discount').hide();
+      $buyModal.find('.step-select .tickets').hide();
+      $buyModal.find('.step-select .soldout').hide();
       if (response.messages.invalidDiscount) {
-        modal.find('.discount').show().find('.code').addClass('error').text('Invalid Code');
-        modal.find('.discount img').remove();
-      }
-      if (response.discount) {
-        modal.find('.discount').show().find('.code').removeClass('error').text('Code Applied: ' + response.discount.code);
-        modal.find('.discount').prepend(response.discount.logo ? $('<img />').attr('src', response.discount.logo) : null);
+        $buyModal.find('.step-select .discount').show().addClass('error').append(
+          $('<span />').text('Invalid disocunt code')
+        );
+      } else if (response.discount) {
+        $buyModal.find('.step-select .discount').show().removeClass('error').append(
+          'Using ',
+          response.discount.logo ? $('<img />').attr('src', response.discount.logo) : null,
+          ' ',
+          $('<strong />').text(response.discount.name),
+          ' discount code'
+        );
       }
       if (response.tickets.length) {
-        modal.find('.tickets ul').html('');
+        $buyModal.find('.step-select .tickets ul').html('');
         response.tickets.forEach(function (ticket) {
-          var input = $('<input type="number" />').attr('min', ticket.min).attr('max', ticket.max).val(ticket.min);
           $('<li />')
             .append(
-              $('<div />').addClass('logo').append(ticket.logo ? $('<img />').attr('src', ticket.logo) : null),
-              $('<div />').addClass('name').text(ticket.name)
+              $('<div />').addClass('name').append(
+                ticket.logo ? $('<img />').attr('src', ticket.logo) : null,
+                ' ',
+                ticket.name
+              )
             )
             .append(
               $('<div />').addClass('buy').append(
                 $('<del />').text(ticket.price != ticket.retail ? 'USD ' + ticket.retail : ''),
-                input,
+                $('<input type="number" />').attr('min', ticket.min).attr('max', ticket.max).val(ticket.min),
                 $('<button />').text(ticket.price ? ' x ' + ticket.price + ' USD' : ' x Free').click(function (e) {
-                  select(ticket.code, response.discount && response.discount.code, input.val());
+                  select(ticket.code, response.discount && response.discount.code, $(this).parent().find('input').val());
                 })
               )
             )
-            .appendTo(modal.find('.tickets ul'));
+            .appendTo($buyModal.find('.step-select .tickets ul'));
         });
-        modal.find('.step-select .tickets').show();
+        $buyModal.find('.step-select .tickets').show();
       } else {
-        modal.find('.step-select .soldout').show();
+        $buyModal.find('.step-select .soldout').show();
       }
-      modal.find('.step-select .description').show();
-      modal.find('.step-select .note').show();
-      modal.find('.step-select .loading').hide();
+      $buyModal.find('.step-select .description').show();
+      $buyModal.find('.step-select .order').show();
+      $buyModal.find('.step-select .note').show();
+      $buyModal.find('.step-select .loading').hide();
     });
   };
 
   var select = function (ticket, discount, quantity) {
-    modal.find('.indicator').removeClass('active');
-    modal.find('.indicator-payment').addClass('active');
-    modal.find('.step').hide();
-    modal.find('.step-payment > *').hide();
-    modal.find('.step-payment .loading').show();
-    modal.find('.step-payment').show();
-    modal.modal({
+    $buyModal.find('.indicator').removeClass('active');
+    $buyModal.find('.indicator-select').addClass('active');
+    $buyModal.find('.indicator-payment').addClass('active');
+    $buyModal.find('.step').hide();
+    $buyModal.find('.step-payment > *').hide();
+    $buyModal.find('.step-payment .loading').show();
+    $buyModal.find('.step-payment').show();
+    $buyModal.modal({
       backdrop: 'static',
       keyboard: false
     });
@@ -182,30 +196,46 @@
       if (response.error) {
         return showError(response.error, true);
       } else {
-        if (response.order.paid) {
-          assign(response.order.id);
-        } else if (response.order.quantity === 0) {
-          show(modal.data('ticket'), modal.data('discount'));
-        } else if (response.order.paid) {
-          assign(response.order.id);
+        if (response.order.quantity === 0) {
+          show(window.jsconfuy.ticket, window.jsconfuy.discount);
+          return showError('Try again please.', false);
         } else {
-          modal.find('.step-payment .invoice .detail').text(response.order.ticket + ': ' + response.order.quantity + ' × $ ' + response.order.price + ' USD');
-          modal.find('.step-payment .invoice .pay button').data('order', response.order.id).text('Pay $ ' + response.order.total + ' USD');
-          modal.find('.step-payment > *').show();
-          modal.find('.step-payment .loading').hide();
+          window.jsconfuy.order = response.order.id;
+          $buyModal.find('.step-payment .invoice .detail .description').text(
+            response.order.quantity + ' × ' + response.order.ticket +
+            (response.order.price ? ' ($ ' + response.order.price + ')' : '')
+          );
+          $buyModal.find('.step-payment .invoice .detail .total').text(
+            response.order.total ? '$ ' + response.order.total : 'Free'
+          );
+          $buyModal.find('.step-payment > *').show();
+          $buyModal.find('.step-payment .loading').hide();
+          if (response.order.total === 0) {
+            $buyModal.find('.step-payment .payment').hide();
+            $buyModal.find('.step-payment .pay').hide();
+            $buyModal.find('.step-payment .continue').show();
+            $buyModal.find('.step-payment .continue button').text('Continue');
+          } else {
+            $buyModal.find('.step-payment .payment').show();
+            $buyModal.find('.step-payment .continue').hide();
+            $buyModal.find('.step-payment .pay').show();
+            $buyModal.find('.step-payment .pay button').text('Pay $ ' + response.order.total + ' USD');
+          }
         }
       }
     });
   };
 
   var assign = function (order) {
-    modal.find('.indicator').removeClass('active');
-    modal.find('.indicator-assign').addClass('active');
-    modal.find('.step').hide();
-    modal.find('.step-assign > *').hide();
-    modal.find('.step-assign .loading').show();
-    modal.find('.step-assign').show();
-    modal.modal({
+    $buyModal.find('.indicator').removeClass('active');
+    $buyModal.find('.indicator-select').addClass('active');
+    $buyModal.find('.indicator-payment').addClass('active');
+    $buyModal.find('.indicator-assign').addClass('active');
+    $buyModal.find('.step').hide();
+    $buyModal.find('.step-assign > *').hide();
+    $buyModal.find('.step-assign .loading').show();
+    $buyModal.find('.step-assign').show();
+    $buyModal.modal({
       backdrop: 'static',
       keyboard: false
     });
@@ -213,89 +243,170 @@
       if (response.error) {
         return showError(response.error, true);
       } else {
-        modal.find('.step-assign .attendees ul').empty();
+        window.jsconfuy.order = response.order.id;
+        $buyModal.find('.step-assign .attendees ul').empty();
         response.attendees.forEach(function (attendee, index) {
-          var li = $('<li />').append(
-            $('<div class="title" />').text('Attendee #' + (index + 1)),
-            $('<div class="personal" />').append(
-              $('<div class="name" />').append(
-                $('<input placeholder="Full Name" />').attr('name', attendee.id + '_name').val(attendee.name)
-              ),
-              $('<div class="email" />').append(
-                $('<input type="email" placeholder="Email" />').attr('name', attendee.id + '_email').val(attendee.email)
-              ),
-              $('<div class="tshirt" />').append(
-                $('<select placeholder="T-Shirt" />').attr('name', attendee.id + '_tshirt').append(
-                  $('<option />', {value: 'XS', text: 'Size XS'}),
-                  $('<option />', {value: 'S', text: 'Size S'}),
-                  $('<option />', {value: 'M', text: 'Size M'}),
-                  $('<option />', {value: 'L', text: 'Size L'}),
-                  $('<option />', {value: 'XL', text: 'Size XL'}),
-                  $('<option />', {value: 'XXL', text: 'Size XXL'})
-                ).val(attendee.tshirt || 'L')
-              )
-            ),
-            $('<div class="extra" />').append(
-              $('<textarea />')
-                .attr('name', attendee.id + '_extra')
-                .attr('placeholder', 'Anything you would like us to know. E.g: Meal requisites (vegan, vegetarian, diabetic, coeliac), Accessibility, etc.')
-                .val(attendee.extra)
-            )
-          );
-          modal.find('.step-assign .attendees ul').append(li);
+          var li = $('<li />')
+            .attr('id', attendee.id)
+            .append(
+              $('<div class="name" />').text(attendee.name || 'Please register the attendee.'),
+              $('<div class="reference" />').text('#' + attendee.reference)
+            ).click(function (e) {
+              fill(attendee.id);
+            });
+          $buyModal.find('.step-assign .attendees ul').append(li);
         });
-        modal.find('.step-assign .save button').data('order', response.order.id);
-        modal.find('.step-assign > *').show();
-        modal.find('.step-assign .loading').hide();
+        $buyModal.find('.step-assign .link a').attr('href', '/?ref=' + response.order.reference)
+        $buyModal.find('.step-assign > *').show();
+        $buyModal.find('.step-assign .loading').hide();
       }
     });
   };
 
-  var save = function (order) {
-    var data = {order: order};
-    modal.find('.step-assign').find('input, textarea, select').each(function () {
-      data[$(this).attr('name')] = $(this).val();
+  var fill = function (attendee) {
+    $.get('/api/tickets/fill', { attendee: attendee }, function (response) {
+      if (response.error) {
+        return showError(response.error, true);
+      } else {
+        window.jsconfuy.attendee = attendee;
+        $attendeeModal.find('.title').text('Attendee #' + response.attendee.reference);
+        $attendeeModal.find('input[name=name]').val(response.attendee.name);
+        $attendeeModal.find('input[name=email]').val(response.attendee.email);
+        $attendeeModal.find('select[name=tshirt]').val(response.attendee.tshirt);
+        $attendeeModal.find('textarea[name=extras]').val(response.attendee.extras);
+        $attendeeModal.find('.link a').attr('href', '/?ref=' + response.attendee.reference)
+        $attendeeModal.modal({
+          backdrop: 'static',
+          keyboard: false
+        });
+      }
     });
+  };
+
+  var save = function () {
+    var data = {
+      id: window.jsconfuy.attendee,
+      name: $attendeeModal.find('input[name=name]').val(),
+      email: $attendeeModal.find('input[name=email]').val(),
+      tshirt: $attendeeModal.find('select[name=tshirt]').val(),
+      extras: $attendeeModal.find('textarea[name=extras]').val()
+    };
+
+    if (/^\s*$/.test(data.name)) {
+      $attendeeModal.find('input[name=name]').focus();
+      return;
+    };
+
+    if (!/@/.test(data.email)) {
+      $attendeeModal.find('input[name=email]').focus();
+      return;
+    };
+
     $.post('/api/tickets/save', data, function (response) {
       if (response.error) {
         return showError(response.error, true);
       } else {
-        modal.modal('hide');
+        $buyModal.find('#' + window.jsconfuy.attendee).find('.name').text(data.name);
+        $attendeeModal.modal('hide');
       }
     });
   };
 
-  modal.find('.step-payment .pay button').click(function (e) {
-    var order = $(this).data('order');
-    var windowTimeout;
-    window.purchaseCompleted = function (err) {
-      window.clearTimeout(windowTimeout);
-      if (err) {
-        showError(err, true);
-      } else {
-        assign(order);
-      }
+  $buyModal.find('.step-payment .continue button').click(function (e) {
+    var order = window.jsconfuy.order;
+    var $name = $buyModal.find('.step-payment .name input');
+    var $email = $buyModal.find('.step-payment .email input');
+    var name = $name.val().trim();
+    var email = $email.val().trim();
+
+    if (/^\s*$/.test(name)) {
+      $name.focus();
+      return;
     };
-    var purchaseWindow = window.open('/purchase/' + order, 'Payment', 'scrollbars=1,height=550,width=800');
-    windowTimeout = window.setTimeout(function () {
-      window.setTimeout(function () { window.alert('Your reservation expired'); }, 10); // Prevent FF hangs
-      purchaseWindow.close();
-      show(modal.data('ticket'), modal.data('discount'));
-    }, window.tickets.reservation * 60 * 1000); // X minutes
-    if (window.focus) { purchaseWindow.focus(); }
+
+    if (!/@/.test(email)) {
+      $email.focus();
+      return;
+    };
+
+    $.post('/api/tickets/details', {order: order, name: name, email: email}, function (response) {
+      if (response.error) {
+        return showError(response.error, false);
+      }
+      assign(order);
+    });
+
     return false;
   });
 
-  modal.find('.step-assign .save button').click(function (e) {
-    var order = $(this).data('order');
-    save(order);
+  $buyModal.find('.step-payment .pay button').click(function (e) {
+    var order = window.jsconfuy.order;
+    var $name = $buyModal.find('.step-payment .name input');
+    var $email = $buyModal.find('.step-payment .email input');
+    var name = $name.val().trim();
+    var email = $email.val().trim();
+
+    if (/^\s*$/.test(name)) {
+      $name.focus();
+      return;
+    };
+
+    if (!/@/.test(email)) {
+      $email.focus();
+      return;
+    };
+
+    var purchase = function () {
+      var windowTimeout;
+
+      window.purchaseCompleted = function (err) {
+        window.clearTimeout(windowTimeout);
+        if (err) {
+          showError(err, true);
+        } else {
+          assign(order);
+        }
+      };
+
+      var purchaseWindow = window.open('/purchase/' + order, 'Payment', 'scrollbars=1,height=550,width=800');
+      windowTimeout = window.setTimeout(function () {
+        window.setTimeout(function () {
+          window.alert('Your reservation expired');
+        }, 10); // Prevent FF hangs
+        purchaseWindow.close();
+        show(window.jsconfuy.ticket, window.jsconfuy.discount);
+      }, window.jsconfuy.reservation * 60 * 1000); // X minutes
+
+      if (window.focus && purchaseWindow) {
+        purchaseWindow.focus();
+      }
+    };
+
+    $.post('/api/tickets/details', {order: order, name: name, email: email}, function (response) {
+      if (response.error) {
+        return showError(response.error, false);
+      }
+      purchase();
+    });
+
+    return false;
+  });
+
+  $buyModal.find('.step-assign .save button').click(function (e) {
+    $buyModal.modal('hide');
+  });
+
+  $attendeeModal.find('.save button').click(function (e) {
+    save();
   });
 
   $('*[data-buy]').click(function (e) { show(); });
 
-  if (modal.data('order')) {
-    assign(modal.data('order'));
-  } else if (modal.data('ticket') || modal.data('discount') || document.location.hash === '#asap' || document.location.hash === '#buy') {
-    show(modal.data('ticket'), modal.data('discount'));
+  if (window.jsconfuy.order) {
+    assign(window.jsconfuy.order);
+  } else if (window.jsconfuy.attendee) {
+    fill(window.jsconfuy.attendee);
+  } else if (window.jsconfuy.ticket || window.jsconfuy.discount || document.location.hash === '#asap' || document.location.hash === '#buy') {
+    show(window.jsconfuy.ticket, window.jsconfuy.discount);
   }
 })(window.jQuery, window.google);

@@ -106,7 +106,7 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
       block content
 
     block modals
-      #buy.modal.fade(tabindex='-1', role='dialog', aria-hidden='true', data-order='#{buy.order || ""}', data-ticket='#{buy.ticket || ""}', data-discount='#{buy.discount || ""}')
+      #buy.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
         .modal-dialog
           .modal-content
             .modal-body
@@ -120,7 +120,7 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                   span Select
                 .indicator.indicator-payment
                   i(class='fa fa-credit-card')
-                  span Payment
+                  span Details & Payment
                 .indicator.indicator-assign
                   i(class='fa fa-ticket')
                   span Assign
@@ -129,27 +129,27 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                   .loading
                     .loader
                   .description
-                    span A Ticket includes
+                    .title A ticket includes
                     ul
                       li
-                        i(class='fa fa-check')
+                        i(class='fa fa-map-marker')
                         |  Two day access Lanyard
                       li
-                        i(class='fa fa-check')
+                        i(class='fa fa-cutlery')
                         |  Lunch both days
                       li
-                        i(class='fa fa-check')
+                        i(class='fa fa-coffee')
                         |  Breakfast and coffee-breaks
                       li
-                        i(class='fa fa-check')
+                        i(class='fa fa-user')
                         |  A cool T-Shirt
-                  .discount
-                    .code
-                  .soldout
-                    | No tickets available.
-                    // We're sold out.
-                  .tickets
-                    ul
+                  .order
+                    .title Select tickets
+                    .soldout
+                      | No tickets available.
+                    .tickets
+                      ul
+                    .discount
                   .note
                     | To participate in the conference you must adhere to 
                     a(href='/code-of-conduct', target='_blank') our code of conduct
@@ -161,26 +161,75 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                   .loading
                     .loader
                   .invoice
+                    .title Summary of your order
                     .detail
-                    .pay
-                      button Pay
-                  .important
-                    | At this point your tickets has been reserved. You have #{ticketReservation} minutes to complete your payment or these will be released.
+                      .description
+                      .total
+                  .details
+                    .title Your Details
+                    .name
+                      input(placeholder='Full Name', title='Full Name')
+                    .email
+                      input(type='email', placeholder='Email', title='Email')
+                  .payment
+                    .title Payment
+                    .important
+                      | At this point your tickets has been reserved. You have #{ticketReservation} minutes to complete your payment or these will be released.
+                      br
+                      strong
+                        | A popup will be open to process with the checkout.
+                  .pay
+                    button Pay
+                  .continue
+                    button Continue
                   .note
-                    | A popup will be open to process with the checkout.
-                    br
                     | Any questions please contact 
                     a(href='mailto:hola@jsconf.uy', target='_blank') hola@jsconf.uy
                 .step.step-assign
                   .loading
                     .loader
                   .attendees
+                    .title
+                      | Your Tickets
                     ul
-                  .thanks
-                    | Thank you!
                   .save
-                    button Save & Close
+                    button Close
+                  .link
+                    a(target='_blank')
+                      | Order's permanent link 
+                      i.fa.fa-external-link
                   .note You can complete this step later.
+      #attendee.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+        .modal-dialog
+          .modal-content
+            .modal-body
+              .intro
+                button(type='button', class='close', data-dismiss='modal', aria-label='Close')
+                  span(aria-hidden='true') &times;
+                img(src='images/base/george.svg')
+              .personal
+                .title Attendee's Details
+                .name
+                  input(placeholder='Full Name', name='name')
+                .email
+                  input(type='email', placeholder='Email', name='email')
+                .tshirt
+                  select(placeholder='T-Shirt', name='tshirt')
+                    option(value='XS') Size XS
+                    option(value='S') Size S
+                    option(value='M') Size M
+                    option(value='L') Size L
+                    option(value='XL') Size XL
+                    option(value='XXL') Size XXL
+              .extra
+                textarea(name='extra', placeholder='Anything you would like us to know. E.g: Meal requisites (vegan, vegetarian, diabetic, coeliac), Accessibility, etc.')
+              .workshops
+              .save
+                button Save & Close
+              .link
+                a(target='_blank')
+                  | Attendee's permanent link 
+                  i.fa.fa-external-link
     block footer
       footer
         .footer
@@ -220,7 +269,12 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
             a(href='/code-of-conduct') Code of Conduct
 
     script(type='text/javascript').
-      window.tickets = {
+      window.jsconfuy = {
+        ticket: '#{query.ticket || ""}',
+        discount: '#{query.discount || ""}',
+        order: '#{query.order || ""}',
+        attendee: '#{query.attendee || ""}',
+        reference: '#{query.reference || ""}',
         reservation: #{ticketReservation}
       };
 

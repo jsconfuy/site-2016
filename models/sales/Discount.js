@@ -30,6 +30,7 @@ Discount.add({
 
 Discount.schema.pre('validate', function(next) {
   // Because we need custom code (no auto slug) and Keystone doesn't support mongoose validation
+  this.code = this.code && this.code.toLowerCase();
   if (! /^[a-z0-9-]+$/.test(this.code)) {
     return next(Error('Invalid code format. Use numbers, letters or -.'));
   }
