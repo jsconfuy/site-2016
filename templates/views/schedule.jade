@@ -32,6 +32,8 @@ block content
                         if item
                           .title(class='#{item.description && item.description.html ? "has-description" : ""}', id='#{item.slug}')
                             = item.title || slot.name
+                          .language
+                            = item.languageLabel
                           if item.description && item.description.html
                             .description
                               != item.description.html

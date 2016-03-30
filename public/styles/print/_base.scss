@@ -1,0 +1,41 @@
+.attendee {
+  border: 2px dashed $red;
+  margin: 40px auto 0;
+  max-width: 500px;
+  padding: 10px;
+  width: 40%;
+
+  .logo {
+    padding: 10px;
+    text-align: center;
+
+    img {
+      width: 40%;
+    }
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+
+    .name {
+      font-size: 110%;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .reference {
+      font-family: monospace;
+      font-size: 110%;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .order {
+      flex: 1;
+      font-size: 60%;
+      text-align: center;
+    }
+  }
+}

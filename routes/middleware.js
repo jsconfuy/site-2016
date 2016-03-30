@@ -3,6 +3,7 @@ require('dotenv').load();
 var keystone = require('keystone');
 var Attendee = keystone.list('Attendee');
 var Order = keystone.list('Order');
+var Workshop = keystone.list('Workshop');
 
 exports.initLocals = function (req, res, next) {
   var locals = res.locals;
@@ -20,7 +21,7 @@ exports.initLocals = function (req, res, next) {
   var attendee = req.query.attendee;
   var reference = req.query.ref;
 
-  var query = function () {
+  var setLocals = function () {
     locals.query = {
       ticket: req.query.ticket,
       discount: req.query.discount,
@@ -31,26 +32,44 @@ exports.initLocals = function (req, res, next) {
     next();
   };
 
-  if (reference) {
-    reference = reference.toUpperCase();
-    if (/-/.test(reference)) {
-      Attendee.model.findOne({reference: reference}).exec(function (err, result) {
-        if (result) {
-          attendee = result._id
-        }
-        query();
-      });
+  var getWorkshops = function () {
+    Workshop.model.find().where('status', 'P').exec(function (err, workshops) {
+      locals.workshops = workshops;
+      return setLocals();
+    });
+  };
+
+  var getReference = function () {
+    if (reference) {
+      reference = reference.toUpperCase();
+      if (/-/.test(reference)) {
+        Attendee.model.findOne({reference: reference}).exec(function (err, result) {
+          if (result) {
+            attendee = result._id
+          }
+          getWorkshops();
+        });
+      } else {
+        Order.model.findOne({reference: reference}).exec(function (err, result) {
+          if (result) {
+            order = result._id
+          }
+          getWorkshops();
+        });
+      }
     } else {
-      Order.model.findOne({reference: reference}).exec(function (err, result) {
-        if (result) {
-          order = result._id
-        }
-        query();
-      });
+      getWorkshops();
     }
-  } else {
-    query();
   }
+
+  getReference();
+};
+
+exports.initErrorHandlers = function(req, res, next) {
+    res.notFound = function() {
+        res.status(404).render('errors/404', {});
+    }
+    next();
 };
 
 exports.requireUser = function (req, res, next) {

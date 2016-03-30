@@ -1,0 +1,29 @@
+extends ../layouts/print
+
+block content
+  each attendee in attendees
+    .attendee
+      .logo
+        img(src='/images/base/small-logo.svg')
+      .info
+        .name
+          | #{attendee.name || 'N/A'}
+        .reference
+          | ##{attendee.reference}
+      .info
+        .email
+          |  Email: #{attendee.email || 'N/A'}
+      .info
+        .tshirt
+          |  T-Shirt: #{attendee.tshirt || 'N/A'}
+      .info
+        .extra
+          |  Extra: #{attendee.extra || 'N/A'}
+      .info
+        .order
+          i.fa.fa-shopping-cart
+          |  #{order.reference} 
+          i.fa.fa-ticket
+          |  #{order.ticket.name} 
+          i.fa.fa-calendar
+          |  #{order.reserved.toISOString()}

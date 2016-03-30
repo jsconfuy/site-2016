@@ -9,7 +9,7 @@ var countries = require('country-list')();
  */
 
 var Attendee = new keystone.List('Attendee', {
-  map: {name: 'reference'},
+  map: {name: 'name'},
   perPage: 400,
   track: {createdBy: true, createdAt: true, updatedBy: true, updatedAt: true}
 });
@@ -47,7 +47,8 @@ Attendee.add(
       label: 'Country', type: Types.Select, options: countries.getData().map(function (country) {
         return {label: country.name, value: country.code};
       })},
-    extra: {type: Types.Textarea}
+    extra: {type: Types.Textarea},
+    workshops: { type: Types.Relationship, ref: 'Workshop', many: true },
   }
 );
 

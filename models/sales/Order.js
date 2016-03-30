@@ -16,8 +16,8 @@ var Order = new keystone.List('Order', {
 });
 
 Order.add({
-  action: {type: Types.Select, options: [
-    {value: 'send-email', label: 'Send Thank You Email.'}
+  task: {type: Types.Select, options: [
+    {value: 'send-email', label: 'Send Thank You Email'}
   ]},
   reference: {type: String, unique: true, noedit: true},
   name: {type: String},
@@ -53,7 +53,7 @@ Order.relationship({ ref: 'Tag', path: 'tags' });
 Order.schema.pre('save', function (next) {
   var order =  this;
   async.series([
-    // Custom actions
+    // Custom tasks
     function (callback) {
       order.execute(callback);
     },
@@ -71,10 +71,9 @@ Order.schema.pre('save', function (next) {
   ], next);
 });
 
-
 Order.schema.methods.execute = function (callback) {
-  if (this.action === 'send-email') {
-    this.action = null;
+  if (this.task === 'send-email') {
+    this.task = null;
     this.sendOrderConfirmation(function (err) {
       callback();
     });

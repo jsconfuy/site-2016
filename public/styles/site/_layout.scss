@@ -750,7 +750,7 @@ h2 {
 
         .link {
           color: $blue;
-          font-size: 80%;;
+          font-size: 80%;
           margin: 10px auto 0;
           text-align: right;
         }
@@ -768,6 +768,22 @@ h2 {
             &:focus {
               outline: none;
             }
+          }
+        }
+
+        .info {
+          @include clearfix();
+
+          .title {
+            float: left;
+          }
+
+          .reference,
+          .receipt,
+          .print {
+            float: right;
+            line-height: 30px;
+            margin-left: 10px;
           }
         }
 
@@ -834,9 +850,25 @@ h2 {
 
   .link {
     color: $blue;
-    font-size: 80%;;
+    font-size: 80%;
     margin: 10px auto 0;
     text-align: right;
+  }
+
+  .info {
+    @include clearfix();
+
+    .title {
+      float: left;
+    }
+
+    .reference,
+    .receipt,
+    .print {
+      float: right;
+      line-height: 30px;
+      margin-left: 10px;
+    }
   }
 
   .save {
@@ -854,7 +886,6 @@ h2 {
       }
     }
   }
-
 
   .personal {
     @include clearfix();
@@ -930,6 +961,20 @@ h2 {
       }
     }
   }
+
+  .workshops {
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin: 4px 0;
+        padding: 0;
+      }
+    }
+  }
+
 }
 
 // Loader

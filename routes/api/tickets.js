@@ -84,7 +84,9 @@ module.exports.fill = function (req, res, next) {
       reference: attendee.reference,
       name: attendee.name,
       email: attendee.email,
-      tshirt: attendee.tshirt
+      tshirt: attendee.tshirt,
+      extra: attendee.extra,
+      workshops: attendee.workshops
     };
     res.apiResponse({attendee: attendee, messages: messages});
   });
@@ -96,6 +98,7 @@ module.exports.save = function (req, res, next) {
     attendee.email = req.body['email'];
     attendee.tshirt = req.body['tshirt'];
     attendee.extra = req.body['extra'];
+    attendee.workshops = req.body['workshops'];
   };
   tickets.save(req.body.id, fill, function (err, messages) {
     if (err) return next(ApiError(err.message, 'DB', true));

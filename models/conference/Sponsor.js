@@ -41,6 +41,7 @@ Sponsor.add(
     description: { type: Types.Markdown },
     logo: { type: Types.CloudinaryImage },
     url: { type: Types.Url },
+    twitter: { type: String },
     contact: {
       name: { type: String },
       email: { type: Types.Email }

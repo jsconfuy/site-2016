@@ -155,6 +155,8 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                     a(href='/code-of-conduct', target='_blank') our code of conduct
                     | .
                     br
+                    | Tickets are nonrefundable. You can change the person attending.
+                    br
                     | Any questions you may have email us at 
                     a(href='mailto:hola@jsconf.uy', target='_blank') hola@jsconf.uy
                 .step.step-payment
@@ -189,8 +191,12 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                   .loading
                     .loader
                   .attendees
-                    .title
-                      | Your Tickets
+                    .info
+                      .title
+                        | Your Order
+                      a.print.fa.fa-print(target='_blank', title='Print tickets')
+                      // a.receipt.fa.fa-file-text-o(target='_blank', title='View Receipt')
+                      a.reference(target='_blank')
                     ul
                   .save
                     button Close
@@ -208,7 +214,11 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                   span(aria-hidden='true') &times;
                 img(src='images/base/george.svg')
               .personal
-                .title Attendee's Details
+                .info
+                  .title Attendee's Details
+                  a.print.fa.fa-print(target='_blank', title='Print ticket')
+                  // a.receipt.fa.fa-file-text-o(target='_blank', title='View Receipt')
+                  a.reference(target='_blank')
                 .name
                   input(placeholder='Full Name', name='name')
                 .email
@@ -224,6 +234,18 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
               .extra
                 textarea(name='extra', placeholder='Anything you would like us to know. E.g: Meal requisites (vegan, vegetarian, diabetic, coeliac), Accessibility, etc.')
               .workshops
+                .title Workshops Registration
+                .description
+                  | For more information about workshops please visit the 
+                  a(href='/schedule', target='_blank')
+                    | schedule
+                  |  page.
+                ul
+                  each workshop in workshops
+                    li
+                      label
+                        input(type='checkbox', name='workshop', value='#{workshop._id}')
+                        |  #{workshop.title}
               .save
                 button Save & Close
               .link

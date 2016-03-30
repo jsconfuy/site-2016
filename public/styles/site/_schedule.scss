@@ -79,6 +79,12 @@
               }
             }
 
+            .language {
+              color: $blue-dark;
+              font-size: 60%;
+              text-transform: uppercase;
+            }
+
             .description {
               @include cross-browser(transition, all east-out 100ms);
               color: $gray-dark;

@@ -256,6 +256,9 @@
             });
           $buyModal.find('.step-assign .attendees ul').append(li);
         });
+        $buyModal.find('.step-assign .info a.reference').attr('href', '/?ref=' + response.order.reference).text('#' + response.order.reference);
+        $buyModal.find('.step-assign .info a.receipt').attr('href', '/receipts/' + response.order.reference)
+        $buyModal.find('.step-assign .info a.print').attr('href', '/print/' + response.order.reference)
         $buyModal.find('.step-assign .link a').attr('href', '/?ref=' + response.order.reference)
         $buyModal.find('.step-assign > *').show();
         $buyModal.find('.step-assign .loading').hide();
@@ -269,12 +272,17 @@
         return showError(response.error, true);
       } else {
         window.jsconfuy.attendee = attendee;
-        $attendeeModal.find('.title').text('Attendee #' + response.attendee.reference);
         $attendeeModal.find('input[name=name]').val(response.attendee.name);
         $attendeeModal.find('input[name=email]').val(response.attendee.email);
         $attendeeModal.find('select[name=tshirt]').val(response.attendee.tshirt);
-        $attendeeModal.find('textarea[name=extras]').val(response.attendee.extras);
+        $attendeeModal.find('textarea[name=extra]').val(response.attendee.extra);
+        $attendeeModal.find('input[name=workshop]').prop('checked', false);
+        response.attendee.workshops.forEach(function (workshop) {
+          $attendeeModal.find('input[name=workshop][value=' + workshop + ']').prop('checked', true);
+        });
         $attendeeModal.find('.link a').attr('href', '/?ref=' + response.attendee.reference)
+        $attendeeModal.find('.info a.reference').attr('href', '/?ref=' + response.attendee.reference).text('#' + response.attendee.reference);
+        $attendeeModal.find('.info a.print').attr('href', '/print/' + response.attendee.reference)
         $attendeeModal.modal({
           backdrop: 'static',
           keyboard: false
@@ -289,7 +297,8 @@
       name: $attendeeModal.find('input[name=name]').val(),
       email: $attendeeModal.find('input[name=email]').val(),
       tshirt: $attendeeModal.find('select[name=tshirt]').val(),
-      extras: $attendeeModal.find('textarea[name=extras]').val()
+      extra: $attendeeModal.find('textarea[name=extra]').val(),
+      workshops: $attendeeModal.find('input[name=workshop]:checked').map(function() {return this.value;}).get()
     };
 
     if (/^\s*$/.test(data.name)) {

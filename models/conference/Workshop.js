@@ -44,6 +44,7 @@ Workshop.add(
 Workshop.relationship({ ref: 'Speaker', path: 'speakers' });
 Workshop.relationship({ ref: 'Tag', path: 'tags' });
 Workshop.relationship({ ref: 'Slot', refPath: 'workshop', path: 'slots' });
+Workshop.relationship({ ref: 'Attendee', refPath: 'workshops', path: 'attendees' });
 
 Workshop.defaultColumns = 'title, speakers, tags, status, hours, assignee, language';
 Workshop.register();
