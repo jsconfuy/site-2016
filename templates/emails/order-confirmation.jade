@@ -22,13 +22,13 @@ html
             | Click the following link to complete the sign up!
       tr
         td(colspan='2')
-          a(href='#{ base_url }/?order=' + order.id, style='background: #E6392E; color: #ffffff; display: inline-block; line-height: 60px; margin: 30px auto 70px auto; padding: 0 30px; text-decoration: none;')
+          a(href='#{base_url}/?ref=#{order.reference}', style='background: #E6392E; color: #ffffff; display: inline-block; line-height: 60px; margin: 30px auto 70px auto; padding: 0 30px; text-decoration: none;')
             | COMPLETE SIGNING UP NOW!
       tr(style='background: #E6E6E6; border-bottom: 1px solid #cccccc;')
         td(style='padding: 50px;')
           p(style='color: #142535; font-size: 30px;')
             strong April 15 - 8:00 am
-          a(href='#{ base_url }/schedule', style='color: #487C9A;')
+          a(href='#{base_url}/schedule', style='color: #487C9A;')
             | Schedule
         td(style='padding: 30px;')
           p(style='color: #142535; font-size: 30px;')

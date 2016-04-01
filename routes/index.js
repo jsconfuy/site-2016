@@ -24,6 +24,7 @@ exports = module.exports = function (app) {
   app.all('/purchase/:order?', routes.views.purchase);
   app.get('/receipt/:ref', routes.views.receipt);
   app.get('/print/:ref', routes.views.print);
+  app.get('/registration', routes.views.registration);
 
   app.all('/api*', keystone.middleware.api);
   app.get('/api/tickets/available', routes.api.tickets.available);

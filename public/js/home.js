@@ -18,13 +18,13 @@
 
   countdown.on('update.countdown', function (clock) {
     countdownTime = '';
+    console.log(clock);
+    console.log(clock.strftime('%D '));
 
-    if (clock.offset.days >= 1) {
-      countdownTime += clock.strftime('%D ');
-      countdownTime += '<span class="days">';
-      countdownTime += clock.strftime('day%!d');
-      countdownTime += '</span> ';
-    }
+    countdownTime += clock.strftime('%D ');
+    countdownTime += '<span class="days">';
+    countdownTime += clock.strftime('day%!d');
+    countdownTime += '</span> ';
     countdownTime += clock.strftime('%H:%M:%S');
 
     $(this).html(countdownTime);

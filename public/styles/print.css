@@ -6469,3 +6469,8 @@ button.close {
       flex: 1;
       font-size: 60%;
       text-align: center; }
+  .attendee .barcode {
+    display: block;
+    height: 70px;
+    margin: 4px auto;
+    width: 300px; }

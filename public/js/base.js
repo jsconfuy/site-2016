@@ -338,12 +338,10 @@
       return;
     };
 
-    $.post('/api/tickets/details', {order: order, name: name, email: email}, function (response) {
-      if (response.error) {
-        return showError(response.error, false);
-      }
-      assign(order);
-    });
+    // We can't call assign into the callback because of popup blocker.
+    $.post('/api/tickets/details', {order: order, name: name, email: email}, function (response) {});
+
+    assign(order);
 
     return false;
   });

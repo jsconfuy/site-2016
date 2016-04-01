@@ -1,0 +1,50 @@
+extends ../layouts/registration
+
+block content
+  .container.center-block
+    .row
+      .col-md-5.col-md-offset-2
+        h2
+          | Registration
+    .row
+      .col-md-6.col-md-offset-2
+        form(method='get')
+          if reference
+            .form-group
+              label Rererence
+                .form-control
+                  | #{reference}
+            if status == 200
+              .form-group
+                label Name
+                .form-control
+                  | #{attendee.name || 'N/A'}
+              .form-group
+                label Email
+                .form-control
+                  | #{attendee.email || 'N/A'}
+              .form-group
+                label T-Shirt
+                .form-control
+                  | #{attendee.tshirt || 'N/A'}
+              .form-group
+                label Registered
+                .form-control
+                  | #{attendee.registered || 'N/A'}
+              .form-group
+                h2
+                  span.label.label-success
+                    | Success
+            else if status == 409
+              .form-group
+                h2
+                  span.label.label-danger
+                    | Already registered.
+            else if status == 404
+              .form-group
+                h2
+                  span.label.label-danger
+                    | Ticket not found.
+          .form-group
+            input.form-control(autofocus, name='ref', type='text', placeholder='Type #Ref')
+

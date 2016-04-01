@@ -21,6 +21,7 @@ Attendee.add(
     order: {type: Types.Relationship, ref: 'Order', index: true, noedit: true},
     ticket: {type: Types.Relationship, ref: 'Ticket', index: true},
     discount: {type: Types.Relationship, ref: 'Discount', index: true},
+    registered: { type: Types.Datetime },
     price: {type: Types.Money, required: false},
     tags: { type: Types.Relationship, ref: 'Tag', many: true },
     notes: { type: Types.Markdown }
