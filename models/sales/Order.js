@@ -59,6 +59,7 @@ Order.schema.pre('save', function (next) {
     },
     // Generate reference code
     function (callback) {
+      if (order.reference) return callback();
       var reference = function () {
         order.reference = Math.random().toString(36).slice(2, 6).toUpperCase();
         Order.model.find().where('reference', order.reference).exec(function (err, results) {

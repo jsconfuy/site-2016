@@ -6806,6 +6806,7 @@ h2 {
   width: 100%; }
   .page-title h1,
   .page-title h2 {
+    color: #fff;
     font-weight: bold;
     text-transform: uppercase; }
   .page-title img {
@@ -7708,6 +7709,24 @@ h2 {
   display: block;
   margin: 0 auto;
   padding: 31%; }
+
+.sponsors .logo a img {
+  display: block;
+  margin: 0 auto;
+  max-height: 200px;
+  max-width: 200px; }
+
+.sponsors h2 {
+  text-align: left; }
+
+.sponsors .description {
+  font-size: .8em; }
+
+.sponsors .links {
+  font-size: .8em; }
+  .sponsors .links a {
+    display: inline-block;
+    padding: 0 12px 0 0; }
 
 .main-logo #main {
   animation: main-rot 1s ease-out alternate infinite;

@@ -14,6 +14,7 @@ exports = module.exports = function (app) {
   app.get('/', routes.views.home);
   app.get('/venue', routes.views.venue);
   app.get('/hotels', routes.views.hotels);
+  app.get('/sponsors', routes.views.sponsors);
   app.get('/agenda', routes.views.agenda);
   app.get('/schedule', routes.views.schedule);
   app.get('/code-of-conduct', routes.views.coc);

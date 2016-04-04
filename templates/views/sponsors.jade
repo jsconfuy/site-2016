@@ -1,0 +1,32 @@
+extends ../layouts/default
+
+block vars
+  - var section = 'sponsors';
+  - var klass = 'sponsors';
+
+
+block content
+  .page-title
+    h1 Sponsors
+
+  .container
+    each sponsorLevel in sponsorLevels
+      each sponsor in sponsorLevel.sponsors
+        .row.featurette
+          .col-md-5
+          .col-md-7
+            h2
+              != sponsor.name
+          .col-md-5.logo
+            a(href='#{sponsor.url}', target='_blank')
+              img(src='#{sponsor.logo.url}')
+          .col-md-7
+            p.description
+              != sponsor.description.html
+            p.links
+              a(href='#{sponsor.url}', target='_blank')
+                != sponsor.url
+              a(href='https://twitter.com/#{sponsor.twitter}', target='_blank')
+                != '@' + (sponsor.twitter || '')
+
+

@@ -1,0 +1,32 @@
+.sponsors {
+
+  .logo {
+    a {
+      img {
+        display: block;
+        margin: 0 auto;
+        max-height: 200px;
+        max-width: 200px;
+      }
+    }
+  }
+
+  h2 {
+    text-align: left;
+  }
+
+  .description {
+    font-size: .8em;
+  }
+
+  .links {
+    font-size: .8em;
+
+    a {
+      display: inline-block;
+      padding: 0 12px 0 0;
+    }
+  }
+
+
+}
