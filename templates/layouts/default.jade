@@ -14,7 +14,7 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
     title= title
     meta(name='description', content='A Javascript conference made with love for the latin american community.')
 
-    link(href="/styles/site.css", rel="stylesheet")
+    link(href="/styles/site.css?v=20160404A", rel="stylesheet")
     if user && user.canAccessKeystone
       link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
 
@@ -304,7 +304,7 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
     script(src='/js/lib/jquery/jquery-2.1.1.min.js')
     script(src='/js/lib/bootstrap/bootstrap-3.2.0.min.js')
     script(src='/js/lib/jquery.bootstrap-autohidingnavbar.js')
-    script(src='/js/base.js')
+    script(src='/js/base.js?v=20160404A')
 
     // Twitter single-event website tag code
     script(src='//platform.twitter.com/oct.js', type='text/javascript')
