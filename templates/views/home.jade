@@ -79,7 +79,7 @@ block content
       each sponsorLevel in sponsorLevels
         ul
           each sponsor in sponsorLevel.sponsors
-            li(id='#{sponsor.slug}')
+            li(id='#{sponsor.slug}', title='#{sponsor.name}')
               a.img(href='#{sponsor.url}', target='_blank', style='height: #{sponsor.level.size}px; width: #{sponsor.level.size}px; background-image: url(#{sponsor._.logo.pad(sponsor.level.size, sponsor.level.size)})')
 
     h2 Interested?
