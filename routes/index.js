@@ -5,7 +5,6 @@ var logger = require('../lib/logger');
 
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('routes', middleware.initErrorHandlers);
-keystone.pre('routes', middleware.requireUser);
 
 var routes = {
   views: importRoutes('./views'),
