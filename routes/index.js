@@ -4,6 +4,8 @@ var importRoutes = keystone.importer(__dirname);
 var logger = require('../lib/logger');
 
 keystone.pre('routes', middleware.initLocals);
+keystone.pre('routes', middleware.initErrorHandlers);
+keystone.pre('routes', middleware.requireUser);
 
 var routes = {
   views: importRoutes('./views'),
@@ -20,6 +22,7 @@ exports = module.exports = function (app) {
   app.get('/code-of-conduct', routes.views.coc);
   // app.all('/talks', routes.views.cft);
   // app.all('/workshops', routes.views.cfw);
+  app.all('/lightnings', routes.views.cfl);
   app.get('/blog/:category?', routes.views.blog);
   app.get('/blog/post/:post', routes.views.post);
   app.all('/purchase/:order?', routes.views.purchase);

@@ -33,12 +33,10 @@ body {
   }
 
   .error-404 {
-    background: transparent url('//sophilabs.co/static/core/img/404_01.gif') no-repeat 50% 50%;
-    background-size: cover;
+    background-color: $red-dark;
   }
 
   .error-500 {
-    background: transparent url('//sophilabs.co/static/core/img/500_01.gif') no-repeat 50% 50%;
-    background-size: cover;
+    background-color: $red-dark;
   }
 }

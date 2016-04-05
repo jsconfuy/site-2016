@@ -66,15 +66,15 @@ exports.initLocals = function (req, res, next) {
 };
 
 exports.initErrorHandlers = function(req, res, next) {
-    res.notFound = function() {
-      res.status(404).render('errors/404', {});
-    };
+  res.notFound = function() {
+    res.status(404).render('errors/404', {});
+  };
 
-    res.internalServerError = function() {
-      res.status(500).render('errors/500', {});
-    };
+  res.internalServerError = function() {
+    res.status(500).render('errors/500', {});
+  };
 
-    next();
+  next();
 };
 
 exports.requireUser = function (req, res, next) {

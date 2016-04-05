@@ -1,0 +1,58 @@
+extends ../layouts/default
+
+block vars
+  - var section = 'cfl';
+  - var klass = 'cfl';
+
+block content
+  .proposals
+    .page-title
+      img(src="/images/titles/cft.svg")
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          h3 Invitation
+          p
+            | In JSConfUY this 2016 edition we will have Lighting Talks Saturday afternoon, 
+            | if you have something cool to show to your colleagues, it is a nice time. 
+            | The rules are pretty simple:
+          ul
+            li
+              | 1. Submit your talk by Friday 15th at noon using this form, provide a title and your twitter handle  
+            li
+              | 2. Your talk must be at most 3 minutes, 5 if you could send us the slides, so we could accommodate more people in our 30 min slot. 
+            li
+              | 3. During Friday, the attendees will be able to vote for the most compelling talk tiles. At the end of the day we will announce the talks selected. (edited)
+          p
+            | If you have any questions just contact us: 
+            a(href='mailto:hola@jsconf.uy') hola@jsconf.uy
+            |  (please note: to submit a lighting talk, use the form below).
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          if cfp.submitted
+            h2#submit Thanks
+            h3 Your lighting talk was submitted.
+          else
+            h2#submit Submit
+            form(method='post', action='/lightnings?for=#{attendee.reference}#submit').upper-form
+              - var errors = cfp.errors || {}
+              - var data = cfp.data || {}
+              input(type='hidden', name='action', value='submit')
+              .form-group(class=errors.topic ? 'has-error' : null)
+                label(for='topic') Talk's Topic *
+                input#topic(type='text', name='topic', value=data['topic']).form-control
+              .form-group
+                label(for='name') Speaker's Name
+                .form-control #{attendee.name}
+              .form-group
+                label(for='email') Speaker's Email
+                .form-control #{attendee.email}
+              .form-group(class=errors.twitter ? 'has-error' : null)
+                label(for='twitter') Speaker's Twitter *
+                input#email(type='twitter', name='twitter', value=data.twitter).form-control
+              .form-group(class=errors.extra ? 'has-error' : null)
+                label(for='extra') Notes
+                textarea#extra(name='extra', placeholder='Anything else you would like to mention...' rows=4).form-control= data.extra
+              .form-actions.text-center
+                button(type='submit').btn.btn-primary Submit

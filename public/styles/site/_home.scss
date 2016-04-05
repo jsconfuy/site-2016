@@ -114,11 +114,19 @@
     .speakers {
       padding: 30px 0;
 
+      @media (max-width: $screen-sm-min) {
+        padding: 10px 0;
+      }
+
       ul {
         margin: 90px auto;
         max-width: 1200px;
         padding: 0;
         text-align: center;
+
+        @media (max-width: $screen-sm-min) {
+          margin: 30px auto;
+        }
 
         li {
           display: inline-block;
@@ -135,6 +143,11 @@
             height: 230px;
             margin: 0 auto;
             width: 230px;
+
+            @media (max-width: $screen-sm-min) {
+              height: 150px;
+              width: 150px;
+            }
 
             &.empty {
               background: transparent url('../images/base/george.svg') no-repeat 50% 50%;
@@ -224,6 +237,10 @@
       padding: 80px;
       width: 100%;
 
+      @media (max-width: $screen-sm-min) {
+        padding: 40px;
+      }
+
       .buy-tickets {
         display: none;
         text-align: center;
@@ -257,6 +274,10 @@
           font-size: 3em;
           margin: auto;
           text-align: center;
+
+          @media (max-width: $screen-sm-min) {
+            font-size: 2em;
+          }
 
           .days {
             font-size: .5em;
@@ -313,11 +334,16 @@
     }
 
     .organizers {
-
       h1 {
         background: transparent url('../images/base/george.svg') no-repeat 50% 0;
         background-size: 230px auto;
         padding-top: 250px;
+
+        @media (max-width: $screen-sm-min) {
+          background-size: 130px auto;
+          padding-top: 150px;
+        }
+
       }
     }
 
@@ -325,6 +351,10 @@
     .volunteers {
       background-color: $blue-dark;
       padding: 30px 0;
+
+      @media (max-width: $screen-sm-min) {
+        padding: 10px auto;
+      }
 
       h1 {
         color: $white;
@@ -336,6 +366,10 @@
         max-width: 1200px;
         padding: 0;
         text-align: center;
+
+        @media (max-width: $screen-sm-min) {
+          margin: 30px auto;
+        }
 
         li {
           display: inline-block;
@@ -352,6 +386,11 @@
             height: 230px;
             margin: 0 auto;
             width: 230px;
+
+            @media (max-width: $screen-sm-min) {
+              height: 150px;
+              width: 150px;
+            }
 
             &.empty {
               background: transparent url('../images/base/george.svg') no-repeat 50% 50%;

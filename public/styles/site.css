@@ -6523,6 +6523,12 @@ body {
     top: 0;
     width: 100%;
     z-index: 1; }
+  @media (max-width: 768px) {
+    body h1 {
+      font-size: 1.8em;
+      margin: 10px auto; }
+    body h2 {
+      font-size: 1.6em; } }
   body > footer {
     background-color: #c5473d;
     margin: 80px 0 0;
@@ -6548,6 +6554,10 @@ body {
         body > footer .footer .map h1,
         body > footer .footer .venue-info h1 {
           font-size: 3em; }
+          @media (max-width: 768px) {
+            body > footer .footer .map h1,
+            body > footer .footer .venue-info h1 {
+              font-size: 1.8em; } }
       body > footer .footer .map {
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -6573,6 +6583,9 @@ body {
         body > footer .footer .venue-info .venue {
           display: block;
           margin: 50px auto; }
+          @media (max-width: 768px) {
+            body > footer .footer .venue-info .venue {
+              margin: 20px auto; } }
           body > footer .footer .venue-info .venue h1,
           body > footer .footer .venue-info .venue h2 {
             color: #fff; }
@@ -6580,12 +6593,20 @@ body {
             background: transparent url("../images/base/ok.svg") no-repeat 50% 0;
             background-size: 230px auto;
             padding-top: 250px; }
+            @media (max-width: 768px) {
+              body > footer .footer .venue-info .venue h1 {
+                background-size: 130px auto;
+                padding-top: 150px; } }
         body > footer .footer .venue-info .info {
           color: #172636;
           display: block;
           margin: 50px auto;
           max-width: 450px;
           padding: 30px 0; }
+          @media (max-width: 768px) {
+            body > footer .footer .venue-info .info {
+              margin: 20px auto;
+              padding: 10px 0; } }
           body > footer .footer .venue-info .info a {
             color: #fff; }
           body > footer .footer .venue-info .info h3 {
@@ -7381,11 +7402,17 @@ h2 {
               text-decoration: none; }
     .home body .speakers {
       padding: 30px 0; }
+      @media (max-width: 768px) {
+        .home body .speakers {
+          padding: 10px 0; } }
       .home body .speakers ul {
         margin: 90px auto;
         max-width: 1200px;
         padding: 0;
         text-align: center; }
+        @media (max-width: 768px) {
+          .home body .speakers ul {
+            margin: 30px auto; } }
         .home body .speakers ul li {
           display: inline-block;
           list-style: none;
@@ -7411,6 +7438,10 @@ h2 {
             height: 230px;
             margin: 0 auto;
             width: 230px; }
+            @media (max-width: 768px) {
+              .home body .speakers ul li .img {
+                height: 150px;
+                width: 150px; } }
             .home body .speakers ul li .img.empty {
               background: transparent url("../images/base/george.svg") no-repeat 50% 50%;
               background-size: 70% auto; }
@@ -7471,6 +7502,10 @@ h2 {
       color: #fff;
       padding: 80px;
       width: 100%; }
+      @media (max-width: 768px) {
+        .home body .tickets-sale,
+        .home body .call-for-proposal {
+          padding: 40px; } }
       .home body .tickets-sale .buy-tickets,
       .home body .call-for-proposal .buy-tickets {
         display: none;
@@ -7486,7 +7521,7 @@ h2 {
           display: block;
           background: url("/images/home/tickets.svg") no-repeat;
           background-position: center;
-          height: 300px;
+          height: 200px;
           margin: auto;
           width: 100%; }
           .home body .tickets-sale .buy-tickets a:hover,
@@ -7513,7 +7548,7 @@ h2 {
           display: block;
           background: url("/images/home/cft.svg") no-repeat;
           background-position: center;
-          height: 300px;
+          height: 200px;
           margin: auto;
           width: 100%; }
           .home body .tickets-sale .call-proposal a:hover,
@@ -7531,6 +7566,10 @@ h2 {
         font-size: 3em;
         margin: auto;
         text-align: center; }
+        @media (max-width: 768px) {
+          .home body .tickets-sale .countdown .countdown-clock,
+          .home body .call-for-proposal .countdown .countdown-clock {
+            font-size: 2em; } }
         .home body .tickets-sale .countdown .countdown-clock .days,
         .home body .call-for-proposal .countdown .countdown-clock .days {
           font-size: .5em; }
@@ -7578,10 +7617,18 @@ h2 {
       background: transparent url("../images/base/george.svg") no-repeat 50% 0;
       background-size: 230px auto;
       padding-top: 250px; }
+      @media (max-width: 768px) {
+        .home body .organizers h1 {
+          background-size: 130px auto;
+          padding-top: 150px; } }
     .home body .organizers,
     .home body .volunteers {
       background-color: #172636;
       padding: 30px 0; }
+      @media (max-width: 768px) {
+        .home body .organizers,
+        .home body .volunteers {
+          padding: 10px auto; } }
       .home body .organizers h1,
       .home body .volunteers h1 {
         color: #fff; }
@@ -7592,6 +7639,10 @@ h2 {
         max-width: 1200px;
         padding: 0;
         text-align: center; }
+        @media (max-width: 768px) {
+          .home body .organizers ul,
+          .home body .volunteers ul {
+            margin: 30px auto; } }
         .home body .organizers ul li,
         .home body .volunteers ul li {
           display: inline-block;
@@ -7619,6 +7670,11 @@ h2 {
             height: 230px;
             margin: 0 auto;
             width: 230px; }
+            @media (max-width: 768px) {
+              .home body .organizers ul li .img,
+              .home body .volunteers ul li .img {
+                height: 150px;
+                width: 150px; } }
             .home body .organizers ul li .img.empty,
             .home body .volunteers ul li .img.empty {
               background: transparent url("../images/base/george.svg") no-repeat 50% 50%;
@@ -7727,92 +7783,10 @@ h2 {
       display: inline-block;
       padding: 0 12px 0 0; }
 
-.main-logo #main {
-  animation: main-rot 1s ease-out alternate infinite;
-  position: relative; }
-
-#character {
-  -moz-animation: character 1s ease-out alternate infinite;
-  -ms-animation: character 1s ease-out alternate infinite;
-  -webkit-animation: character 1s ease-out alternate infinite;
-  animation: character 1s ease-out alternate infinite;
-  position: relative; }
-
-#shadow {
-  animation: shadow 1s ease-out alternate infinite;
-  position: relative; }
-
-@-webkit-keyframes main-rot {
-  0% {
-    -webkit-transform: rotateZ(-3deg); }
-  100% {
-    -webkit-transform: rotateZ(3deg); } }
-
-@-moz-keyframes main-rot {
-  0% {
-    -moz-transform: rotateZ(-3deg); }
-  100% {
-    -moz-transform: rotateZ(3deg); } }
-
-@-ms-keyframes main-rot {
-  0% {
-    -ms-transform: rotateZ(-3deg); }
-  100% {
-    -ms-transform: rotateZ(3deg); } }
-
-@keyframes main-rot {
-  0% {
-    transform: rotateZ(-3deg); }
-  100% {
-    transform: rotateZ(3deg); } }
-
-@-webkit-keyframes shadow {
-  0% {
-    -webkit-transform: translate(2px, 0); }
-  100% {
-    -webkit-transform: translate(-2px, -7px), scale(1.01); } }
-
-@-moz-keyframes shadow {
-  0% {
-    -moz-transform: translate(2px, 0); }
-  100% {
-    -moz-transform: translate(-2px, -7px), scale(1.01); } }
-
-@-ms-keyframes shadow {
-  0% {
-    -ms-transform: translate(2px, 0); }
-  100% {
-    -ms-transform: translate(-2px, -7px), scale(1.01); } }
-
-@keyframes shadow {
-  0% {
-    transform: translate(2px, 0); }
-  100% {
-    transform: translate(-2px, -7px), scale(1.01); } }
-
-@-webkit-keyframes character {
-  0% {
-    -webkit-transform: translateY(0); }
-  100% {
-    -webkit-transform: translateY(-10px); } }
-
-@-moz-keyframes character {
-  0% {
-    -moz-transform: translateY(0); }
-  100% {
-    -moz-transform: translateY(-10px); } }
-
-@-ms-keyframes character {
-  0% {
-    -ms-transform: translateY(0); }
-  100% {
-    -ms-transform: translateY(-10px); } }
-
-@keyframes character {
-  0% {
-    transform: translateY(0); }
-  100% {
-    transform: translateY(-10px); } }
+.cfl .page-title {
+  background-image: url("/images/titles/lightnings.gif");
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 .schedule .coming {
   background-color: #e0e0d9;
@@ -7960,3 +7934,90 @@ h2 {
         .schedule table tr td.slot-keynote .box .speakers .speaker .name {
           color: #fff;
           text-shadow: 1px 1px 1px rgba(20, 20, 20, 0.5); }
+
+.main-logo #main {
+  animation: main-rot 1s ease-out alternate infinite;
+  position: relative; }
+
+#character {
+  -moz-animation: character 1s ease-out alternate infinite;
+  -ms-animation: character 1s ease-out alternate infinite;
+  -webkit-animation: character 1s ease-out alternate infinite;
+  animation: character 1s ease-out alternate infinite;
+  position: relative; }
+
+#shadow {
+  animation: shadow 1s ease-out alternate infinite;
+  position: relative; }
+
+@-webkit-keyframes main-rot {
+  0% {
+    -webkit-transform: rotateZ(-3deg); }
+  100% {
+    -webkit-transform: rotateZ(3deg); } }
+
+@-moz-keyframes main-rot {
+  0% {
+    -moz-transform: rotateZ(-3deg); }
+  100% {
+    -moz-transform: rotateZ(3deg); } }
+
+@-ms-keyframes main-rot {
+  0% {
+    -ms-transform: rotateZ(-3deg); }
+  100% {
+    -ms-transform: rotateZ(3deg); } }
+
+@keyframes main-rot {
+  0% {
+    transform: rotateZ(-3deg); }
+  100% {
+    transform: rotateZ(3deg); } }
+
+@-webkit-keyframes shadow {
+  0% {
+    -webkit-transform: translate(2px, 0); }
+  100% {
+    -webkit-transform: translate(-2px, -7px), scale(1.01); } }
+
+@-moz-keyframes shadow {
+  0% {
+    -moz-transform: translate(2px, 0); }
+  100% {
+    -moz-transform: translate(-2px, -7px), scale(1.01); } }
+
+@-ms-keyframes shadow {
+  0% {
+    -ms-transform: translate(2px, 0); }
+  100% {
+    -ms-transform: translate(-2px, -7px), scale(1.01); } }
+
+@keyframes shadow {
+  0% {
+    transform: translate(2px, 0); }
+  100% {
+    transform: translate(-2px, -7px), scale(1.01); } }
+
+@-webkit-keyframes character {
+  0% {
+    -webkit-transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(-10px); } }
+
+@-moz-keyframes character {
+  0% {
+    -moz-transform: translateY(0); }
+  100% {
+    -moz-transform: translateY(-10px); } }
+
+@-ms-keyframes character {
+  0% {
+    -ms-transform: translateY(0); }
+  100% {
+    -ms-transform: translateY(-10px); } }
+
+@keyframes character {
+  0% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(-10px); } }

@@ -41,7 +41,8 @@ Proposal.add(
     ]},
     type: { type: Types.Select, required: true, default: 'T', options: [
       { value: 'T', label: 'Talk' },
-      { value: 'W', label: 'Workshop' }
+      { value: 'W', label: 'Workshop' },
+      { value: 'L', label: 'Lightning Talk' }
     ]},
     summary: { type: Types.Textarea},
     demo: { type: String },
@@ -52,8 +53,8 @@ Proposal.add(
     email: { type: Types.Email },
     residence: { type: String },
     biography: { type: Types.Textarea },
-    extra: { type: Types.Markdown },
-    demoTalk: { type: String },
+    twitter: { type: String },
+    extra: { type: Types.Markdown }
   },
   'Votes',
   {
@@ -64,6 +65,7 @@ Proposal.add(
       ssassi: { label: 'Sebastian Sassi', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
       pdejuan: { label: 'Pablo Dejuan', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
       mprunell: { label: 'Martin Prunell', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] },
+      people: { label: 'People', type: Types.Select, default: 0, numeric: true, options: [0, 1, 2, 3, 4, 5] }
     }
   }
 );
@@ -79,6 +81,7 @@ Proposal.schema.pre('save', function (next) {
   inc(this.votes.pdejuan);
   inc(this.votes.ssassi);
   inc(this.votes.mprunell);
+  inc(this.votes.people);
   this.score = (votes ? score / votes : 0).toFixed(1);
   next();
 });
