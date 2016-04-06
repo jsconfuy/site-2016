@@ -1,5 +1,7 @@
 # JSConf Uruguay Site 2016
 
+https://jsconf.uy
+
 [![travis][travis-image]][travis-url]
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 [![dependency status](https://david-dm.org/jsconfuy/site-2016.svg?theme=shields.io)](https://david-dm.org/jsconfuy/site-2016)
