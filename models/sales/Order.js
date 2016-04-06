@@ -1,6 +1,7 @@
 var async = require('async');
 var keystone = require('keystone');
 var mongoose = require('mongoose');
+var SparkPost = require('sparkpost');
 var Types = keystone.Field.Types;
 
 /**
@@ -90,7 +91,7 @@ Order.schema.methods.sendOrderConfirmation = function (callback) {
   var order = this;
   if (!order.email) return callback();
 
-  new keystone.Email('order-confirmation').send({
+  new keystone.Email('order-confirmation').prepare({
     to: order.email,
     from: {
       name: 'JSConfUY',
@@ -98,8 +99,19 @@ Order.schema.methods.sendOrderConfirmation = function (callback) {
     },
     subject: 'Thank you! - ' + order.quantity + ' × tickets registered by ' + order.name,
     order: order,
-  }, function () {
-    callback();
+  }, function (err, data) {
+    (new SparkPost(process.env.SPARKPOST_KEY)).transmissions.send({
+      transmissionBody: {
+        content: {
+          from: '"JSConf Uruguay" <hola@jsconf.uy>',
+          subject: data.message.subject,
+          html: data.message.html
+        },
+        recipients: [{address: order.email}]
+      }
+    }, function(err, res) {
+      callback();
+    });
   });
 };
 
