@@ -30,6 +30,7 @@ Attendee.add(
   {
     name: {type: String},
     email: {type: Types.Email},
+    alternate: {type: Types.Email},
     tshirt: {
       label: 'T-Shirt', type: Types.Select, options: [
         {value: 'XS', label: 'XS'},
@@ -78,5 +79,5 @@ Attendee.schema.virtual('image', {type: 'html'}).get(function () {
   return '<img style="width: 32px; height: 32px; border-radius: 32px;" src="' + this.picture + '"/>';
 });
 
-Attendee.defaultColumns = 'reference, name, email, gender, tshirt, country, ticket, discount, order';
+Attendee.defaultColumns = 'reference, name, email, tshirt, ticket, discount, order, registered, workshops';
 Attendee.register();

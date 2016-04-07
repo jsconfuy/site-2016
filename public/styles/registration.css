@@ -6440,3 +6440,14 @@ button.close {
 
 .fa-medium:before {
   content: ""; }
+
+.form-control {
+  color: #1a1a1a;
+  font-size: 150%;
+  font-weight: bold;
+  height: auto; }
+
+.label-success,
+.label-danger {
+  display: block;
+  width: 100%; }

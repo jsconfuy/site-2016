@@ -13,7 +13,7 @@ exports = module.exports = function (req, res) {
       locals.status = 404;
       view.render('registration');
     } else if (attendee.registered) {
-      locals.attendee = null;
+      locals.attendee = attendee;
       locals.status = 409;
       view.render('registration');
     } else {
