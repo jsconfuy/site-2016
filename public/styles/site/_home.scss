@@ -241,6 +241,21 @@
         padding: 40px;
       }
 
+      .slack {
+        margin: 20px 0 0;
+        text-align: center;
+
+        a {
+          background-color: $red-dark;
+          color: $white;
+          display: inline-block;
+          font-size: 120%;
+          font-weight: bold;
+          padding: 6px 12px;
+        }
+
+      }
+
       .buy-tickets {
         display: none;
         text-align: center;

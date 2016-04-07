@@ -7506,6 +7506,18 @@ h2 {
         .home body .tickets-sale,
         .home body .call-for-proposal {
           padding: 40px; } }
+      .home body .tickets-sale .slack,
+      .home body .call-for-proposal .slack {
+        margin: 20px 0 0;
+        text-align: center; }
+        .home body .tickets-sale .slack a,
+        .home body .call-for-proposal .slack a {
+          background-color: #99352e;
+          color: #fff;
+          display: inline-block;
+          font-size: 120%;
+          font-weight: bold;
+          padding: 6px 12px; }
       .home body .tickets-sale .buy-tickets,
       .home body .call-for-proposal .buy-tickets {
         display: none;
