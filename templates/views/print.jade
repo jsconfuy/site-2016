@@ -20,11 +20,12 @@ block content
         .extra
           |  Extra: #{attendee.extra || 'N/A'}
       img.barcode(src='https://www.barcodesinc.com/generator/image.php?code=#{attendee.reference}&style=68&type=C128B&width=250&height=70&xres=1&font=3')
-      .info
-        .order
-          i.fa.fa-shopping-cart
-          |  #{order.reference} 
-          i.fa.fa-ticket
-          |  #{order.ticket.name} 
-          i.fa.fa-calendar
-          |  #{order.reserved.toISOString()}
+      if order
+        .info
+          .order
+            i.fa.fa-shopping-cart
+            |  #{order.reference} 
+            i.fa.fa-ticket
+            |  #{order.ticket.name} 
+            i.fa.fa-calendar
+            |  #{order.reserved.toISOString()}
