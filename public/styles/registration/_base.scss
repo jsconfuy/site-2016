@@ -5,8 +5,10 @@
   height: auto;
 }
 
-.label-success,
-.label-danger {
-  display: block;
-  width: 100%;
+.reference {
+  .label-success,
+  .label-danger {
+    display: block;
+    width: 100%;
+  }
 }

@@ -6447,7 +6447,7 @@ button.close {
   font-weight: bold;
   height: auto; }
 
-.label-success,
-.label-danger {
+.reference .label-success,
+.reference .label-danger {
   display: block;
   width: 100%; }

@@ -8,10 +8,38 @@ block content
           | Registration
     .row
       .col-md-8.col-md-offset-2
-        form(method='get')
-          if reference
+        form.search(method='get')
             .form-group
-              input.form-control(autofocus, name='ref', type='text', placeholder='Type #Ref')
+              input.form-control(name='text', type='text', placeholder='Name or Email')
+            .form-group
+              if text
+                if attendees.length == 0
+                  .form-group
+                    h2
+                      span.label.label-danger
+                        | '#{text}' not found
+                else
+                  ul.list-group
+                  for attendee in attendees
+                    a.list-group-item(href='/registration?ref=#{attendee.reference}')
+                      span.badge
+                        | #{attendee.reference}
+                      h4.list-group-item-heading
+                        |  #{attendee.name} 
+                      p.list-group-item-text
+                        | #{attendee.email || 'N/A'}
+                      if attendee.registered
+                        span.label.label-danger
+                          | REGISTERED
+                      else
+                        span.label.label-success
+                          | Click to register
+    .row
+      .col-md-8.col-md-offset-2
+        form.reference(method='get')
+          .form-group
+            input.form-control(autofocus, name='ref', type='text', placeholder='Type #Ref')
+          if reference
             .form-group
               h2
                 if status == 200
@@ -23,29 +51,36 @@ block content
                 else if status == 404
                   span.label.label-danger
                     | Ticket not found
-            if status == 200 || status == 409
-              .form-group
-                label Rererence
-                  .form-control
-                    | #{reference}
-              .form-group
-                label Name
+    if status == 200
+      .row
+        .col-md-4.col-md-offset-2
+          if status == 200 || status == 409
+            .form-group
+              label Rererence
                 .form-control
-                  | #{attendee.name || 'N/A'}
-              .form-group
-                label Email
-                .form-control
-                  | #{attendee.email || 'N/A'}
-              .form-group
-                label T-Shirt
-                .form-control
-                  | #{attendee.tshirt || 'N/A'}
-              .form-group
-                label Extra
-                .form-control
-                  | #{attendee.extra || 'N/A'}
-              .form-group
-                label Registered
-                .form-control
-                  | #{attendee.registered || 'N/A'}
-
+                  | #{reference}
+      .row
+        .col-md-4.col-md-offset-2
+          .form-group
+            label Name
+            .form-control
+              | #{attendee.name || 'N/A'}
+          .form-group
+            label Email
+            .form-control
+              | #{attendee.email || 'N/A'}
+        .col-md-4
+          .form-group
+            label T-Shirt
+            .form-control
+              | #{attendee.tshirt || 'N/A'}
+          .form-group
+            label Extra
+            .form-control
+              | #{attendee.extra || 'N/A'}
+      .row
+        .col-md-8.col-md-offset-2
+          .form-group
+            label Registered
+            .form-control
+              | #{attendee.registered || 'N/A'}
