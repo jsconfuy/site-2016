@@ -51,7 +51,7 @@ block content
                 else if status == 404
                   span.label.label-danger
                     | Ticket not found
-    if status == 200
+    if status == 200 || status == 409
       .row
         .col-md-4.col-md-offset-2
           if status == 200 || status == 409
