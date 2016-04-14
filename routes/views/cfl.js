@@ -15,7 +15,6 @@ exports = module.exports = function (req, res) {
 
   view.on('init', function (next) {
     Attendee.model.findOne({reference: reference}).exec(function (err, attendee) {
-      if (!attendee) return res.notFound();
       locals.attendee = attendee;
       next();
     });
@@ -25,13 +24,15 @@ exports = module.exports = function (req, res) {
     var proposal = new Proposal.model();
     var updater = proposal.getUpdateHandler(req);
 
-    proposal.name = locals.attendee.name;
-    proposal.email = locals.attendee.email;
     proposal.type = 'L';
+    if (locals.attendee) {
+      proposal.name = locals.attendee.name;
+      proposal.email = locals.attendee.email;
+    }
 
     updater.process(req.body, {
       required: 'topic, twitter',
-      fields: 'topic, twitter, extra',
+      fields: 'name, email, topic, twitter, extra',
       errorMessage: 'There was a problem submitting your proposal:'
     }, function (err) {
       if (err) {

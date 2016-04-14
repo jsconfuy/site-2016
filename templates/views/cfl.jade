@@ -35,7 +35,7 @@ block content
             h3 Your lighting talk was submitted.
           else
             h2#submit Submit
-            form(method='post', action='/lightnings?for=#{attendee.reference}#submit').upper-form
+            form(method='post', action='/lightnings?for=#{(attendee && attendee.reference) || ""}#submit').upper-form
               - var errors = cfp.errors || {}
               - var data = cfp.data || {}
               input(type='hidden', name='action', value='submit')
@@ -44,13 +44,19 @@ block content
                 input#topic(type='text', name='topic', value=data['topic']).form-control
               .form-group
                 label(for='name') Speaker's Name
-                .form-control #{attendee.name}
+                if attendee
+                  .form-control #{attendee.name}
+                else
+                  input#name(type='name', name='name', value=data.name).form-control
               .form-group
                 label(for='email') Speaker's Email
-                .form-control #{attendee.email}
+                if attendee
+                  .form-control #{attendee.email}
+                else
+                  input#email(type='email', name='email', value=data.email).form-control
               .form-group(class=errors.twitter ? 'has-error' : null)
                 label(for='twitter') Speaker's Twitter *
-                input#email(type='twitter', name='twitter', value=data.twitter).form-control
+                input#twitter(type='twitter', name='twitter', value=data.twitter).form-control
               .form-group(class=errors.extra ? 'has-error' : null)
                 label(for='extra') Notes
                 textarea#extra(name='extra', placeholder='Anything else you would like to mention...' rows=4).form-control= data.extra
