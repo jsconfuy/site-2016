@@ -292,6 +292,9 @@
   };
 
   var save = function () {
+    $attendeeModal.modal('hide');
+    return;
+
     var data = {
       id: window.jsconfuy.attendee,
       name: $attendeeModal.find('input[name=name]').val(),

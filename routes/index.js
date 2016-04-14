@@ -36,7 +36,7 @@ exports = module.exports = function (app) {
   app.post('/api/tickets/details', routes.api.tickets.details);
   app.get('/api/tickets/assign', routes.api.tickets.assign);
   app.get('/api/tickets/fill', routes.api.tickets.fill);
-  app.post('/api/tickets/save', routes.api.tickets.save);
+  // app.post('/api/tickets/save', routes.api.tickets.save);
 
   app.use(function (req, res) {
     res.status(404);

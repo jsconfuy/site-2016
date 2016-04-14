@@ -14,7 +14,7 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
     title= title
     meta(name='description', content='A Javascript conference made with love for the latin american community.')
 
-    link(href="/styles/site.css?v=20160407A", rel="stylesheet")
+    link(href="/styles/site.css?v=20160414", rel="stylesheet")
     if user && user.canAccessKeystone
       link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
 
@@ -215,16 +215,16 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                 img(src='images/base/george.svg')
               .personal
                 .info
-                  .title Attendee's Details
+                  .title Attendee's Details (READ ONLY MODE)
                   a.print.fa.fa-print(target='_blank', title='Print ticket')
                   // a.receipt.fa.fa-file-text-o(target='_blank', title='View Receipt')
                   a.reference(target='_blank')
                 .name
-                  input(placeholder='Full Name', name='name')
+                  input(placeholder='Full Name', name='name', disabled='disabled')
                 .email
-                  input(type='email', placeholder='Email', name='email')
+                  input(type='email', placeholder='Email', name='email', disabled='disabled')
                 .tshirt
-                  select(placeholder='T-Shirt', name='tshirt')
+                  select(placeholder='T-Shirt', name='tshirt', disabled='disabled')
                     option(value='XS') Size XS
                     option(value='S') Size S
                     option(value='M') Size M
@@ -232,9 +232,9 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                     option(value='XL') Size XL
                     option(value='XXL') Size XXL
               .extra
-                textarea(name='extra', placeholder='Anything you would like us to know. E.g: Meal requisites (vegan, vegetarian, diabetic, coeliac), Accessibility, etc.')
+                textarea(name='extra', placeholder='Anything you would like us to know. E.g: Meal requisites (vegan, vegetarian, diabetic, coeliac), Accessibility, etc.', disabled='disabled')
               .workshops
-                .title Workshops Registration
+                .title Workshops Registration (READ ONLY MODE)
                 .description
                   | For more information about workshops please visit the 
                   a(href='/schedule', target='_blank')
@@ -244,10 +244,10 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
                   each workshop in workshops
                     li
                       label
-                        input(type='checkbox', name='workshop', value='#{workshop._id}')
+                        input(type='checkbox', name='workshop', value='#{workshop._id}', disabled='disabled')
                         |  #{workshop.title}
               .save
-                button Save & Close
+                button Close
               .link
                 a(target='_blank')
                   | Attendee's permanent link 
@@ -306,7 +306,7 @@ html(class='#{klass}', lang='en', prefix='og: http://ogp.me/ns#')
     script(src='/js/lib/jquery/jquery-2.1.1.min.js')
     script(src='/js/lib/bootstrap/bootstrap-3.2.0.min.js')
     script(src='/js/lib/jquery.bootstrap-autohidingnavbar.js')
-    script(src='/js/base.js?v=20160404B')
+    script(src='/js/base.js?v=20160414')
 
     // Twitter single-event website tag code
     script(src='//platform.twitter.com/oct.js', type='text/javascript')
